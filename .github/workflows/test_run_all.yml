@@ -38,8 +38,9 @@ jobs:
     #       set +e
     #       cd /root/benchmarks/gas-benchmarks
     #       resultDir="results-${{ env.DATE }}"
+    #       mkdir -p logs
     #       logFile="logs/${{ env.DATE }}.log"
-    #       git pull >> $logFile 2>&1
+    #       git pull
     #       ./run.sh \
     #         -t "tests/" \
     #         -w "warmup/warmup-1000bl-16wi-24tx.txt" \
@@ -57,6 +58,7 @@ jobs:
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
           logFile="logs/${{ env.DATE }}.log"
           git pull >> $logFile 2>&1
           ./runSpeed.sh \
@@ -76,6 +78,7 @@ jobs:
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
           logFile="logs/${{ env.DATE }}.log"
           ./runMemory.sh \
             -t "tests/" \
@@ -94,6 +97,7 @@ jobs:
           set +e
           cd /root/benchmarks/burntpix-benchmarks
           resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
           logFile="logs/${{ env.DATE }}.log"
           git pull
           ./run.sh \
