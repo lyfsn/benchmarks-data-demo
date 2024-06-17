@@ -163,12 +163,11 @@ jobs:
           cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.json
 
           python3 report_metadata.py ${{ env.DATE }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ env.DATE }}.metadata.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
     - name: Push results
-      if: ${{ github.event.inputs.task != 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
