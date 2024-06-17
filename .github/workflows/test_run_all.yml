@@ -46,7 +46,10 @@ jobs:
 
     - name: Stop existing benchmarks and prepare environment
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/benchmarks-data-demo
           ./stop.sh
@@ -61,7 +64,10 @@ jobs:
     - name: Run gas benchmarks
       if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/gas-benchmarks
           resultDir="results-${{ env.DATE }}"
@@ -82,7 +88,10 @@ jobs:
     - name: Run genesis init speed benchmarks
       if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
@@ -106,7 +115,10 @@ jobs:
     - name: Run genesis init memory benchmarks
       if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
@@ -130,7 +142,10 @@ jobs:
     - name: Run burntpix benchmarks
       if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/burntpix-benchmarks
           resultDir="results-${{ env.DATE }}"
@@ -154,7 +169,10 @@ jobs:
     - name: Push results
       if: ${{ github.event.inputs.task != 'Run all' }}
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/benchmarks-data-demo
           logFile="logs/${{ env.DATE }}.log"
