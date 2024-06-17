@@ -16,18 +16,21 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Execute benchmark commands on server
+    - name: Stop existing benchmarks and prepare environment
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           cd /root/benchmarks/benchmarks-data-demo
           ./stop.sh
           cd ../
-
           date=$(date +%Y-%m-%d)
           resultDir="results-$date"
           python3 ./update_time.py $date
+        EOF
 
-          cd gas-benchmarks
+    - name: Run gas benchmarks
+      run: |
+        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          cd /root/benchmarks/gas-benchmarks
           git pull
           ./run.sh \
             -t "tests/" \
@@ -37,8 +40,12 @@ jobs:
             -o $resultDir
           cp $resultDir/reports/index.html ../gas-data-demo/gas/$date.html
           cp $resultDir/reports/result.json ../gas-data-demo/gas/$date.json
+        EOF
 
-          cd ../genesis-init-benchmarks
+    - name: Run genesis init speed benchmarks
+      run: |
+        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          cd /root/benchmarks/genesis-init-benchmarks
           git pull
           ./runSpeed.sh \
             -t "tests/" \
@@ -48,7 +55,12 @@ jobs:
             -s 1,10
           cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/$date.html
           cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/$date.json
+        EOF
 
+    - name: Run genesis init memory benchmarks
+      run: |
+        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          cd /root/benchmarks/genesis-init-benchmarks
           ./runMemory.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
@@ -57,8 +69,12 @@ jobs:
             -s 1,10
           cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/$date.html
           cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/$date.json
+        EOF
 
-          cd ../burntpix-benchmarks
+    - name: Run burntpix benchmarks and push results
+      run: |
+        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          cd /root/benchmarks/burntpix-benchmarks
           git pull
           ./run.sh \
             -t "testburnt/" \
