@@ -1,2 +1,163 @@
 name: Run All Benchmarks
 
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Select the task to run'
+        required: true
+        default: 'Run all'
+        type: choice
+        options:
+          - Run all
+          - Run gas benchmarks
+          - Run genesis init speed benchmarks
+          - Run genesis init memory benchmarks
+          - Run burntpix benchmarks
+      date:
+        description: 'Enter a specific date (optional, format: YYYY-MM-DD)'
+        required: false
+        default: ''
+
+jobs:
+  run-benchmarks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
+    - name: Set DATE variable
+      run: |
+        if [ -z "${{ github.event.inputs.date }}" ]; then
+          DATE=$(date +%Y-%m-%d)
+        else
+          DATE=${{ github.event.inputs.date }}
+        fi
+        echo "DATE=$DATE" >> $GITHUB_ENV
+
+    - name: Debug DATE variable
+      run: echo "DATE is ${{ env.DATE }}"
+
+    - name: Stop existing benchmarks and prepare environment
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/benchmarks-data-demo
+          ./stop.sh
+          resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
+          logFile="logs/${{ env.DATE }}.log"
+          python3 ./update_time.py ${{ env.DATE }}
+          echo "Debug: DATE is ${{ env.DATE }}"
+          set -e
+        EOF
+
+    - name: Run gas benchmarks
+      if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/gas-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
+          logFile="logs/${{ env.DATE }}.log"
+          git pull
+          ./run.sh \
+            -t "tests/" \
+            -w "warmup/warmup-1000bl-16wi-24tx.txt" \
+            -c "nethermind,geth,reth,erigon,besu" \
+            -r 8 \
+            -o $resultDir >> $logFile 2>&1
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ env.DATE }}.json
+          set -e
+        EOF
+
+    - name: Run genesis init speed benchmarks
+      if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/genesis-init-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          mkdir -p speed-logs
+          logFile="speed-logs/${{ env.DATE }}.log"
+          git pull
+          ./runSpeed.sh \
+            -t "tests/" \
+            -c "nethermind,geth,reth,erigon,besu" \
+            -r 8 \
+            -o "$resultDir/speed" \
+            -s 1,100,500,1000 >> $logFile 2>&1
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.json
+
+          python3 report_metadata.py ${{ env.DATE }} speed
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.metadata.json
+          set -e
+        EOF
+
+    - name: Run genesis init memory benchmarks
+      if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/genesis-init-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          mkdir -p memory-logs
+          logFile="memory-logs/${{ env.DATE }}.log"
+          git pull
+          ./runMemory.sh \
+            -t "tests/" \
+            -c "nethermind,geth,reth,erigon,besu" \
+            -r 8 \
+            -o "$resultDir/memory" \
+            -s 1,100,500,1000 >> $logFile 2>&1
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
+
+          python3 report_metadata.py ${{ env.DATE }} memory
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.metadata.json
+          set -e
+        EOF
+
+    - name: Run burntpix benchmarks
+      if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/burntpix-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          mkdir -p logs
+          logFile="logs/${{ env.DATE }}.log"
+          git pull
+          ./run.sh \
+            -t "testburnt/" \
+            -w "./testburntwarm/warm.txt" \
+            -c "nethermind,geth,reth,erigon,besu" \
+            -r 8 \
+            -o $resultDir >> $logFile 2>&1
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.json
+
+          python3 report_metadata.py ${{ env.DATE }}
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ env.DATE }}.metadata.json
+          set -e
+        EOF
+
+    - name: Push results
+      if: ${{ github.event.inputs.task != 'Run all' }}
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd /root/benchmarks/benchmarks-data-demo
+          logFile="logs/${{ env.DATE }}.log"
+          ./push.sh
+          set -e
+        EOF
