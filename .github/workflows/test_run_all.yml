@@ -77,7 +77,7 @@ jobs:
           ./run.sh \
             -t "tests/" \
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
-            -c "nethermind,reth,besu" \
+            -c "nethermind" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
           cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
