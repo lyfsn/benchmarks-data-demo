@@ -20,6 +20,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           cd /root/benchmarks/benchmarks-data-demo
+          ./stop.sh
           cd ../
 
           date=$(date +%Y-%m-%d)
@@ -27,24 +28,24 @@ jobs:
           python3 ./update_time.py $date
 
           cd gas-benchmarks
+          git pull
           ./run.sh \
             -t "tests/" \
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
             -c "nethermind,geth,reth,erigon,besu" \
             -r 1 \
             -o $resultDir
-          ./stop.sh
           cp $resultDir/reports/index.html ../gas-data-demo/gas/$date.html
           cp $resultDir/reports/result.json ../gas-data-demo/gas/$date.json
 
           cd ../genesis-init-benchmarks
+          git pull
           ./runSpeed.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
             -r 1 \
             -o "$resultDir/speed" \
             -s 1,10
-          ./stop.sh
           cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/$date.html
           cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/$date.json
 
@@ -54,18 +55,17 @@ jobs:
             -r 1 \
             -o "$resultDir/memory" \
             -s 1,10
-          ./stop.sh
           cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/$date.html
           cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/$date.json
 
           cd ../burntpix-benchmarks
+          git pull
           ./run.sh \
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
             -c "nethermind,reth,besu" \
             -r 1 \
             -o $resultDir
-          ./stop.sh
           cp $resultDir/reports/index.html ../gas-data-demo/burntpix/$date.html
           cp $resultDir/reports/result.json ../gas-data-demo/burntpix/$date.json
 
