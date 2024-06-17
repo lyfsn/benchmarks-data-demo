@@ -50,11 +50,11 @@ jobs:
           set +e
           cd /root/benchmarks/benchmarks-data-demo
           ./stop.sh
-          resultDir="results-${DATE}"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p logs
-          logFile="logs/${DATE}.log"
-          python3 ./update_time.py ${DATE}
-          echo "Debug: DATE is ${DATE}"
+          logFile="logs/${{ env.DATE }}.log"
+          python3 ./update_time.py ${{ env.DATE }}
+          echo "Debug: DATE is ${{ env.DATE }}"
           set -e
         EOF
 
@@ -64,9 +64,9 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/gas-benchmarks
-          resultDir="results-${DATE}"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p logs
-          logFile="logs/${DATE}.log"
+          logFile="logs/${{ env.DATE }}.log"
           git pull
           ./run.sh \
             -t "tests/" \
@@ -74,8 +74,8 @@ jobs:
             -c "nethermind,geth,reth,erigon,besu" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${DATE}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${DATE}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -85,9 +85,9 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
-          resultDir="results-${DATE}"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p speed-logs
-          logFile="speed-logs/${DATE}.log"
+          logFile="speed-logs/${{ env.DATE }}.log"
           git pull
           ./runSpeed.sh \
             -t "tests/" \
@@ -95,11 +95,11 @@ jobs:
             -r 1 \
             -o "$resultDir/speed" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${DATE}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${DATE}.json
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.json
 
-          python3 report_metadata.py ${DATE} speed
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${DATE}.metadata.json
+          python3 report_metadata.py ${{ env.DATE }} speed
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
@@ -109,9 +109,9 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
-          resultDir="results-${DATE}"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p memory-logs
-          logFile="memory-logs/${DATE}.log"
+          logFile="memory-logs/${{ env.DATE }}.log"
           git pull
           ./runMemory.sh \
             -t "tests/" \
@@ -119,11 +119,11 @@ jobs:
             -r 1 \
             -o "$resultDir/memory" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${DATE}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${DATE}.json
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
 
-          python3 report_metadata.py ${DATE} memory
-          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${DATE}.metadata.json
+          python3 report_metadata.py ${{ env.DATE }} memory
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
@@ -133,9 +133,9 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/burntpix-benchmarks
-          resultDir="results-${DATE}"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p logs
-          logFile="logs/${DATE}.log"
+          logFile="logs/${{ env.DATE }}.log"
           git pull
           ./run.sh \
             -t "testburnt/" \
@@ -143,11 +143,11 @@ jobs:
             -c "nethermind,reth,besu" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${DATE}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${DATE}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.json
 
-          python3 report_metadata.py ${DATE}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${DATE}.metadata.json
+          python3 report_metadata.py ${{ env.DATE }}
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
@@ -157,7 +157,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd /root/benchmarks/benchmarks-data-demo
-          logFile="logs/${DATE}.log"
+          logFile="logs/${{ env.DATE }}.log"
           ./push.sh
           set -e
         EOF
