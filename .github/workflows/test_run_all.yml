@@ -117,6 +117,7 @@ jobs:
           set +e
           cd /root/benchmarks/benchmarks-data-demo
           logFile="logs/${{ env.DATE }}.log"
+          git pull
           ./push.sh
           set -e
         EOF
