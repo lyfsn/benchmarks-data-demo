@@ -18,7 +18,7 @@ jobs:
 
     - name: Execute benchmark commands on server
       run: |
-        ssh -o StrictHostKeyChecking=no root@your-server-ip << 'EOF'
+        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           cd /root/benchmarks/benchmarks-data-demo
           cd ../
 
