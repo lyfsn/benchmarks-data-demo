@@ -1,0 +1,149 @@
+{
+    "nethermind": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    379.579149
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    },
+    "reth": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    186.73775899999998
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    937.7520079999999
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    217.65641399999998
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    3153.159376
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    568.51728
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    1.212105
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    1695.6001159999998
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    2444.0549309999997
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    },
+    "besu": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    961.506537
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    5084.042829999999
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    1066.421148
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    18772.27828
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    3181.715851
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    3.799042
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    9666.944993
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    13891.147459
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    24543.70528
+                ]
+            }
+        }
+    }
+}
