@@ -75,7 +75,7 @@ jobs:
           resultDir="results-${{ env.DATE }}"
           mkdir -p speed-logs
           logFile="speed-logs/${{ env.DATE }}.log"
-          git pull >> $logFile 2>&1
+          git pull
           ./runSpeed.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
@@ -99,6 +99,7 @@ jobs:
           resultDir="results-${{ env.DATE }}"
           mkdir -p memory-logs
           logFile="memory-logs/${{ env.DATE }}.log"
+          git pull
           ./runMemory.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
