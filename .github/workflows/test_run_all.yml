@@ -47,8 +47,8 @@ jobs:
     #         -c "nethermind,geth,reth,erigon,besu" \
     #         -r 1 \
     #         -o $resultDir >> $logFile 2>&1
-    #       cp $resultDir/reports/index.html ../gas-data-demo/gas/${{ env.DATE }}.html
-    #       cp $resultDir/reports/result.json ../gas-data-demo/gas/${{ env.DATE }}.json
+    #       cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
+    #       cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ env.DATE }}.json
     #       set -e
     #     EOF
 
@@ -58,8 +58,8 @@ jobs:
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
-          mkdir -p logs
-          logFile="logs/${{ env.DATE }}.log"
+          mkdir -p speed-logs
+          logFile="speed-logs/${{ env.DATE }}.log"
           git pull >> $logFile 2>&1
           ./runSpeed.sh \
             -t "tests/" \
@@ -67,8 +67,8 @@ jobs:
             -r 1 \
             -o "$resultDir/speed" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.html
-          cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.json
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -78,16 +78,16 @@ jobs:
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
           resultDir="results-${{ env.DATE }}"
-          mkdir -p logs
-          logFile="logs/${{ env.DATE }}.log"
+          mkdir -p memory-logs
+          logFile="memory-logs/${{ env.DATE }}.log"
           ./runMemory.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
             -r 1 \
             -o "$resultDir/memory" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.html
-          cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.json
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -106,8 +106,8 @@ jobs:
             -c "nethermind,reth,besu" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../gas-data-demo/burntpix/${{ env.DATE }}.html
-          cp $resultDir/reports/result.json ../gas-data-demo/burntpix/${{ env.DATE }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.json
           set -e
         EOF
 
