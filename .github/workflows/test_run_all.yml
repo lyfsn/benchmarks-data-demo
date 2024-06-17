@@ -84,6 +84,9 @@ jobs:
             -s 1,10 >> $logFile 2>&1
           cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.html
           cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.json
+
+          python3 report_metadata.py ${{ env.DATE }} speed
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
@@ -104,6 +107,9 @@ jobs:
             -s 1,10 >> $logFile 2>&1
           cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
           cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
+
+          python3 report_metadata.py ${{ env.DATE }} memory
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.metadata.json
           set -e
         EOF
 
