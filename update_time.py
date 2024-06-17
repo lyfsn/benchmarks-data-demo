@@ -13,6 +13,7 @@ def update_json_file(date):
     
     if date not in data['date']:
         data['date'].append(date)
+        data['date'].sort() 
 
     with open(json_file_path, 'w') as file:
         json.dump(data, file, indent=4)
