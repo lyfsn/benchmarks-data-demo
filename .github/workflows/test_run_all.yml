@@ -19,6 +19,7 @@ jobs:
     - name: Stop existing benchmarks and prepare environment
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          set +e
           cd /root/benchmarks/benchmarks-data-demo
           ./stop.sh
           cd ../
@@ -26,31 +27,35 @@ jobs:
           resultDir="results-$date"
           mkdir -p logs
           logFile="logs/$date.log"
-          python3 ./update_time.py $date >> $logFile 2>&1
+          python3 ./update_time.py $date
+          set -e
         EOF
 
-    - name: Run gas benchmarks
-      run: |
-        ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
-          cd /root/benchmarks/
-          date=$(date +%Y-%m-%d)
-          resultDir="results-$date"
-          logFile="logs/$date.log"
-          cd gas-benchmarks
-          git pull >> $logFile 2>&1
-          ./run.sh \
-            -t "tests/" \
-            -w "warmup/warmup-1000bl-16wi-24tx.txt" \
-            -c "nethermind,geth,reth,erigon,besu" \
-            -r 1 \
-            -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../gas-data-demo/gas/$date.html >> $logFile 2>&1
-          cp $resultDir/reports/result.json ../gas-data-demo/gas/$date.json >> $logFile 2>&1
-        EOF
+    # - name: Run gas benchmarks
+    #   run: |
+    #     ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+    #       set +e
+    #       cd /root/benchmarks/
+    #       date=$(date +%Y-%m-%d)
+    #       resultDir="results-$date"
+    #       logFile="logs/$date.log"
+    #       cd gas-benchmarks
+    #       git pull >> $logFile 2>&1
+    #       ./run.sh \
+    #         -t "tests/" \
+    #         -w "warmup/warmup-1000bl-16wi-24tx.txt" \
+    #         -c "nethermind,geth,reth,erigon,besu" \
+    #         -r 1 \
+    #         -o $resultDir >> $logFile 2>&1
+    #       cp $resultDir/reports/index.html ../gas-data-demo/gas/$date.html
+    #       cp $resultDir/reports/result.json ../gas-data-demo/gas/$date.json
+    #       set -e
+    #     EOF
 
     - name: Run genesis init speed benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          set +e
           cd /root/benchmarks/
           date=$(date +%Y-%m-%d)
           resultDir="results-$date"
@@ -63,13 +68,15 @@ jobs:
             -r 1 \
             -o "$resultDir/speed" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/$date.html >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/$date.json >> $logFile 2>&1
+          cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/$date.html
+          cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/$date.json
+          set -e
         EOF
 
     - name: Run genesis init memory benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          set +e
           cd /root/benchmarks/
           date=$(date +%Y-%m-%d)
           resultDir="results-$date"
@@ -81,34 +88,39 @@ jobs:
             -r 1 \
             -o "$resultDir/memory" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/$date.html >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/$date.json >> $logFile 2>&1
+          cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/$date.html
+          cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/$date.json
+          set -e
         EOF
 
     - name: Run burntpix benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          set +e
           cd /root/benchmarks/
           date=$(date +%Y-%m-%d)
           resultDir="results-$date"
           logFile="logs/$date.log"
           cd burntpix-benchmarks
-          git pull >> $logFile 2>&1
+          git pull
           ./run.sh \
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
             -c "nethermind,reth,besu" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../gas-data-demo/burntpix/$date.html >> $logFile 2>&1
-          cp $resultDir/reports/result.json ../gas-data-demo/burntpix/$date.json >> $logFile 2>&1
+          cp $resultDir/reports/index.html ../gas-data-demo/burntpix/$date.html
+          cp $resultDir/reports/result.json ../gas-data-demo/burntpix/$date.json
+          set -e
         EOF
 
     - name: Push results
       run: |
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
+          set +e
           cd /root/benchmarks/gas-data-demo
           date=$(date +%Y-%m-%d)
           logFile="logs/$date.log"
-          ./push.sh >> $logFile 2>&1
+          ./push.sh
+          set -e
         EOF
