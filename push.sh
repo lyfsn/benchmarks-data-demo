@@ -1,4 +1,5 @@
 git pull
 git add -A
-git commit -m upload
+$DATE=$(date +%Y-%m-%d)
+git commit -m "[Bot Submit] $DATE"
 git push
