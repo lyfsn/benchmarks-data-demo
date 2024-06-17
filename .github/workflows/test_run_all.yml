@@ -80,6 +80,7 @@ jobs:
             -c "nethermind" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
+          python3 report_json.py
           cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ env.DATE }}.json
           set -e
