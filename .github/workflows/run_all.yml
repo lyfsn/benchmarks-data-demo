@@ -2,3 +2,17 @@ name: Run All Benchmarks
 
 on:
   workflow_dispatch:
+    inputs:
+      task:
+        description: 'Select the task to run'
+        required: true
+        default: 'Run all'
+        type: choice
+        options:
+          - Run all
+          - Run gas benchmarks
+          - Run genesis init speed benchmarks
+          - Run genesis init memory benchmarks
+          - Run burntpix benchmarks
+
+          
