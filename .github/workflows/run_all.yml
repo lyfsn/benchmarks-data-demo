@@ -1,9 +1,7 @@
 name: Run All Benchmarks
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   run-benchmarks:
