@@ -3,6 +3,8 @@ cd ../
 date=$(date +%Y-%m-%d)
 resultDir="results-$date"
 
+python3 ./update_time.py $date
+
 cd gas-benchmarks
 ./run.sh \
   -t "tests/" \
