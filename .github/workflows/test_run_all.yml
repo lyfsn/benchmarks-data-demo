@@ -3,6 +3,9 @@ name: Test Run All Benchmarks
 on:
   workflow_dispatch:
 
+env:
+  DATE: $(date +%Y-%m-%d)
+
 jobs:
   run-benchmarks:
     runs-on: ubuntu-latest
@@ -22,11 +25,10 @@ jobs:
           set +e
           cd /root/benchmarks/benchmarks-data-demo
           ./stop.sh
-          date=$(date +%Y-%m-%d)
-          resultDir="results-$date"
+          resultDir="results-${{ env.DATE }}"
           mkdir -p logs
-          logFile="logs/$date.log"
-          python3 ./update_time.py $date
+          logFile="logs/${{ env.DATE }}.log"
+          python3 ./update_time.py ${{ env.DATE }}
           set -e
         EOF
 
@@ -35,10 +37,8 @@ jobs:
     #     ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
     #       set +e
     #       cd /root/benchmarks/gas-benchmarks
-    #       date=$(date +%Y-%m-%d)
-    #       resultDir="results-$date"
-    #       logFile="logs/$date.log"
-    #       cd gas-benchmarks
+    #       resultDir="results-${{ env.DATE }}"
+    #       logFile="logs/${{ env.DATE }}.log"
     #       git pull >> $logFile 2>&1
     #       ./run.sh \
     #         -t "tests/" \
@@ -46,8 +46,8 @@ jobs:
     #         -c "nethermind,geth,reth,erigon,besu" \
     #         -r 1 \
     #         -o $resultDir >> $logFile 2>&1
-    #       cp $resultDir/reports/index.html ../gas-data-demo/gas/$date.html
-    #       cp $resultDir/reports/result.json ../gas-data-demo/gas/$date.json
+    #       cp $resultDir/reports/index.html ../gas-data-demo/gas/${{ env.DATE }}.html
+    #       cp $resultDir/reports/result.json ../gas-data-demo/gas/${{ env.DATE }}.json
     #       set -e
     #     EOF
 
@@ -56,10 +56,8 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
-          date=$(date +%Y-%m-%d)
-          resultDir="results-$date"
-          logFile="logs/$date.log"
-          cd genesis-init-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          logFile="logs/${{ env.DATE }}.log"
           git pull >> $logFile 2>&1
           ./runSpeed.sh \
             -t "tests/" \
@@ -67,8 +65,8 @@ jobs:
             -r 1 \
             -o "$resultDir/speed" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/$date.html
-          cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/$date.json
+          cp $resultDir/speed/reports/speed.html ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/speed/reports/speed.json ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -77,18 +75,16 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           set +e
           cd /root/benchmarks/genesis-init-benchmarks
-          date=$(date +%Y-%m-%d)
-          resultDir="results-$date"
-          logFile="logs/$date.log"
-          cd genesis-init-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          logFile="logs/${{ env.DATE }}.log"
           ./runMemory.sh \
             -t "tests/" \
             -c "nethermind,reth,besu" \
             -r 1 \
             -o "$resultDir/memory" \
             -s 1,10 >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/$date.html
-          cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/$date.json
+          cp $resultDir/memory/reports/memory.html ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.html
+          cp $resultDir/memory/reports/memory.json ../gas-data-demo/genesis-init-memory/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -97,10 +93,8 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           set +e
           cd /root/benchmarks/burntpix-benchmarks
-          date=$(date +%Y-%m-%d)
-          resultDir="results-$date"
-          logFile="logs/$date.log"
-          cd burntpix-benchmarks
+          resultDir="results-${{ env.DATE }}"
+          logFile="logs/${{ env.DATE }}.log"
           git pull
           ./run.sh \
             -t "testburnt/" \
@@ -108,8 +102,8 @@ jobs:
             -c "nethermind,reth,besu" \
             -r 1 \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../gas-data-demo/burntpix/$date.html
-          cp $resultDir/reports/result.json ../gas-data-demo/burntpix/$date.json
+          cp $resultDir/reports/index.html ../gas-data-demo/burntpix/${{ env.DATE }}.html
+          cp $resultDir/reports/result.json ../gas-data-demo/burntpix/${{ env.DATE }}.json
           set -e
         EOF
 
@@ -118,8 +112,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no root@168.119.5.82 << 'EOF'
           set +e
           cd /root/benchmarks/benchmarks-data-demo
-          date=$(date +%Y-%m-%d)
-          logFile="logs/$date.log"
+          logFile="logs/${{ env.DATE }}.log"
           ./push.sh
           set -e
         EOF
