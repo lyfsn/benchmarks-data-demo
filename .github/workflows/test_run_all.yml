@@ -91,7 +91,7 @@ jobs:
             echo "Updated MATRIX=${MATRIX}"
           done
         done
-        echo "::set-output name=matrix::${MATRIX}"
+        echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
 
   run-benchmarks:
     runs-on: ubuntu-latest
@@ -106,6 +106,7 @@ jobs:
         ssh-private-key: ${{ secrets.PRIVKEY }}
     - name: Run benchmarks
       run: |
+        echo "Got matrix: ${{ matrix }}"
         CLIENT=${{ matrix.client }}
         SIZE=${{ matrix.size }}
         REPETITIONS=${{ github.event.inputs.repetitions }}
