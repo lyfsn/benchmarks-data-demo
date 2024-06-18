@@ -58,11 +58,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Show DATE variable
-      run: |
-        echo "=== Run with date: $DATE ==="
     - name: Stop existing benchmarks and prepare environment
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
@@ -91,18 +87,15 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Show DATE variable
-      run: |
-        echo "=== Run with date: $DATE ==="
     - name: Run gas benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
+          DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
+          echo "=== Run with date: $DATE ==="
           cd "${{ github.event.inputs.root_dir }}/gas-benchmarks"
           resultDir="results-$DATE"
-          echo "=== Result directory: $resultDir ==="
           git pull
           ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir"
           python3 report_metadata.py "$DATE"
@@ -129,18 +122,15 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-gas-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-gas-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Show DATE variable
-      run: |
-        echo "=== Run with date: $DATE ==="
     - name: Run genesis init speed benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
+          DATE=${{ needs.run-gas-benchmarks.outputs.date }}
+          echo "=== Run with date: $DATE ==="
           cd "${{ github.event.inputs.root_dir }}/genesis-init-benchmarks"
           resultDir="results-$DATE"
-          echo "=== Result directory: $resultDir ==="
           git pull
           ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir/speed" -s "${{ matrix.size }}"
           python3 report_metadata.py "$DATE" speed
@@ -167,15 +157,13 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Show DATE variable
-      run: |
-        echo "=== Run with date: $DATE ==="
     - name: Run genesis init memory benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
+          DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
+          echo "=== Run with date: $DATE ==="
           cd "${{ github.event.inputs.root_dir }}/genesis-init-benchmarks"
           resultDir="results-$DATE"
           echo "=== Result directory: $resultDir ==="
@@ -205,15 +193,13 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Show DATE variable
-      run: |
-        echo "=== Run with date: $DATE ==="
     - name: Run burntpix benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
+          DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
+          echo "=== Run with date: $DATE ==="
           cd "${{ github.event.inputs.root_dir }}/burntpix-benchmarks"
           resultDir="results-$DATE"
           echo "=== Result directory: $resultDir ==="
