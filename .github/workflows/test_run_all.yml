@@ -105,16 +105,16 @@ jobs:
           logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
           git pull
           ./run.sh \
-            -t "tests/" \
+            -t "tests3/" \
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -153,11 +153,11 @@ jobs:
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/speed" \
             -s "${{ matrix.size }}" >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} speed
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -196,11 +196,11 @@ jobs:
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/memory" \
             -s "${{ matrix.size }}" >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} memory
-          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -238,11 +238,11 @@ jobs:
             -w "./testburntwarm/warm.txt" \
             -c "${{ matrix.client }}" \
             -r $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
