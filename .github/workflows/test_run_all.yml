@@ -81,10 +81,14 @@ jobs:
       run: |
         CLIENTS=${{ github.event.inputs.clients }}
         SIZES=${{ github.event.inputs.sizes }}
+        echo "CLIENTS=${CLIENTS}"
+        echo "SIZES=${SIZES}"
         MATRIX=$(echo '{}' | jq -c '.')
+        echo "Initial MATRIX=${MATRIX}"
         for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
           for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
             MATRIX=$(echo $MATRIX | jq --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: $size}}')
+            echo "Updated MATRIX=${MATRIX}"
           done
         done
         echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
