@@ -109,18 +109,17 @@ jobs:
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
           ROOT_DIR=${{ github.event.inputs.root_dir }}
-          DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
 
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
             set +e
-            echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+            echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: ${{ needs.stop-existing-benchmarks.outputs.date }} ==="
             cd "$ROOT_DIR/gas-benchmarks"
             git pull
-            ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
-            python3 report_metadata.py "$DATE"
-            cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/gas/$DATE.html"
-            cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/gas/$DATE.json"
-            cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
+            ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-${{ needs.stop-existing-benchmarks.outputs.date }}"
+            python3 report_metadata.py "${{ needs.stop-existing-benchmarks.outputs.date }}"
+            cp "results-${{ needs.stop-existing-benchmarks.outputs.date }}/reports/index.html" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.html"
+            cp "results-${{ needs.stop-existing-benchmarks.outputs.date }}/reports/result.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.json"
+            cp "results-${{ needs.stop-existing-benchmarks.outputs.date }}/reports/metadata.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.metadata.json"
             set -e
           EOF
           echo "Updated MATRIX=${matrix}"
