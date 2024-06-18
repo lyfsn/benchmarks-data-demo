@@ -8,7 +8,7 @@ on:
         required: true
         default: '/root/benchmarks/'
       date:
-        description: 'Enter a specific date (optional, format: YYYY-MM-DD)'
+        description: 'Enter a specific date (optional, format: YYYYMMDD, e.g. 20240101)'
         required: false
         default: ''
       clients:
@@ -38,7 +38,7 @@ jobs:
       id: set-date
       run: |
         if [ -z "${{ github.event.inputs.date }}" ]; then
-          DATE=$(date +%Y-%m-%d)
+          DATE=$(date +%Y%m%d)
         else
           DATE=${{ github.event.inputs.date }}
         fi
@@ -87,11 +87,11 @@ jobs:
         echo "Initial MATRIX=${MATRIX}"
         for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
           for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
-            MATRIX=$(echo $MATRIX | jq --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: $size}}')
+            MATRIX=$(echo $MATRIX | jq --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: ($size | tonumber)}}')
             echo "Updated MATRIX=${MATRIX}"
           done
         done
-        echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+        echo "::set-output name=matrix::${MATRIX}"
 
   run-benchmarks:
     runs-on: ubuntu-latest
