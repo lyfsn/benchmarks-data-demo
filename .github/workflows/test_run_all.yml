@@ -75,6 +75,7 @@ jobs:
     needs: stop-existing-benchmarks
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
+      date: ${{ steps.stop-existing-benchmarks.date }}
     steps:
       - name: Generate Matrix
         id: generate-matrix
@@ -89,6 +90,7 @@ jobs:
           
           echo "Updated MATRIX=${MATRIX}"
           echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "date=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
