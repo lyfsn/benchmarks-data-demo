@@ -87,8 +87,10 @@ jobs:
       - name: Prepare matrix variables
         id: prepare
         run: |
-          echo "::set-output name=clients::$(echo '["'${{ github.event.inputs.clients }}'"' | sed 's/,/","/g')"
-          echo "::set-output name=sizes::$(echo '["'${{ github.event.inputs.sizes }}'"' | sed 's/,/","/g')"
+          clients_json=$(echo '${{ github.event.inputs.clients }}' | jq -R 'split(",")')
+          sizes_json=$(echo '${{ github.event.inputs.sizes }}' | jq -R 'split(",")')
+          echo "::set-output name=clients::$clients_json"
+          echo "::set-output name=sizes::$sizes_json"
 
   run-benchmarks:
     runs-on: ubuntu-latest
