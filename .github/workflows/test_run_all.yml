@@ -40,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       date: ${{ steps.set-date.outputs.date }}
+      root_dir: ${{ steps.create-outputs.outputs.root_dir }}
+      repetitions: ${{ steps.create-outputs.outputs.repetitions }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -58,14 +60,13 @@ jobs:
           DATE=${{ github.event.inputs.date }}
         fi
         echo "DATE=$DATE" >> $GITHUB_ENV
+        echo "::set-output name=date::$DATE"
 
-    - name: Create .env file
+    - name: Create outputs
+      id: create-outputs
       run: |
-        echo "ROOT_DIR=${{ github.event.inputs.root_dir }}" >> .env
-        echo "DATE=${{ env.DATE }}" >> .env
-        echo "REPETITIONS=${{ github.event.inputs.repetitions }}" >> .env
-        pwd
-        cat .env
+        echo "::set-output name=root_dir::${{ github.event.inputs.root_dir }}"
+        echo "::set-output name=repetitions::${{ github.event.inputs.repetitions }}"
 
     - name: Stop existing benchmarks and prepare environment
       run: |
@@ -100,10 +101,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Load environment variables
-      run: |
-        source .env
-
     - name: Run gas benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -111,22 +108,22 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          cd ${{ env.ROOT_DIR }}/gas-benchmarks
-          resultDir="results-${{ env.DATE }}"
+          cd ${{ needs.setup-environment.outputs.root_dir }}/gas-benchmarks
+          resultDir="results-${{ needs.setup-environment.outputs.date }}"
           mkdir -p logs
-          logFile="logs/${{ env.DATE }}.log"
+          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
           git pull
           ./run.sh \
             -t "tests3/" \
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
             -c "${{ matrix.client }}" \
-            -r ${{ env.REPETITIONS }} \
+            -r ${{ needs.setup-environment.outputs.repetitions }} \
             -o $resultDir
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ env.DATE }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ env.DATE }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
 
-          python3 report_metadata.py ${{ env.DATE }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ env.DATE }}.metadata.json
+          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -147,10 +144,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Load environment variables
-      run: |
-        source .env
-
     - name: Run genesis init speed benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -158,22 +151,22 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          cd ${{ env.ROOT_DIR }}/genesis-init-benchmarks
-          resultDir="results-${{ env.DATE }}"
+          cd ${{ needs.setup-environment.outputs.root_dir }}/genesis-init-benchmarks
+          resultDir="results-${{ needs.setup-environment.outputs.date }}"
           mkdir -p speed-logs
-          logFile="speed-logs/${{ env.DATE }}.log"
+          logFile="speed-logs/${{ needs.setup-environment.outputs.date }}.log"
           git pull
           ./runSpeed.sh \
             -t "tests/" \
             -c "${{ matrix.client }}" \
-            -r ${{ env.REPETITIONS }} \
+            -r ${{ needs.setup-environment.outputs.repetitions }} \
             -o "$resultDir/speed" \
             -s "${{ matrix.size }}"
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.json
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
 
-          python3 report_metadata.py ${{ env.DATE }} speed
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ env.DATE }}.metadata.json
+          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} speed
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -194,10 +187,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Load environment variables
-      run: |
-        source .env
-
     - name: Run genesis init memory benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -205,22 +194,22 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          cd ${{ env.ROOT_DIR }}/genesis-init-benchmarks
-          resultDir="results-${{ env.DATE }}"
+          cd ${{ needs.setup-environment.outputs.root_dir }}/genesis-init-benchmarks
+          resultDir="results-${{ needs.setup-environment.outputs.date }}"
           mkdir -p memory-logs
-          logFile="memory-logs/${{ env.DATE }}.log"
+          logFile="memory-logs/${{ needs.setup-environment.outputs.date }}.log"
           git pull
           ./runMemory.sh \
             -t "tests/" \
             -c "${{ matrix.client }}" \
-            -r ${{ env.REPETITIONS }} \
+            -r ${{ needs.setup-environment.outputs.repetitions }} \
             -o "$resultDir/memory" \
             -s "${{ matrix.size }}"
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.json
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
 
-          python3 report_metadata.py ${{ env.DATE }} memory
-          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ env.DATE }}.metadata.json
+          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} memory
+          needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -241,10 +230,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Load environment variables
-      run: |
-        source .env
-
     - name: Run burntpix benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -252,21 +237,21 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          cd ${{ env.ROOT_DIR }}/burntpix-benchmarks
-          resultDir="results-${{ env.DATE }}"
+          cd ${{ needs.setup-environment.outputs.root_dir }}/burntpix-benchmarks
+          resultDir="results-${{ needs.setup-environment.outputs.date }}"
           mkdir -p logs
-          logFile="logs/${{ env.DATE }}.log"
+          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
           git pull
           ./run.sh \
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
             -c "${{ matrix.client }}" \
             -r $resultDir
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ env.DATE }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
 
-          python3 report_metadata.py ${{ env.DATE }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ env.DATE }}.metadata.json
+          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -282,10 +267,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
-    - name: Load environment variables
-      run: |
-        source .env
-
     - name: Push results
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -293,7 +274,7 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          cd ${{ env.ROOT_DIR }}/benchmarks-data-demo
+          cd ${{ needs.setup-environment.outputs.root_dir }}/benchmarks-data-demo
           ./push.sh
           set -e
         EOF
