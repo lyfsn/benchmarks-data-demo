@@ -48,6 +48,8 @@ jobs:
   stop-existing-benchmarks:
     runs-on: ubuntu-latest
     needs: setup-environment
+    outputs:
+      date: ${{ needs.setup-environment.outputs.date }}
     steps:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -69,6 +71,7 @@ jobs:
     needs: stop-existing-benchmarks
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
+      date: ${{ needs.stop-existing-benchmarks.outputs.date }}
     steps:
       - name: Generate Matrix
         id: generate-matrix
@@ -101,7 +104,7 @@ jobs:
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
           ROOT_DIR=${{ github.event.inputs.root_dir }}
-          DATE=${{ needs.setup-environment.outputs.date }}
+          DATE=${{ needs.generate-matrix.outputs.date }}
 
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
             set +e
