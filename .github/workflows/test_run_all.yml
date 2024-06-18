@@ -76,12 +76,16 @@ jobs:
           set -e
         EOF
 
-  run-gas-benchmarks:
+  run-benchmarks:
     runs-on: ubuntu-latest
     needs: setup-environment
-    if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
+    strategy:
+      matrix:
+        client: [${{ fromJson('["' + github.event.inputs.clients.replace(',', '","') + '"]') }}]
+        size: [${{ fromJson('["' + github.event.inputs.sizes.replace(',', '","') + '"]') }}]
     steps:
     - name: Run gas benchmarks
+      if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -96,20 +100,19 @@ jobs:
           ./run.sh \
             -t "tests/" \
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
-            -c "${{ github.event.inputs.clients }}" \
+            -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
+
+          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
           set -e
         EOF
 
-  run-genesis-init-speed-benchmarks:
-    runs-on: ubuntu-latest
-    needs: setup-environment
-    if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
-    steps:
     - name: Run genesis init speed benchmarks
+      if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -123,24 +126,20 @@ jobs:
           git pull
           ./runSpeed.sh \
             -t "tests/" \
-            -c "${{ github.event.inputs.clients }}" \
+            -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/speed" \
-            -s "${{ github.event.inputs.sizes }}" >> $logFile 2>&1
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
+            -s "${{ matrix.size }}" >> $logFile 2>&1
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} speed
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.metadata.json
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
           set -e
         EOF
 
-  run-genesis-init-memory-benchmarks:
-    runs-on: ubuntu-latest
-    needs: setup-environment
-    if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
-    steps:
     - name: Run genesis init memory benchmarks
+      if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -154,24 +153,20 @@ jobs:
           git pull
           ./runMemory.sh \
             -t "tests/" \
-            -c "${{ github.event.inputs.clients }}" \
+            -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/memory" \
-            -s "${{ github.event.inputs.sizes }}" >> $logFile 2>&1
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
+            -s "${{ matrix.size }}" >> $logFile 2>&1
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} memory
-          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.metadata.json
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
           set -e
         EOF
 
-  run-burntpix-benchmarks:
-    runs-on: ubuntu-latest
-    needs: setup-environment
-    if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
-    steps:
     - name: Run burntpix benchmarks
+      if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -186,19 +181,19 @@ jobs:
           ./run.sh \
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
-            -c "${{ github.event.inputs.clients }}" \
+            -c "${{ matrix.client }}" \
             -r $resultDir >> $logFile 2>&1
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.json
 
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.metadata.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}_${{ matrix.client }}_${{ matrix.size }}.metadata.json
           set -e
         EOF
 
   push-results:
     runs-on: ubuntu-latest
-    needs: [run-gas-benchmarks, run-genesis-init-speed-benchmarks, run-genesis-init-memory-benchmarks, run-burntpix-benchmarks]
+    needs: [run-benchmarks]
     steps:
     - name: Push results
       run: |
@@ -208,7 +203,6 @@ jobs:
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
-          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
           ./push.sh
           set -e
         EOF
