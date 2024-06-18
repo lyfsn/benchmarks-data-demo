@@ -102,8 +102,7 @@ jobs:
           set +e
           cd ${{ github.event.inputs.root_dir }}/gas-benchmarks
           resultDir="results-$DATE"
-          mkdir -p logs
-          logFile="logs/$DATE.log"
+          echo "=== Result directory: $resultDir ==="
           git pull
           ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
           python3 report_metadata.py $DATE
@@ -141,8 +140,7 @@ jobs:
           set +e
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
           resultDir="results-$DATE"
-          mkdir -p speed-logs
-          logFile="speed-logs/$DATE.log"
+          echo "=== Result directory: $resultDir ==="
           git pull
           ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/speed" -s "${{ matrix.size }}"
           python3 report_metadata.py $DATE speed
@@ -180,8 +178,7 @@ jobs:
           set +e
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
           resultDir="results-$DATE"
-          mkdir -p memory-logs
-          logFile="memory-logs/$DATE.log"
+          echo "=== Result directory: $resultDir ==="
           git pull
           ./runMemory.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/memory" -s "${{ matrix.size }}"
           python3 report_metadata.py $DATE memory
@@ -219,8 +216,7 @@ jobs:
           set +e
           cd ${{ github.event.inputs.root_dir }}/burntpix-benchmarks
           resultDir="results-$DATE"
-          mkdir -p logs
-          logFile="logs/$DATE.log"
+          echo "=== Result directory: $resultDir ==="
           git pull
           ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
           python3 report_metadata.py $DATE
