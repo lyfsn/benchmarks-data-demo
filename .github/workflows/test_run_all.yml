@@ -4,23 +4,23 @@ on:
   workflow_dispatch:
     inputs:
       root_dir:
-        description: 'Enter the root directory for benchmarks'
+        description: "Enter the root directory for benchmarks"
         required: true
-        default: '/root/benchmarks/'
+        default: "/root/benchmarks/"
       date:
-        description: 'Enter a specific date (optional, format: YYYYMMDD, e.g. 20240101)'
+        description: "Enter a specific date (optional, format: YYYYMMDD, e.g. 20240101)"
         required: false
-        default: ''
+        default: ""
       clients:
         description: 'Enter clients to use (JSON array format, e.g., ["nethermind","geth","reth","erigon","besu"])'
         required: true
         default: '["nethermind"]'
       sizes:
-        description: 'Enter sizes (JSON array format, e.g., [1,10,100,500,1000])'
+        description: "Enter sizes (JSON array format, e.g., [1,10,100,500,1000])"
         required: false
-        default: '[1]'
+        default: "[1]"
       repetitions:
-        description: 'Enter the number of repetitions'
+        description: "Enter the number of repetitions"
         required: true
         default: 1
 
@@ -30,20 +30,20 @@ jobs:
     outputs:
       date: ${{ steps.set-date.outputs.date }}
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Set DATE variable
-      id: set-date
-      run: |
-        if [ -z "${{ github.event.inputs.date }}" ]; then
-          DATE=$(date +%Y%m%d)
-        else
-          DATE=${{ github.event.inputs.date }}
-        fi
-        echo "DATE=${DATE}"
-        echo "DATE=$DATE" >> $GITHUB_OUTPUT
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Set DATE variable
+        id: set-date
+        run: |
+          if [ -z "${{ github.event.inputs.date }}" ]; then
+            DATE=$(date +%Y%m%d)
+          else
+            DATE=${{ github.event.inputs.date }}
+          fi
+          echo "DATE=${DATE}"
+          echo "DATE=$DATE" >> $GITHUB_OUTPUT
 
   stop-existing-benchmarks:
     runs-on: ubuntu-latest
@@ -51,24 +51,24 @@ jobs:
     outputs:
       date: ${{ steps.set-date.outputs.date }}
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Set DATE variable
-      id: set-date
-      run: |
-        echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
-    - name: Stop existing benchmarks and prepare environment
-      run: |
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          cd "${{ github.event.inputs.root_dir }}/benchmarks-data-demo"
-          ./stop.sh
-          python3 ./update_time.py "${{ needs.setup-environment.outputs.date }}"
-          cat ./date.json
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Set DATE variable
+        id: set-date
+        run: |
+          echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
+      - name: Stop existing benchmarks and prepare environment
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            cd "${{ github.event.inputs.root_dir }}/benchmarks-data-demo"
+            ./stop.sh
+            python3 ./update_time.py "${{ needs.setup-environment.outputs.date }}"
+            cat ./date.json
+            set -e
+          EOF
 
   generate-matrix:
     runs-on: ubuntu-latest
@@ -76,22 +76,22 @@ jobs:
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
     steps:
-    - name: Generate Matrix
-      id: generate-matrix
-      run: |
-        CLIENTS='${{ github.event.inputs.clients }}'
-        SIZES='${{ github.event.inputs.sizes }}'
-        echo "CLIENTS=${CLIENTS}"
-        echo "SIZES=${SIZES}"
-        MATRIX=$(echo '{}' | jq -c '.')
-        echo "Initial MATRIX=${MATRIX}"
-        for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
-          for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
-            MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: ($size | tonumber)}}')
-            echo "Updated MATRIX=${MATRIX}"
+      - name: Generate Matrix
+        id: generate-matrix
+        run: |
+          CLIENTS='${{ github.event.inputs.clients }}'
+          SIZES='${{ github.event.inputs.sizes }}'
+          echo "CLIENTS=${CLIENTS}"
+          echo "SIZES=${SIZES}"
+          MATRIX=$(echo '{}' | jq -c '.')
+          echo "Initial MATRIX=${MATRIX}" 
+          for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
+            for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
+              MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: ($size | tonumber)}}')
+              echo "Updated MATRIX=${MATRIX}"
+            done
           done
-        done
-        echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
@@ -100,31 +100,31 @@ jobs:
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
       fail-fast: false
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Run benchmarks
-      run: |
-        echo "Got matrix: ${{ matrix }}"
-        CLIENT=${{ matrix.client }}
-        SIZE=${{ matrix.size }}
-        REPETITIONS=${{ github.event.inputs.repetitions }}
-        ROOT_DIR=${{ github.event.inputs.root_dir }}
-        DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
-        
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
-          cd "$ROOT_DIR/gas-benchmarks"
-          git pull
-          ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
-          python3 report_metadata.py "$DATE"
-          cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/gas/$DATE.html"
-          cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/gas/$DATE.json"
-          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Run benchmarks
+        run: |
+          echo "Got matrix: ${{ matrix }}"
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ github.event.inputs.repetitions }}
+          ROOT_DIR=${{ github.event.inputs.root_dir }}
+          DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
+
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+            cd "$ROOT_DIR/gas-benchmarks"
+            git pull
+            ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+            python3 report_metadata.py "$DATE"
+            cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/gas/$DATE.html"
+            cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/gas/$DATE.json"
+            cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
+            set -e
+          EOF
 
   run-genesis-init-speed-benchmarks:
     runs-on: ubuntu-latest
@@ -133,30 +133,30 @@ jobs:
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
       fail-fast: false
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Run genesis init speed benchmarks
-      run: |
-        CLIENT=${{ matrix.client }}
-        SIZE=${{ matrix.size }}
-        REPETITIONS=${{ github.event.inputs.repetitions }}
-        ROOT_DIR=${{ github.event.inputs.root_dir }}
-        DATE=${{ needs.run-benchmarks.outputs.date }}
-        
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          echo "=== Run genesis init speed benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
-          cd "$ROOT_DIR/genesis-init-benchmarks"
-          git pull
-          ./runSpeed.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/speed" -s "$SIZE"
-          python3 report_metadata.py "$DATE" speed
-          cp "results-$DATE/speed/reports/speed.html" "../benchmarks-data-demo/genesis-init-speed/$DATE.html"
-          cp "results-$DATE/speed/reports/speed.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.json"
-          cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json"
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Run genesis init speed benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ github.event.inputs.repetitions }}
+          ROOT_DIR=${{ github.event.inputs.root_dir }}
+          DATE=${{ needs.run-benchmarks.outputs.date }}
+
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            echo "=== Run genesis init speed benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+            cd "$ROOT_DIR/genesis-init-benchmarks"
+            git pull
+            ./runSpeed.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/speed" -s "$SIZE"
+            python3 report_metadata.py "$DATE" speed
+            cp "results-$DATE/speed/reports/speed.html" "../benchmarks-data-demo/genesis-init-speed/$DATE.html"
+            cp "results-$DATE/speed/reports/speed.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.json"
+            cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json"
+            set -e
+          EOF
 
   run-genesis-init-memory-benchmarks:
     runs-on: ubuntu-latest
@@ -165,30 +165,30 @@ jobs:
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
       fail-fast: false
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Run genesis init memory benchmarks
-      run: |
-        CLIENT=${{ matrix.client }}
-        SIZE=${{ matrix.size }}
-        REPETITIONS=${{ github.event.inputs.repetitions }}
-        ROOT_DIR=${{ github.event.inputs.root_dir }}
-        DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
-        
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          echo "=== Run genesis init memory benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
-          cd "$ROOT_DIR/genesis-init-benchmarks"
-          git pull
-          ./runMemory.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/memory" -s "$SIZE"
-          python3 report_metadata.py "$DATE" memory
-          cp "results-$DATE/memory/reports/memory.html" "../benchmarks-data-demo/genesis-init-memory/$DATE.html"
-          cp "results-$DATE/memory/reports/memory.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.json"
-          cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.metadata.json"
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Run genesis init memory benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ github.event.inputs.repetitions }}
+          ROOT_DIR=${{ github.event.inputs.root_dir }}
+          DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
+
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            echo "=== Run genesis init memory benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+            cd "$ROOT_DIR/genesis-init-benchmarks"
+            git pull
+            ./runMemory.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/memory" -s "$SIZE"
+            python3 report_metadata.py "$DATE" memory
+            cp "results-$DATE/memory/reports/memory.html" "../benchmarks-data-demo/genesis-init-memory/$DATE.html"
+            cp "results-$DATE/memory/reports/memory.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.json"
+            cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.metadata.json"
+            set -e
+          EOF
 
   run-burntpix-benchmarks:
     runs-on: ubuntu-latest
@@ -197,45 +197,45 @@ jobs:
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
       fail-fast: false
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Run burntpix benchmarks
-      run: |
-        CLIENT=${{ matrix.client }}
-        SIZE=${{ matrix.size }}
-        REPETITIONS=${{ github.event.inputs.repetitions }}
-        ROOT_DIR=${{ github.event.inputs.root_dir }}
-        DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
-        
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          echo "=== Run burntpix benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
-          cd "$ROOT_DIR/burntpix-benchmarks"
-          git pull
-          ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
-          python3 report_metadata.py "$DATE"
-          cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/burntpix/$DATE.html"
-          cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/burntpix/$DATE.json"
-          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/burntpix/$DATE.metadata.json"
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Run burntpix benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ github.event.inputs.repetitions }}
+          ROOT_DIR=${{ github.event.inputs.root_dir }}
+          DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
+
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            echo "=== Run burntpix benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+            cd "$ROOT_DIR/burntpix-benchmarks"
+            git pull
+            ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+            python3 report_metadata.py "$DATE"
+            cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/burntpix/$DATE.html"
+            cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/burntpix/$DATE.json"
+            cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/burntpix/$DATE.metadata.json"
+            set -e
+          EOF
 
   push-results:
     runs-on: ubuntu-latest
     needs: run-burntpix-benchmarks
     steps:
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.PRIVKEY }}
-    - name: Push results
-      run: |
-        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
-          set +e
-          cd "${{ github.event.inputs.root_dir }}/benchmarks-data-demo"
-          git status
-          ./push.sh
-          set -e
-        EOF
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Push results
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
+            cd "${{ github.event.inputs.root_dir }}/benchmarks-data-demo"
+            git status
+            ./push.sh
+            set -e
+          EOF
