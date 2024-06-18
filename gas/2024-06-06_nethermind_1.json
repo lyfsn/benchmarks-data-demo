@@ -1,0 +1,4509 @@
+{
+    "nethermind": {
+        "GasLimit": {
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Transfers": {
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "BlobHashZero": {
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Number": {
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreManyAccountsRandomKeysRandomValue": {
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreOneAccountOneKeyConstantValue": {
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreManyAccountsConsecutiveKeysRandomValue": {
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreOneAccountOneKeyTwoValues": {
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreOneAccountOneKeyZeroValue": {
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SStoreOneAccountOneKeyRandomValue": {
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Origin": {
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "PointEvaluationOneData": {
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcRecover": {
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMulInfinities32ByteScalar": {
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMul32ByteCoordinates32ByteScalar": {
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMul12And32ByteScalar": {
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMul32ByteCoordinates2Scalar": {
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMulInfinities2Scalar": {
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "EcMul122": {
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Blake1MRounds": {
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Blake1KRounds": {
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Blake1Round": {
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Blake10MRounds": {
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SHA2From1Byte": {
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SHA2From128Bytes": {
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SHA2From32Bytes": {
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "SHA2From8Bytes": {
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "RipemdFrom32Bytes": {
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "RipemdFrom8Bytes": {
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "RipemdFrom128Bytes": {
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "RipemdFrom1Byte": {
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1000": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "IdentityFrom8Bytes": {
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "IdentityFrom32Bytes": {
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "IdentityFrom128Bytes": {
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "IdentityFrom1Byte": {
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Address": {
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "MStoreZero": {
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "MStoreRandom": {
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "JumpDest": {
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Push0Pop": {
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "PrevRandao": {
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "CodeCopy": {
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "BaseFee": {
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "GasPop": {
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Caller": {
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "MSize": {
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "ChainId": {
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "CoinBase": {
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Timestamp": {
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Keccak256From1Byte": {
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Keccak256From8Bytes": {
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Keccak256From32Bytes": {
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "CallerPop": {
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "500": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Gas": {
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        },
+        "Push0": {
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "100": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "50": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "80": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "140": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "30": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "300": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "110": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "130": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "60": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "175": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "120": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "70": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "400": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "40": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "150": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "200": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    }
+}
