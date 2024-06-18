@@ -70,28 +70,28 @@ jobs:
             set -e
           EOF
 
-generate-matrix:
-  runs-on: ubuntu-latest
-  needs: stop-existing-benchmarks
-  outputs:
-    matrix: ${{ steps.generate-matrix.outputs.matrix }}
-  steps:
-    - name: Generate Matrix
-      id: generate-matrix
-      run: |
-        CLIENTS='${{ github.event.inputs.clients }}'
-        SIZES='${{ github.event.inputs.sizes }}'
-        echo "CLIENTS=${CLIENTS}"
-        echo "SIZES=${SIZES}"
-        MATRIX=$(echo '[]' | jq -c '.')
-        echo "Initial MATRIX=${MATRIX}" 
-        for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
-          for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
-            MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '. + [{client: $client, size: ($size | tonumber)}]')
-            echo "Updated MATRIX=${MATRIX}"
+  generate-matrix:
+    runs-on: ubuntu-latest
+    needs: stop-existing-benchmarks
+    outputs:
+      matrix: ${{ steps.generate-matrix.outputs.matrix }}
+    steps:
+      - name: Generate Matrix
+        id: generate-matrix
+        run: |
+          CLIENTS='${{ github.event.inputs.clients }}'
+          SIZES='${{ github.event.inputs.sizes }}'
+          echo "CLIENTS=${CLIENTS}"
+          echo "SIZES=${SIZES}"
+          MATRIX=$(echo '[]' | jq -c '.')
+          echo "Initial MATRIX=${MATRIX}" 
+          for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
+            for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
+              MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '. + [{client: $client, size: ($size | tonumber)}]')
+              echo "Updated MATRIX=${MATRIX}"
+            done
           done
-        done
-        echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
