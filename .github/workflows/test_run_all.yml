@@ -36,6 +36,46 @@ on:
         default: '1'
 
 jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+    outputs:
+      date: ${{ steps.set-date.outputs.date }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
+    - name: Set DATE variable
+      id: set-date
+      run: |
+        if [ -z "${{ github.event.inputs.date }}" ]; then
+          DATE=$(date +%Y-%m-%d)
+        else
+          DATE=${{ github.event.inputs.date }}
+        fi
+        echo "date=$DATE" >> $GITHUB_ENV
+
+    - name: Stop existing benchmarks and prepare environment
+      run: |
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=60 \
+            root@${{ secrets.REMOTE_IP }} << 'EOF'
+          set +e
+          cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
+          ./stop.sh
+          resultDir="results-${{ env.date }}"
+          mkdir -p logs
+          logFile="logs/${{ env.date }}.log"
+          python3 ./update_time.py ${{ env.date }}
+          echo "Debug: DATE is ${{ env.date }}"
+          set -e
+        EOF
+
   setup-matrix:
     runs-on: ubuntu-latest
     needs: setup-environment
