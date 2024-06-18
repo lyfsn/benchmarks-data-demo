@@ -95,8 +95,9 @@ jobs:
           echo "=== Run with date: ${{ needs.stop-existing-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/gas-benchmarks"
           resultDir="results-${{ needs.stop-existing-benchmarks.outputs.date }}"
+          echo "=== Result directory: $resultDir ==="
           git pull
-          ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir"
+          ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir"
           python3 report_metadata.py "${{ needs.stop-existing-benchmarks.outputs.date }}"
           cp "$resultDir/reports/index.html" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.html"
           cp "$resultDir/reports/result.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.json"
@@ -129,6 +130,7 @@ jobs:
           echo "=== Run with date: ${{ needs.run-gas-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/genesis-init-benchmarks"
           resultDir="results-${{ needs.run-gas-benchmarks.outputs.date }}"
+          echo "=== Result directory: $resultDir ==="
           git pull
           ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir/speed" -s "${{ matrix.size }}"
           python3 report_metadata.py "${{ needs.run-gas-benchmarks.outputs.date }}" speed
