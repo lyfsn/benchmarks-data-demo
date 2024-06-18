@@ -83,18 +83,12 @@ jobs:
           SIZES='${{ github.event.inputs.sizes }}'
           echo "CLIENTS=${CLIENTS}"
           echo "SIZES=${SIZES}"
-          MATRIX=$(echo '{}' | jq -c '.')
-          echo "Initial MATRIX=${MATRIX}"
-
-          for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
-            for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
-              MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '.client = (.client + [$client]) | .size = (.size + [$size])')
-            done
-          done
-
-          MATRIX_JSON=$(echo '{}' | jq -c --argjson matrix "$MATRIX" '. + {matrix: $matrix}')
-          echo "Updated MATRIX=${MATRIX_JSON}"
-          echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
+          
+          MATRIX_CLIENTS=$(echo '{}' | jq -c --argjson clients "$CLIENTS" '.Client = $clients')
+          MATRIX=$(echo $MATRIX_CLIENTS | jq -c --argjson sizes "$SIZES" '.Size = $sizes')
+          
+          echo "Updated MATRIX=${MATRIX}"
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
