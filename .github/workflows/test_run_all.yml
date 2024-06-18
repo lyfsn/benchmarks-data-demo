@@ -48,17 +48,11 @@ jobs:
   stop-existing-benchmarks:
     runs-on: ubuntu-latest
     needs: setup-environment
-    outputs:
-      date: ${{ steps.set-date.outputs.date }}
     steps:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.PRIVKEY }}
-      - name: Set DATE variable
-        id: set-date
-        run: |
-          echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
       - name: Stop existing benchmarks and prepare environment
         run: |
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
@@ -75,7 +69,6 @@ jobs:
     needs: stop-existing-benchmarks
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
-      date: ${{ needs.stop-existing-benchmarks.outputs.date }}
     steps:
       - name: Generate Matrix
         id: generate-matrix
@@ -90,8 +83,6 @@ jobs:
           
           echo "Updated MATRIX=${MATRIX}"
           echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
-          echo "Date ${{ needs.stop-existing-benchmarks.outputs.date }}"
-          echo "date=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
@@ -110,12 +101,11 @@ jobs:
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
           ROOT_DIR=${{ github.event.inputs.root_dir }}
-          DATE=${{ needs.generate-matrix.outputs.date }}
+          DATE=${{ needs.setup-environment.outputs.date }}
 
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
             set +e
             echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
-            echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: ${{ needs.generate-matrix.outputs.date }} ==="
             cd "$ROOT_DIR/gas-benchmarks"
             git pull
             ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
@@ -125,8 +115,6 @@ jobs:
             cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${matrix}"
-          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-genesis-init-speed-benchmarks:
     runs-on: ubuntu-latest
@@ -159,8 +147,6 @@ jobs:
             cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${matrix}"
-          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-genesis-init-memory-benchmarks:
     runs-on: ubuntu-latest
@@ -193,8 +179,6 @@ jobs:
             cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${matrix}"
-          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-burntpix-benchmarks:
     runs-on: ubuntu-latest
@@ -227,8 +211,6 @@ jobs:
             cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/burntpix/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${matrix}"
-          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   push-results:
     runs-on: ubuntu-latest
