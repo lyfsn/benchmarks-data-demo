@@ -109,7 +109,7 @@ jobs:
             -w "warmup/warmup-1000bl-16wi-24tx.txt" \
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
-            -o $resultDir >> $logFile 2>&1
+            -o $resultDir
           cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
 
@@ -152,7 +152,7 @@ jobs:
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/speed" \
-            -s "${{ matrix.size }}" >> $logFile 2>&1
+            -s "${{ matrix.size }}"
           cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
           cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
 
@@ -195,7 +195,7 @@ jobs:
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/memory" \
-            -s "${{ matrix.size }}" >> $logFile 2>&1
+            -s "${{ matrix.size }}"
           cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
           cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
 
@@ -237,7 +237,7 @@ jobs:
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
             -c "${{ matrix.client }}" \
-            -r $resultDir >> $logFile 2>&1
+            -r $resultDir
           cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
 
