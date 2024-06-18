@@ -92,16 +92,15 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
-          export DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
-          echo "=== Run with date: $DATE ==="
+          echo "=== Run with date: ${{ needs.stop-existing-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/gas-benchmarks"
-          resultDir="results-$DATE"
+          resultDir="results-${{ needs.stop-existing-benchmarks.outputs.date }}"
           git pull
           ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir"
-          python3 report_metadata.py "$DATE"
-          cp "$resultDir/reports/index.html" "../benchmarks-data-demo/gas/$DATE.html"
-          cp "$resultDir/reports/result.json" "../benchmarks-data-demo/gas/$DATE.json"
-          cp "$resultDir/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
+          python3 report_metadata.py "${{ needs.stop-existing-benchmarks.outputs.date }}"
+          cp "$resultDir/reports/index.html" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.html"
+          cp "$resultDir/reports/result.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.json"
+          cp "$resultDir/reports/metadata.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.metadata.json"
           set -e
         EOF
 
@@ -127,16 +126,15 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
-          export DATE=${{ needs.run-gas-benchmarks.outputs.date }}
-          echo "=== Run with date: $DATE ==="
+          echo "=== Run with date: ${{ needs.run-gas-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/genesis-init-benchmarks"
-          resultDir="results-$DATE"
+          resultDir="results-${{ needs.run-gas-benchmarks.outputs.date }}"
           git pull
           ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir/speed" -s "${{ matrix.size }}"
-          python3 report_metadata.py "$DATE" speed
-          cp "$resultDir/speed/reports/speed.html" "../benchmarks-data-demo/genesis-init-speed/$DATE.html"
-          cp "$resultDir/speed/reports/speed.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.json"
-          cp "$resultDir/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json"
+          python3 report_metadata.py "${{ needs.run-gas-benchmarks.outputs.date }}" speed
+          cp "$resultDir/speed/reports/speed.html" "../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.html"
+          cp "$resultDir/speed/reports/speed.json" "../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.json"
+          cp "$resultDir/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.metadata.json"
           set -e
         EOF
 
@@ -162,17 +160,16 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
-          export DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
-          echo "=== Run with date: $DATE ==="
+          echo "=== Run with date: ${{ needs.run-genesis-init-speed-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/genesis-init-benchmarks"
-          resultDir="results-$DATE"
+          resultDir="results-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}"
           echo "=== Result directory: $resultDir ==="
           git pull
           ./runMemory.sh -t "tests/" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir/memory" -s "${{ matrix.size }}"
-          python3 report_metadata.py "$DATE" memory
-          cp "$resultDir/memory/reports/memory.html" "../benchmarks-data-demo/genesis-init-memory/$DATE.html"
-          cp "$resultDir/memory/reports/memory.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.json"
-          cp "$resultDir/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.metadata.json"
+          python3 report_metadata.py "${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}" memory
+          cp "$resultDir/memory/reports/memory.html" "../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}.html"
+          cp "$resultDir/memory/reports/memory.json" "../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}.json"
+          cp "$resultDir/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}.metadata.json"
           set -e
         EOF
 
@@ -198,17 +195,16 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
           set +e
-          export DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
-          echo "=== Run with date: $DATE ==="
+          echo "=== Run with date: ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/burntpix-benchmarks"
-          resultDir="results-$DATE"
+          resultDir="results-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}"
           echo "=== Result directory: $resultDir ==="
           git pull
           ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "$resultDir"
-          python3 report_metadata.py "$DATE"
-          cp "$resultDir/reports/index.html" "../benchmarks-data-demo/burntpix/$DATE.html"
-          cp "$resultDir/reports/result.json" "../benchmarks-data-demo/burntpix/$DATE.json"
-          cp "$resultDir/reports/metadata.json" "../benchmarks-data-demo/burntpix/$DATE.metadata.json"
+          python3 report_metadata.py "${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}"
+          cp "$resultDir/reports/index.html" "../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.html"
+          cp "$resultDir/reports/result.json" "../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.json"
+          cp "$resultDir/reports/metadata.json" "../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.metadata.json"
           set -e
         EOF
 
