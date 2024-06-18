@@ -47,6 +47,8 @@ jobs:
   stop-existing-benchmarks:
     runs-on: ubuntu-latest
     needs: setup-environment
+    outputs:
+      date: ${{ steps.set-date.outputs.date }}
     steps:
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.9.0
@@ -63,6 +65,7 @@ jobs:
           cat ./date.json
           set -e
         EOF
+        echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
