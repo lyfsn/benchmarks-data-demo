@@ -103,6 +103,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run benchmarks
         run: |
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
@@ -126,7 +127,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-gas-benchmarks
     strategy:
-      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
       - name: Setup SSH
@@ -135,6 +136,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init speed benchmarks
         run: |
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
@@ -158,7 +160,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-genesis-init-speed-benchmarks
     strategy:
-      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
       - name: Setup SSH
@@ -167,6 +169,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init memory benchmarks
         run: |
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
@@ -190,7 +193,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-genesis-init-memory-benchmarks
     strategy:
-      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
       - name: Setup SSH
@@ -199,6 +202,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run burntpix benchmarks
         run: |
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ github.event.inputs.repetitions }}
