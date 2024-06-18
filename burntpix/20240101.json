@@ -1,0 +1,51 @@
+{
+    "reth": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    17.189422
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    36.895395
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    0.00968
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    1.387012
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    47.770832
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    6.337554
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    21.867292
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    }
+}
