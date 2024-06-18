@@ -65,6 +65,9 @@ jobs:
           cat ./date.json
           set -e
         EOF
+    - name: Set DATE variable
+      id: set-date
+      run: |
         echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
