@@ -95,7 +95,7 @@ jobs:
           echo "=== Run with date: ${{ needs.stop-existing-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/gas-benchmarks"
           git pull
-          ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "results-${{ needs.stop-existing-benchmarks.outputs.date }}"
+          ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r "${{ github.event.inputs.repetitions }}" -o "results-${{ needs.stop-existing-benchmarks.outputs.date }}"
           python3 report_metadata.py "${{ needs.stop-existing-benchmarks.outputs.date }}"
           cp "results-${{ needs.stop-existing-benchmarks.outputs.date }}/reports/index.html" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.html"
           cp "results-${{ needs.stop-existing-benchmarks.outputs.date }}/reports/result.json" "../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.json"
