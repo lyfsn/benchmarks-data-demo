@@ -141,6 +141,8 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
+          echo "============== Running genesis init speed benchmarks =============="
+          echo $DATE
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
           resultDir="results-$DATE"
           mkdir -p speed-logs
