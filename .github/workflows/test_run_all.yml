@@ -75,6 +75,7 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
+          echo ${{ needs.setup-environment.outputs.date }}
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
           ./stop.sh
           python3 ./update_time.py ${{ env.DATE }}
@@ -229,7 +230,8 @@ jobs:
             -t "testburnt/" \
             -w "./testburntwarm/warm.txt" \
             -c "${{ matrix.client }}" \
-            -r $resultDir
+            -r ${{ github.event.inputs.repetitions }} \
+            -o $resultDir
           python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
           cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
