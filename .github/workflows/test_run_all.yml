@@ -57,7 +57,6 @@ jobs:
           DATE=${{ github.event.inputs.date }}
         fi
         echo "DATE=$DATE" >> $GITHUB_ENV
-        echo "::set-output name=date::$DATE"
 
   clean-old-processes:
     runs-on: ubuntu-latest
@@ -75,10 +74,9 @@ jobs:
             -o ServerAliveCountMax=60 \
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo ${{ needs.setup-environment.outputs.date }}
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
           ./stop.sh
-          python3 ./update_time.py ${{ env.DATE }}
+          python3 ./update_time.py $DATE
           cat ./date.json
           set -e
         EOF
@@ -105,9 +103,9 @@ jobs:
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd ${{ github.event.inputs.root_dir }}/gas-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-$DATE"
           mkdir -p logs
-          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="logs/$DATE.log"
           git pull
           ./run.sh \
             -t "tests3/" \
@@ -115,10 +113,10 @@ jobs:
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o $resultDir
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py $DATE
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/$DATE.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/$DATE.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/$DATE.metadata.json
           set -e
         EOF
 
@@ -144,9 +142,9 @@ jobs:
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-$DATE"
           mkdir -p speed-logs
-          logFile="speed-logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="speed-logs/$DATE.log"
           git pull
           ./runSpeed.sh \
             -t "tests/" \
@@ -154,10 +152,10 @@ jobs:
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/speed" \
             -s "${{ matrix.size }}"
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} speed
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py $DATE speed
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/$DATE.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/$DATE.json
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json
           set -e
         EOF
 
@@ -183,9 +181,9 @@ jobs:
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-$DATE"
           mkdir -p memory-logs
-          logFile="memory-logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="memory-logs/$DATE.log"
           git pull
           ./runMemory.sh \
             -t "tests/" \
@@ -193,9 +191,9 @@ jobs:
             -r ${{ github.event.inputs.repetitions }} \
             -o "$resultDir/memory" \
             -s "${{ matrix.size }}"
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} memory
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
+          python3 report_metadata.py $DATE memory
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/$DATE.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/$DATE.json
           needs.setup-environment.outputs.date }}.metadata.json
           set -e
         EOF
@@ -222,9 +220,9 @@ jobs:
             root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           cd ${{ github.event.inputs.root_dir }}/burntpix-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-$DATE"
           mkdir -p logs
-          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="logs/$DATE.log"
           git pull
           ./run.sh \
             -t "testburnt/" \
@@ -232,10 +230,10 @@ jobs:
             -c "${{ matrix.client }}" \
             -r ${{ github.event.inputs.repetitions }} \
             -o $resultDir
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py $DATE
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/$DATE.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/$DATE.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/$DATE.metadata.json
           set -e
         EOF
 
