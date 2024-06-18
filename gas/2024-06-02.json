@@ -1,0 +1,11 @@
+{
+    "reth": {
+        "MyTest": {
+            "1": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    }
+}
