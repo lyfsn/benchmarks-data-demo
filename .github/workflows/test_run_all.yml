@@ -68,7 +68,6 @@ jobs:
           set +e
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
           ./stop.sh
-          resultDir="results-${{ steps.set-date.outputs.date }}"
           mkdir -p logs
           logFile="logs/${{ steps.set-date.outputs.date }}.log"
           python3 ./update_time.py ${{ steps.set-date.outputs.date }}
@@ -76,9 +75,10 @@ jobs:
           set -e
         EOF
 
-  run-benchmarks:
+  run-gas-benchmarks:
     runs-on: ubuntu-latest
     needs: setup-environment
+    if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
     strategy:
       matrix:
         client: ${{ fromJson(github.event.inputs.clients) }}
@@ -93,7 +93,6 @@ jobs:
         ssh-private-key: ${{ secrets.PRIVKEY }}
 
     - name: Run gas benchmarks
-      if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -119,8 +118,24 @@ jobs:
           set -e
         EOF
 
+  run-genesis-init-speed-benchmarks:
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
+    strategy:
+      matrix:
+        client: ${{ fromJson(github.event.inputs.clients) }}
+        size: ${{ fromJson(github.event.inputs.sizes) }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
     - name: Run genesis init speed benchmarks
-      if: ${{ github.event.inputs.task == 'Run genesis init speed benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -146,8 +161,24 @@ jobs:
           set -e
         EOF
 
+  run-genesis-init-memory-benchmarks:
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
+    strategy:
+      matrix:
+        client: ${{ fromJson(github.event.inputs.clients) }}
+        size: ${{ fromJson(github.event.inputs.sizes) }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
     - name: Run genesis init memory benchmarks
-      if: ${{ github.event.inputs.task == 'Run genesis init memory benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -173,8 +204,24 @@ jobs:
           set -e
         EOF
 
+  run-burntpix-benchmarks:
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
+    strategy:
+      matrix:
+        client: ${{ fromJson(github.event.inputs.clients) }}
+        size: ${{ fromJson(github.event.inputs.sizes) }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
     - name: Run burntpix benchmarks
-      if: ${{ github.event.inputs.task == 'Run burntpix benchmarks' || github.event.inputs.task == 'Run all' }}
       run: |
         ssh -o StrictHostKeyChecking=no \
             -o ServerAliveInterval=60 \
@@ -201,8 +248,16 @@ jobs:
 
   push-results:
     runs-on: ubuntu-latest
-    needs: [run-benchmarks]
+    needs: [run-gas-benchmarks, run-genesis-init-speed-benchmarks, run-genesis-init-memory-benchmarks, run-burntpix-benchmarks]
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+        
     - name: Push results
       run: |
         ssh -o StrictHostKeyChecking=no \
