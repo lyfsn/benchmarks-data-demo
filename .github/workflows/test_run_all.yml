@@ -87,7 +87,7 @@ jobs:
         echo "Initial MATRIX=${MATRIX}"
         for CLIENT in $(echo "${CLIENTS}" | jq -r '.[]'); do
           for SIZE in $(echo "${SIZES}" | jq -r '.[]'); do
-            MATRIX=$(echo $MATRIX | jq --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: ($size | tonumber)}}')
+            MATRIX=$(echo $MATRIX | jq -c --arg client $CLIENT --arg size $SIZE '. + {($client + "-" + $size): {client: $client, size: ($size | tonumber)}}')
             echo "Updated MATRIX=${MATRIX}"
           done
         done
