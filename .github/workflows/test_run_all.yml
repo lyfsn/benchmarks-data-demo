@@ -58,7 +58,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.setup-environment.outputs.date }}"
+        echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.setup-environment.outputs.date }}" >> $GITHUB_OUTPUT
         echo "=== Run with date: $DATE === "
     - name: Stop existing benchmarks and prepare environment
@@ -89,7 +89,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.stop-existing-benchmarks.outputs.date }}"
+        echo "DATE=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.stop-existing-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
         echo "=== Run with date: $DATE === "
     - name: Run gas benchmarks
@@ -126,7 +126,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-gas-benchmarks.outputs.date }}"
+        echo "DATE=${{ needs.run-gas-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-gas-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
         echo "=== Run with date: $DATE === "
     - name: Run genesis init speed benchmarks
@@ -163,7 +163,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}"
+        echo "DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
         echo "=== Run with date: $DATE === "
     - name: Run genesis init memory benchmarks
@@ -200,7 +200,7 @@ jobs:
     - name: Set DATE variable
       id: set-date
       run: |
-        echo "DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}"
+        echo "DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}" >> $GITHUB_ENV
         echo "DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}" >> $GITHUB_OUTPUT
         echo "=== Run with date: $DATE === "
     - name: Run burntpix benchmarks
