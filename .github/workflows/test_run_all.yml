@@ -121,8 +121,8 @@ jobs:
             cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/gas/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${MATRIX}"
-          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "Updated MATRIX=${matrix}"
+          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-genesis-init-speed-benchmarks:
     runs-on: ubuntu-latest
@@ -155,8 +155,8 @@ jobs:
             cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-demo/genesis-init-speed/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${MATRIX}"
-          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "Updated MATRIX=${matrix}"
+          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-genesis-init-memory-benchmarks:
     runs-on: ubuntu-latest
@@ -189,8 +189,8 @@ jobs:
             cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-demo/genesis-init-memory/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${MATRIX}"
-          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "Updated MATRIX=${matrix}"
+          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   run-burntpix-benchmarks:
     runs-on: ubuntu-latest
@@ -223,8 +223,8 @@ jobs:
             cp "results-$DATE/reports/metadata.json" "../benchmarks-data-demo/burntpix/$DATE.metadata.json"
             set -e
           EOF
-          echo "Updated MATRIX=${MATRIX}"
-          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+          echo "Updated MATRIX=${matrix}"
+          echo "matrix=${matrix}" >> $GITHUB_OUTPUT
 
   push-results:
     runs-on: ubuntu-latest
