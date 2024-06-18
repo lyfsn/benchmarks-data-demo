@@ -59,10 +59,15 @@ jobs:
         echo "DATE=$DATE" >> $GITHUB_ENV
         echo "::set-output name=date::$DATE"
 
-  clean-environment:
+  clean-old-processes:
     runs-on: ubuntu-latest
     needs: setup-environment
     steps:
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.PRIVKEY }}
+
     - name: Stop existing benchmarks and prepare environment
       run: |
         ssh -o StrictHostKeyChecking=no \
@@ -79,7 +84,7 @@ jobs:
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
-    needs: clean-environment
+    needs: clean-old-processes
     if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
     strategy:
       matrix:
