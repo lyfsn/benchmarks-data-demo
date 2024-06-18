@@ -70,10 +70,7 @@ jobs:
 
     - name: Stop existing benchmarks and prepare environment
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
@@ -101,10 +98,7 @@ jobs:
 
     - name: Run gas benchmarks
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/gas-benchmarks
@@ -112,12 +106,7 @@ jobs:
           mkdir -p logs
           logFile="logs/$DATE.log"
           git pull
-          ./run.sh \
-            -t "tests3/" \
-            -w "warmup/warmup-1000bl-16wi-24tx.txt" \
-            -c "${{ matrix.client }}" \
-            -r ${{ github.event.inputs.repetitions }} \
-            -o $resultDir
+          ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
           python3 report_metadata.py $DATE
           cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/$DATE.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/$DATE.json
@@ -143,10 +132,7 @@ jobs:
 
     - name: Run genesis init speed benchmarks
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
@@ -154,12 +140,7 @@ jobs:
           mkdir -p speed-logs
           logFile="speed-logs/$DATE.log"
           git pull
-          ./runSpeed.sh \
-            -t "tests/" \
-            -c "${{ matrix.client }}" \
-            -r ${{ github.event.inputs.repetitions }} \
-            -o "$resultDir/speed" \
-            -s "${{ matrix.size }}"
+          ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/speed" -s "${{ matrix.size }}"
           python3 report_metadata.py $DATE speed
           cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/$DATE.html
           cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/$DATE.json
@@ -185,10 +166,7 @@ jobs:
 
     - name: Run genesis init memory benchmarks
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
@@ -196,12 +174,7 @@ jobs:
           mkdir -p memory-logs
           logFile="memory-logs/$DATE.log"
           git pull
-          ./runMemory.sh \
-            -t "tests/" \
-            -c "${{ matrix.client }}" \
-            -r ${{ github.event.inputs.repetitions }} \
-            -o "$resultDir/memory" \
-            -s "${{ matrix.size }}"
+          ./runMemory.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/memory" -s "${{ matrix.size }}"
           python3 report_metadata.py $DATE memory
           cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/$DATE.html
           cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/$DATE.json
@@ -227,10 +200,7 @@ jobs:
 
     - name: Run burntpix benchmarks
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/burntpix-benchmarks
@@ -238,12 +208,7 @@ jobs:
           mkdir -p logs
           logFile="logs/$DATE.log"
           git pull
-          ./run.sh \
-            -t "testburnt/" \
-            -w "./testburntwarm/warm.txt" \
-            -c "${{ matrix.client }}" \
-            -r ${{ github.event.inputs.repetitions }} \
-            -o $resultDir
+          ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
           python3 report_metadata.py $DATE
           cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/$DATE.html
           cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/$DATE.json
@@ -267,10 +232,7 @@ jobs:
 
     - name: Push results
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=60 \
-            root@${{ secrets.REMOTE_IP }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
           echo "=== Run with date $DATE === "
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
