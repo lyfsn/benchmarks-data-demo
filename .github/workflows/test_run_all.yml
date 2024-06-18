@@ -34,7 +34,6 @@ jobs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
-
     - name: Set DATE variable
       id: set-date
       run: |
@@ -53,7 +52,6 @@ jobs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
-
     - name: Stop existing benchmarks and prepare environment
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
@@ -78,22 +76,21 @@ jobs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
-
     - name: Run gas benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo "=== Run with date ${{ needs.setup-environment.outputs.date }} === "
+          echo "=== Run with date ${{ needs.stop-existing-benchmarks.outputs.date }} === "
           cd ${{ github.event.inputs.root_dir }}/gas-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-${{ needs.stop-existing-benchmarks.outputs.date }}"
           mkdir -p logs
-          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="logs/${{ needs.stop-existing-benchmarks.outputs.date }}.log"
           git pull
           ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py ${{ needs.stop-existing-benchmarks.outputs.date }}
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/gas/${{ needs.stop-existing-benchmarks.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -109,22 +106,21 @@ jobs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
-
     - name: Run genesis init speed benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo "=== Run with date ${{ needs.setup-environment.outputs.date }} === "
+          echo "=== Run with date ${{ needs.run-gas-benchmarks.outputs.date }} === "
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-${{ needs.run-gas-benchmarks.outputs.date }}"
           mkdir -p speed-logs
-          logFile="speed-logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="speed-logs/${{ needs.run-gas-benchmarks.outputs.date }}.log"
           git pull
           ./runSpeed.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/speed" -s "${{ matrix.size }}"
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} speed
-          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py ${{ needs.run-gas-benchmarks.outputs.date }} speed
+          cp $resultDir/speed/reports/speed.html ../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.html
+          cp $resultDir/speed/reports/speed.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.json
+          cp $resultDir/speed/reports/metadata.json ../benchmarks-data-demo/genesis-init-speed/${{ needs.run-gas-benchmarks.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -140,22 +136,21 @@ jobs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.PRIVKEY }}
-
     - name: Run genesis init memory benchmarks
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo "=== Run with date ${{ needs.setup-environment.outputs.date }} === "
+          echo "=== Run with date ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }} === "
           cd ${{ github.event.inputs.root_dir }}/genesis-init-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}"
           mkdir -p memory-logs
-          logFile="memory-logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="memory-logs/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.log"
           git pull
           ./runMemory.sh -t "tests/" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o "$resultDir/memory" -s "${{ matrix.size }}"
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }} memory
-          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }} memory
+          cp $resultDir/memory/reports/memory.html ../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.html
+          cp $resultDir/memory/reports/memory.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.json
+          cp $resultDir/memory/reports/metadata.json ../benchmarks-data-demo/genesis-init-memory/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -176,17 +171,17 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo "=== Run with date ${{ needs.setup-environment.outputs.date }} === "
+          echo "=== Run with date ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }} === "
           cd ${{ github.event.inputs.root_dir }}/burntpix-benchmarks
-          resultDir="results-${{ needs.setup-environment.outputs.date }}"
+          resultDir="results-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}"
           mkdir -p logs
-          logFile="logs/${{ needs.setup-environment.outputs.date }}.log"
+          logFile="logs/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.log"
           git pull
           ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "${{ matrix.client }}" -r ${{ github.event.inputs.repetitions }} -o $resultDir
-          python3 report_metadata.py ${{ needs.setup-environment.outputs.date }}
-          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.html
-          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.json
-          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.setup-environment.outputs.date }}.metadata.json
+          python3 report_metadata.py ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
+          cp $resultDir/reports/index.html ../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.html
+          cp $resultDir/reports/result.json ../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.json
+          cp $resultDir/reports/metadata.json ../benchmarks-data-demo/burntpix/${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.metadata.json
           set -e
         EOF
 
@@ -206,7 +201,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << 'EOF'
           set +e
-          echo "=== Run with date ${{ needs.setup-environment.outputs.date }} === "
+          echo "=== Run with date ${{ needs.run-burntpix-benchmarks.outputs.date }} === "
           cd ${{ github.event.inputs.root_dir }}/benchmarks-data-demo
           git status
           ./push.sh
