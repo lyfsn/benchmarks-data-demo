@@ -81,8 +81,8 @@ jobs:
     needs: setup-environment
     strategy:
       matrix:
-        client: ${{ fromJson(github.event.inputs.clients.split(',')) }}
-        size: ${{ fromJson(github.event.inputs.sizes.split(',')) }}
+        client: [${{ fromJson('["' + github.event.inputs.clients.replace(',', '","') + '"]') }}]
+        size: [${{ fromJson('["' + github.event.inputs.sizes.replace(',', '","') + '"]') }}]
     steps:
     - name: Run gas benchmarks
       if: ${{ github.event.inputs.task == 'Run gas benchmarks' || github.event.inputs.task == 'Run all' }}
