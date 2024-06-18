@@ -79,8 +79,8 @@ jobs:
     - name: Generate Matrix
       id: generate-matrix
       run: |
-        CLIENTS=${{ github.event.inputs.clients }}
-        SIZES=${{ github.event.inputs.sizes }}
+        CLIENTS='${{ github.event.inputs.clients }}'
+        SIZES='${{ github.event.inputs.sizes }}'
         echo "CLIENTS=${CLIENTS}"
         echo "SIZES=${SIZES}"
         MATRIX=$(echo '{}' | jq -c '.')
