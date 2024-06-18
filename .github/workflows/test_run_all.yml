@@ -94,6 +94,7 @@ jobs:
           set +e
           DATE=${{ needs.stop-existing-benchmarks.outputs.date }}
           echo "=== Run with date: $DATE ==="
+          echo "=== Run with date: ${{ needs.stop-existing-benchmarks.outputs.date }} ==="
           cd "${{ github.event.inputs.root_dir }}/gas-benchmarks"
           resultDir="results-$DATE"
           git pull
