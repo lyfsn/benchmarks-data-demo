@@ -115,7 +115,7 @@ jobs:
             echo "=== Run gas benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
             cd "$ROOT_DIR/gas-benchmarks"
             git pull
-            ./run.sh -t "tests3/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+            ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
             python3 report_metadata.py "$DATE"
             cp "results-$DATE/reports/index.html" "../benchmarks-data-demo/gas/$DATE.html"
             cp "results-$DATE/reports/result.json" "../benchmarks-data-demo/gas/$DATE.json"
