@@ -1,0 +1,20 @@
+{
+    "nethermind": {
+        "MyTest": {
+            "1": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    },
+    "reth": {
+        "MyTest": {
+            "1": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    }
+}

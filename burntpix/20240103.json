@@ -1,0 +1,100 @@
+{
+    "nethermind": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    191.06740399999998
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    },
+    "reth": {
+        "Burnt": {
+            "94": {
+                "engine_newPayloadV3": [
+                    160.788017
+                ]
+            },
+            "409": {
+                "engine_newPayloadV3": [
+                    905.677154
+                ]
+            },
+            "113": {
+                "engine_newPayloadV3": [
+                    193.933958
+                ]
+            },
+            "1250": {
+                "engine_newPayloadV3": [
+                    3134.4478879999997
+                ]
+            },
+            "265": {
+                "engine_newPayloadV3": [
+                    559.253645
+                ]
+            },
+            "90": {
+                "engine_newPayloadV3": [
+                    1.5244469999999999
+                ]
+            },
+            "690": {
+                "engine_newPayloadV3": [
+                    1651.3348549999998
+                ]
+            },
+            "968": {
+                "engine_newPayloadV3": [
+                    2382.385605
+                ]
+            },
+            "1520": {
+                "engine_newPayloadV3": [
+                    0
+                ]
+            }
+        }
+    }
+}
