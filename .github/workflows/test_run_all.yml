@@ -52,7 +52,7 @@ jobs:
             git clone -b main https://${{ secrets.GIT_TOEKN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-demo
             git clone -b devnet4 https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
             git clone -b devnet4-burn https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
-            git clone -b main https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
+            git clone -b init https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
           EOF
       - name: Stop existing benchmarks and prepare environment
         run: |
