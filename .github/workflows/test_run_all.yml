@@ -47,12 +47,14 @@ jobs:
       - name: Clone benchmarks repos
         run: |
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            set +e
             mkdir -p "${{ github.event.inputs.root_dir }}"
             cd "${{ github.event.inputs.root_dir }}"
             git clone -b main https://${{ secrets.GIT_TOEKN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-demo
             git clone -b devnet4 https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
             git clone -b devnet4-burn https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
             git clone -b init https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
+            set -e
           EOF
       - name: Stop existing benchmarks and prepare environment
         run: |
