@@ -94,6 +94,7 @@ jobs:
       matrix: ${{ needs.generate-matrix.outputs.matrix }}
       date: ${{ needs.generate-matrix.outputs.date }}
     strategy:
+      max-parallel: 1
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
       fail-fast: false
     steps:
@@ -129,6 +130,7 @@ jobs:
       matrix: ${{ needs.run-gas-benchmarks.outputs.matrix }}
       date: ${{ needs.run-gas-benchmarks.outputs.date }}
     strategy:
+      max-parallel: 1
       matrix: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
@@ -164,6 +166,7 @@ jobs:
       matrix: ${{ needs.run-genesis-init-speed-benchmarks.outputs.matrix }}
       date: ${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
     strategy:
+      max-parallel: 1
       matrix: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
@@ -199,6 +202,7 @@ jobs:
       matrix: ${{ needs.run-genesis-init-memory-benchmarks.outputs.matrix }}
       date: ${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
     strategy:
+      max-parallel: 1
       matrix: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
