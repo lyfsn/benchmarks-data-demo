@@ -1,4 +1,4 @@
-name: Run Benchmarks
+name: Test Run Benchmarks
 
 on:
   workflow_dispatch:
@@ -14,11 +14,11 @@ on:
       clients:
         description: 'Enter clients to use (JSON array format, e.g., ["nethermind","geth","reth","erigon","besu"])'
         required: true
-        default: '["nethermind"]'
+        default: '["nethermind,reth"]'
       sizes:
         description: "Enter sizes (JSON array format, e.g., [1,10,100,500,1000])"
         required: false
-        default: "[1]"
+        default: "[1,10]"
       repetitions:
         description: "Enter the number of repetitions"
         required: true
@@ -44,22 +44,22 @@ jobs:
           fi
           echo "DATE=${DATE}"
           echo "DATE=$DATE" >> $GITHUB_OUTPUT
-
-  stop-existing-benchmarks:
-    runs-on: ubuntu-latest
-    needs: setup-environment
-    outputs:
-      date: ${{ needs.setup-environment.outputs.date }}
-    steps:
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.PRIVKEY }}
+      - name: Clone benchmarks repos
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
+            mkdir -p "${{ github.event.inputs.root_dir }}"
+            cd "${{ github.event.inputs.root_dir }}"
+            git clone -b main https://${{ secrets.GIT_TOEKN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-demo
+            git clone -b devnet4 https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
+            git clone -b devnet4-burn https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
+            git clone -b main https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
+          EOF
       - name: Stop existing benchmarks and prepare environment
         run: |
           ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 root@${{ secrets.REMOTE_IP }} << EOF
             set +e
             cd "${{ github.event.inputs.root_dir }}/benchmarks-data-demo"
+            git pull
             ./stop.sh
             python3 ./update_time.py "${{ needs.setup-environment.outputs.date }}"
             cat ./date.json
@@ -68,10 +68,10 @@ jobs:
 
   generate-matrix:
     runs-on: ubuntu-latest
-    needs: stop-existing-benchmarks
+    needs: setup-environment
     outputs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
-      date: ${{ needs.stop-existing-benchmarks.outputs.date }}
+      date: ${{ needs.setup-environment.outputs.date }}
     steps:
       - name: Generate Matrix
         id: generate-matrix
