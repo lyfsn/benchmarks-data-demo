@@ -97,7 +97,8 @@ jobs:
       date: ${{ needs.generate-matrix.outputs.date }}
     strategy:
       max-parallel: 1
-      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      matrix:
+        client: ${{ fromJson(needs.generate-matrix.outputs.matrix).client }}
       fail-fast: false
     steps:
       - name: Setup SSH
