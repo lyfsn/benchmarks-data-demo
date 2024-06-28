@@ -33,6 +33,8 @@ jobs:
       CLIENTS: ${{ github.event.inputs.clients || '["nethermind", "reth"]' }}
       SIZES: ${{ github.event.inputs.sizes || '[1,10]' }}
       REPETITIONS: ${{ github.event.inputs.repetitions || 1 }}
+    outputs:
+      date: ${{ steps.set-date.outputs.date }}
     steps:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
@@ -79,6 +81,14 @@ jobs:
       matrix: ${{ steps.generate-matrix.outputs.matrix }}
       date: ${{ needs.setup-environment.outputs.date }}
     steps:
+      - name: Check Date
+        id: check-date
+        run: |
+          if [ -z "${{ needs.setup-environment.outputs.date }}" ]; then
+            echo "Date is empty, exiting the job."
+            exit 1
+          fi
+
       - name: Generate Matrix
         id: generate-matrix
         run: |
