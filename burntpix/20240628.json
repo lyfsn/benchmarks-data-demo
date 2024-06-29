@@ -1,0 +1,590 @@
+{
+    "clients": {
+        "nethermind": {
+            "name": "nethermind",
+            "results": [
+                {
+                    "test_case": "Burnt",
+                    "gas": "94",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "409",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "113",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1250",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "265",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "90",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "690",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "968",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1520",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                }
+            ]
+        },
+        "geth": {
+            "name": "geth",
+            "results": [
+                {
+                    "test_case": "Burnt",
+                    "gas": "94",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "409",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "113",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1250",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "265",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "90",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "690",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "968",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1520",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                }
+            ]
+        },
+        "reth": {
+            "name": "reth",
+            "results": [
+                {
+                    "test_case": "Burnt",
+                    "gas": "94",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "409",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "113",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1250",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "265",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "90",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "690",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "968",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1520",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                }
+            ]
+        },
+        "erigon": {
+            "name": "erigon",
+            "results": [
+                {
+                    "test_case": "Burnt",
+                    "gas": "94",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "409",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "113",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1250",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "265",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "90",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "690",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "968",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1520",
+                    "method": "engine_newPayloadV3",
+                    "max": 0,
+                    "min": 0,
+                    "p50": 0,
+                    "p95": 0,
+                    "p99": 0,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                }
+            ]
+        },
+        "besu": {
+            "name": "besu",
+            "results": [
+                {
+                    "test_case": "Burnt",
+                    "gas": "94",
+                    "method": "engine_newPayloadV3",
+                    "max": 1029.108471,
+                    "min": 929.089269,
+                    "p50": 981.6526789999999,
+                    "p95": 1029.108471,
+                    "p99": 1029.108471,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "409",
+                    "method": "engine_newPayloadV3",
+                    "max": 5951.85928,
+                    "min": 5521.058524,
+                    "p50": 5598.642250999999,
+                    "p95": 5951.85928,
+                    "p99": 5951.85928,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "113",
+                    "method": "engine_newPayloadV3",
+                    "max": 1211.377508,
+                    "min": 1127.363769,
+                    "p50": 1187.285292,
+                    "p95": 1211.377508,
+                    "p99": 1211.377508,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1250",
+                    "method": "engine_newPayloadV3",
+                    "max": 20522.666532,
+                    "min": 19189.631675,
+                    "p50": 19471.106975,
+                    "p95": 20522.666532,
+                    "p99": 20522.666532,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "265",
+                    "method": "engine_newPayloadV3",
+                    "max": 3503.092233,
+                    "min": 3200.6691779999996,
+                    "p50": 3245.8934529999997,
+                    "p95": 3503.092233,
+                    "p99": 3503.092233,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "90",
+                    "method": "engine_newPayloadV3",
+                    "max": 3.0565599999999997,
+                    "min": 2.085657,
+                    "p50": 2.9255929999999997,
+                    "p95": 3.0565599999999997,
+                    "p99": 3.0565599999999997,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "690",
+                    "method": "engine_newPayloadV3",
+                    "max": 10516.355828,
+                    "min": 9767.605899,
+                    "p50": 9904.635001999999,
+                    "p95": 10516.355828,
+                    "p99": 10516.355828,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "968",
+                    "method": "engine_newPayloadV3",
+                    "max": 15080.817002,
+                    "min": 13973.715646999999,
+                    "p50": 14123.015737,
+                    "p95": 15080.817002,
+                    "p99": 15080.817002,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                },
+                {
+                    "test_case": "Burnt",
+                    "gas": "1520",
+                    "method": "engine_newPayloadV3",
+                    "max": 25341.778835999998,
+                    "min": 23254.186035,
+                    "p50": 24817.669577999997,
+                    "p95": 25341.778835999998,
+                    "p99": 25341.778835999998,
+                    "n": 8,
+                    "description": "Burnt Pix By Geth Developer"
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "Burnt": {
+            "GasUsed": [
+                90000000,
+                94000000,
+                113000000,
+                265000000,
+                409000000,
+                690000000,
+                968000000,
+                1250000000,
+                1520000000
+            ],
+            "Name": "Burnt",
+            "Title": "Burnt Pix",
+            "Description": "Burnt Pix By Geth Developer"
+        }
+    },
+    "test_cases": [
+        "Burnt"
+    ]
+}
