@@ -124,9 +124,17 @@ jobs:
           cd "$ROOT_DIR/gas-benchmarks"
           ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
-          cp "results-$DATE/reports/index.html" "../benchmarks-data-result/gas/$DATE.html"
-          cp "results-$DATE/reports/result.json" "../benchmarks-data-result/gas/$DATE.json"
-          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-result/gas/$DATE.metadata.json"
+
+      - name: Zip the results folder
+        run: |
+          cd "$ROOT_DIR/gas-benchmarks"
+          zip -r results-$DATE.zip "results-$DATE"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gas-benchmarks-${{ matrix.client }}-${{ needs.generate-matrix.outputs.date }}
+          path: ${{ needs.generate-matrix.outputs.root_dir }}/gas-benchmarks/results-$DATE.zip
 
   run-genesis-init-speed-benchmarks:
     runs-on: ubuntu-latest
@@ -164,9 +172,17 @@ jobs:
           cd "$ROOT_DIR/genesis-init-benchmarks"
           ./runSpeed.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/speed" -s "$SIZE"
           python3 report_metadata.py "$DATE" speed
-          cp "results-$DATE/speed/reports/speed.html" "../benchmarks-data-result/genesis-init-speed/$DATE.html"
-          cp "results-$DATE/speed/reports/speed.json" "../benchmarks-data-result/genesis-init-speed/$DATE.json"
-          cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-result/genesis-init-speed/$DATE.metadata.json"
+
+      - name: Zip the results folder
+        run: |
+          cd "$ROOT_DIR/genesis-init-benchmarks"
+          zip -r results-$DATE-speed.zip "results-$DATE/speed"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: genesis-init-speed-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-gas-benchmarks.outputs.date }}
+          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-$DATE-speed.zip
 
   run-genesis-init-memory-benchmarks:
     runs-on: ubuntu-latest
@@ -204,9 +220,17 @@ jobs:
           cd "$ROOT_DIR/genesis-init-benchmarks"
           ./runMemory.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/memory" -s "$SIZE"
           python3 report_metadata.py "$DATE" memory
-          cp "results-$DATE/memory/reports/memory.html" "../benchmarks-data-result/genesis-init-memory/$DATE.html"
-          cp "results-$DATE/memory/reports/memory.json" "../benchmarks-data-result/genesis-init-memory/$DATE.json"
-          cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-result/genesis-init-memory/$DATE.metadata.json"
+
+      - name: Zip the results folder
+        run: |
+          cd "$ROOT_DIR/genesis-init-benchmarks"
+          zip -r results-$DATE-memory.zip "results-$DATE/memory"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: genesis-init-memory-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
+          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-$DATE-memory.zip
 
   run-burntpix-benchmarks:
     runs-on: ubuntu-latest
@@ -235,7 +259,6 @@ jobs:
       - name: Run burntpix benchmarks
         run: |
           CLIENT=${{ matrix.client }}
-          SIZE=${{ matrix.size }}
           REPETITIONS=${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
           ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
@@ -243,9 +266,17 @@ jobs:
           cd "$ROOT_DIR/burntpix-benchmarks"
           ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
-          cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
-          cp "results-$DATE/reports/result.json" "../benchmarks-data-result/burntpix/$DATE.json"
-          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-result/burntpix/$DATE.metadata.json"
+
+      - name: Zip the results folder
+        run: |
+          cd "$ROOT_DIR/burntpix-benchmarks"
+          zip -r results-$DATE.zip "results-$DATE"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: burntpix-benchmarks-${{ matrix.client }}-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
+          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}/burntpix-benchmarks/results-$DATE.zip
 
   push-results:
     runs-on: ubuntu-latest
