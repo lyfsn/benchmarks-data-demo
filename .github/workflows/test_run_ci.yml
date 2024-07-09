@@ -53,6 +53,7 @@ jobs:
           echo "clients=${{ env.CLIENTS }}" >> $GITHUB_OUTPUT
           echo "sizes=${{ env.SIZES }}" >> $GITHUB_OUTPUT
           echo "repetitions=${{ env.REPETITIONS }}" >> $GITHUB_OUTPUT
+
       - name: Clone benchmarks repos
         run: |
           BRANCH_BENCHMARKS_DATA_RESULT=main
@@ -74,15 +75,12 @@ jobs:
           git switch $BRANCH_BURNTPIX_BENCHMARKS
           cd "${{ env.ROOT_DIR }}/genesis-init-benchmarks"
           git switch $BRANCH_GENESIS_INIT_BENCHMARKS
-      - name: Stop existing benchmarks and prepare environment
-        run: |
-          cd "${{ env.ROOT_DIR }}/benchmarks-data-result"
-          git pull
-          set +e
-          ./stop.sh
-          python3 ./update_time.py "${{ env.DATE }}"
-          cat ./date.json
-          set -e
+
+      - name: Save workspace
+        uses: actions/upload-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ env.ROOT_DIR }}
 
   generate-matrix:
     runs-on: ubuntu-latest
@@ -98,7 +96,7 @@ jobs:
       - name: Check Date
         id: check-date
         run: |
-          if [ -z "${{ needs.setup-environment.outputs.date }}" ]; then
+          if [ -z "${{ needs.setup-environment.outputs.date }}" ];then
             echo "Date is empty, exiting the job."
             exit 1
           fi
@@ -119,7 +117,7 @@ jobs:
 
           echo "Updated MATRIX=${MATRIX}"
           echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
-          
+
   run-gas-benchmarks:
     runs-on: ubuntu-latest
     needs: generate-matrix
@@ -137,6 +135,12 @@ jobs:
         size: ${{ fromJson(needs.generate-matrix.outputs.matrix).Size }}
       fail-fast: false
     steps:
+      - name: Restore workspace
+        uses: actions/download-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ needs.generate-matrix.outputs.root_dir }}
+
       - name: Run gas benchmarks
         run: |
           CLIENT=${{ matrix.client }}
@@ -169,6 +173,12 @@ jobs:
         size: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
+      - name: Restore workspace
+        uses: actions/download-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}
+
       - name: Run genesis init speed benchmarks
         run: |
           CLIENT=${{ matrix.client }}
@@ -202,6 +212,12 @@ jobs:
         size: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
+      - name: Restore workspace
+        uses: actions/download-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
+
       - name: Run genesis init memory benchmarks
         run: |
           CLIENT=${{ matrix.client }}
@@ -235,6 +251,12 @@ jobs:
         size: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
+      - name: Restore workspace
+        uses: actions/download-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
+
       - name: Run burntpix benchmarks
         run: |
           CLIENT=${{ matrix.client }}
@@ -255,6 +277,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-burntpix-benchmarks
     steps:
+      - name: Restore workspace
+        uses: actions/download-artifact@v3
+        with:
+          name: benchmark-repos
+          path: ${{ needs.run-burntpix-benchmarks.outputs.root_dir }}
+
       - name: Push results
         run: |
           ROOT_DIR=${{ needs.run-burntpix-benchmarks.outputs.root_dir }}
