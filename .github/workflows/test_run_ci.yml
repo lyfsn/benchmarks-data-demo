@@ -133,7 +133,7 @@ jobs:
           zip -r results-$DATE.zip "results-$DATE"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gas-benchmarks-${{ matrix.client }}-${{ needs.generate-matrix.outputs.date }}
           path: ${{ needs.generate-matrix.outputs.root_dir }}/gas-benchmarks/results-${{ needs.generate-matrix.outputs.date }}.zip
@@ -183,7 +183,7 @@ jobs:
           zip -r results-$DATE-speed.zip "results-$DATE/speed"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: genesis-init-speed-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-gas-benchmarks.outputs.date }}
           path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-${{ needs.run-gas-benchmarks.outputs.date }}-speed.zip
@@ -233,7 +233,7 @@ jobs:
           zip -r results-$DATE-memory.zip "results-$DATE/memory"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: genesis-init-memory-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
           path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}-memory.zip
@@ -281,7 +281,7 @@ jobs:
           zip -r results-$DATE.zip "results-$DATE"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: burntpix-benchmarks-${{ matrix.client }}-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
           path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}/burntpix-benchmarks/results-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.zip
