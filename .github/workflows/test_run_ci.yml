@@ -1,4 +1,4 @@
-name: Test Run Benchmarks
+name: Test Run Benchmarks CI
 
 on:
   workflow_dispatch:
