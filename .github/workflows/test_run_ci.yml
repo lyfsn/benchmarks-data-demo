@@ -54,34 +54,6 @@ jobs:
           echo "sizes=${{ env.SIZES }}" >> $GITHUB_OUTPUT
           echo "repetitions=${{ env.REPETITIONS }}" >> $GITHUB_OUTPUT
 
-      - name: Clone benchmarks repos
-        run: |
-          BRANCH_BENCHMARKS_DATA_RESULT=main
-          BRANCH_GAS_BENCHMARKS=rc-1
-          BRANCH_BURNTPIX_BENCHMARKS=burnt-rc-1
-          BRANCH_GENESIS_INIT_BENCHMARKS=main
-          
-          mkdir -p "${{ env.ROOT_DIR }}"
-          cd "${{ env.ROOT_DIR }}"
-          git clone -b $BRANCH_BENCHMARKS_DATA_RESULT https://${{ secrets.GIT_TOEKN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-result
-          git clone -b $BRANCH_GAS_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
-          git clone -b $BRANCH_BURNTPIX_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
-          git clone -b $BRANCH_GENESIS_INIT_BENCHMARKS https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
-          cd "${{ env.ROOT_DIR }}/benchmarks-data-result"
-          git switch $BRANCH_BENCHMARKS_DATA_RESULT
-          cd "${{ env.ROOT_DIR }}/gas-benchmarks"
-          git switch $BRANCH_GAS_BENCHMARKS
-          cd "${{ env.ROOT_DIR }}/burntpix-benchmarks"
-          git switch $BRANCH_BURNTPIX_BENCHMARKS
-          cd "${{ env.ROOT_DIR }}/genesis-init-benchmarks"
-          git switch $BRANCH_GENESIS_INIT_BENCHMARKS
-
-      - name: Save workspace
-        uses: actions/upload-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ env.ROOT_DIR }}
-
   generate-matrix:
     runs-on: ubuntu-latest
     needs: setup-environment
@@ -135,12 +107,14 @@ jobs:
         size: ${{ fromJson(needs.generate-matrix.outputs.matrix).Size }}
       fail-fast: false
     steps:
-      - name: Restore workspace
-        uses: actions/download-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ needs.generate-matrix.outputs.root_dir }}
-
+      - name: Clone gas benchmarks repo
+        run: |
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
+          BRANCH_GAS_BENCHMARKS=rc-1
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_GAS_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
+          
       - name: Run gas benchmarks
         run: |
           CLIENT=${{ matrix.client }}
@@ -149,7 +123,6 @@ jobs:
           DATE=${{ needs.generate-matrix.outputs.date }}
 
           cd "$ROOT_DIR/gas-benchmarks"
-          git pull
           ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
           cp "results-$DATE/reports/index.html" "../benchmarks-data-result/gas/$DATE.html"
@@ -173,11 +146,13 @@ jobs:
         size: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
-      - name: Restore workspace
-        uses: actions/download-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}
+      - name: Clone genesis init benchmarks repo
+        run: |
+          ROOT_DIR=${{ needs.run-gas-benchmarks.outputs.root_dir }}
+          BRANCH_GENESIS_INIT_BENCHMARKS=main
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_GENESIS_INIT_BENCHMARKS https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
 
       - name: Run genesis init speed benchmarks
         run: |
@@ -188,7 +163,6 @@ jobs:
           DATE=${{ needs.run-gas-benchmarks.outputs.date }}
 
           cd "$ROOT_DIR/genesis-init-benchmarks"
-          git pull
           ./runSpeed.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/speed" -s "$SIZE"
           python3 report_metadata.py "$DATE" speed
           cp "results-$DATE/speed/reports/speed.html" "../benchmarks-data-result/genesis-init-speed/$DATE.html"
@@ -212,11 +186,13 @@ jobs:
         size: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
-      - name: Restore workspace
-        uses: actions/download-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
+      - name: Clone genesis init benchmarks repo
+        run: |
+          ROOT_DIR=${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
+          BRANCH_GENESIS_INIT_BENCHMARKS=main
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_GENESIS_INIT_BENCHMARKS https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
 
       - name: Run genesis init memory benchmarks
         run: |
@@ -227,7 +203,6 @@ jobs:
           DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
 
           cd "$ROOT_DIR/genesis-init-benchmarks"
-          git pull
           ./runMemory.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/memory" -s "$SIZE"
           python3 report_metadata.py "$DATE" memory
           cp "results-$DATE/memory/reports/memory.html" "../benchmarks-data-result/genesis-init-memory/$DATE.html"
@@ -251,11 +226,13 @@ jobs:
         size: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
-      - name: Restore workspace
-        uses: actions/download-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
+      - name: Clone burntpix benchmarks repo
+        run: |
+          ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
+          BRANCH_BURNTPIX_BENCHMARKS=burnt-rc-1
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_BURNTPIX_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
 
       - name: Run burntpix benchmarks
         run: |
@@ -266,7 +243,6 @@ jobs:
           DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
 
           cd "$ROOT_DIR/burntpix-benchmarks"
-          git pull
           ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
           cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
@@ -277,15 +253,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-burntpix-benchmarks
     steps:
-      - name: Restore workspace
-        uses: actions/download-artifact@v3
-        with:
-          name: benchmark-repos
-          path: ${{ needs.run-burntpix-benchmarks.outputs.root_dir }}
+      - name: Clone benchmarks data result repo
+        run: |
+          ROOT_DIR=${{ needs.run-burntpix-benchmarks.outputs.root_dir }}
+          BRANCH_BENCHMARKS_DATA_RESULT=main
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_BENCHMARKS_DATA_RESULT https://${{ secrets.GIT_TOKEN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-result
 
       - name: Push results
         run: |
           ROOT_DIR=${{ needs.run-burntpix-benchmarks.outputs.root_dir }}
-
           cd "$ROOT_DIR/benchmarks-data-result"
           git status
