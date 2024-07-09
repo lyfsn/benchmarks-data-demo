@@ -6,7 +6,7 @@ on:
       root_dir:
         description: "Enter the root directory for benchmarks"
         required: true
-        default: "~/benchmarks/"
+        default: "/home/runner/work/"
       date:
         description: "Enter a date (optional, e.g. 20240101)"
         required: false
@@ -28,7 +28,7 @@ jobs:
   setup-environment:
     runs-on: ubuntu-latest
     env:
-      ROOT_DIR: ${{ github.event.inputs.root_dir || '~/benchmarks/' }}
+      ROOT_DIR: ${{ github.event.inputs.root_dir || '/home/runner/work/' }}
       DATE: ${{ github.event.inputs.date || '' }}
       CLIENTS: ${{ github.event.inputs.clients || '["nethermind","geth","reth","erigon","besu"]' }}
       SIZES: ${{ github.event.inputs.sizes || '[1,10,100,500,1000]' }}
