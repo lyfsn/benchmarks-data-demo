@@ -127,6 +127,7 @@ jobs:
 
       - name: Zip the results folder
         run: |
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
           cd "$ROOT_DIR/gas-benchmarks"
           zip -r results-$DATE.zip "results-$DATE"
 
@@ -175,6 +176,7 @@ jobs:
 
       - name: Zip the results folder
         run: |
+          ROOT_DIR=${{ needs.run-gas-benchmarks.outputs.root_dir }}
           cd "$ROOT_DIR/genesis-init-benchmarks"
           zip -r results-$DATE-speed.zip "results-$DATE/speed"
 
@@ -223,6 +225,7 @@ jobs:
 
       - name: Zip the results folder
         run: |
+          ROOT_DIR=${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
           cd "$ROOT_DIR/genesis-init-benchmarks"
           zip -r results-$DATE-memory.zip "results-$DATE/memory"
 
@@ -269,6 +272,7 @@ jobs:
 
       - name: Zip the results folder
         run: |
+          ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           cd "$ROOT_DIR/burntpix-benchmarks"
           zip -r results-$DATE.zip "results-$DATE"
 
