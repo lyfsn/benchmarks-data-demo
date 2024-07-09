@@ -1,0 +1,216 @@
+name: Test Run Benchmarks
+
+on:
+  workflow_dispatch:
+    inputs:
+      root_dir:
+        description: "Enter the root directory for benchmarks"
+        required: true
+        default: "/root/benchmarks/"
+      date:
+        description: "Enter a date (optional, e.g. 20240101)"
+        required: false
+        default: ""
+      clients:
+        description: 'Enter clients to use (e.g., [nethermind,geth,reth,erigon,besu])'
+        required: true
+        default: '[nethermind,reth,besu]'
+      sizes:
+        description: "Enter sizes (e.g., [1,10,100,500,1000])"
+        required: false
+        default: "[1,10]"
+      repetitions:
+        description: "Enter the number of repetitions"
+        required: true
+        default: 1
+
+jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+    env:
+      ROOT_DIR: ${{ github.event.inputs.root_dir || '/root/benchmarks/' }}
+      DATE: ${{ github.event.inputs.date || '' }}
+      CLIENTS: ${{ github.event.inputs.clients || '["nethermind","geth","reth","erigon","besu"]' }}
+      SIZES: ${{ github.event.inputs.sizes || '[1,10,100,500,1000]' }}
+      REPETITIONS: ${{ github.event.inputs.repetitions || 8 }}
+    outputs:
+      date: ${{ steps.set-date.outputs.date }}
+      root_dir: ${{ steps.set-date.outputs.root_dir }}
+      clients: ${{ steps.set-date.outputs.clients }}
+      sizes: ${{ steps.set-date.outputs.sizes }}
+      repetitions: ${{ steps.set-date.outputs.repetitions }}
+    steps:
+      - name: Set DATE variable
+        id: set-date
+        run: |
+          if [ -z "${{ env.DATE }}" ]; then
+            DATE=$(date +%Y%m%d)
+          else
+            DATE=${{ env.DATE }}
+          fi
+          echo "date=${DATE}" >> $GITHUB_OUTPUT
+          echo "root_dir=${{ env.ROOT_DIR }}" >> $GITHUB_OUTPUT
+          echo "clients=${{ env.CLIENTS }}" >> $GITHUB_OUTPUT
+          echo "sizes=${{ env.SIZES }}" >> $GITHUB_OUTPUT
+          echo "repetitions=${{ env.REPETITIONS }}" >> $GITHUB_OUTPUT
+
+      - name: Clone benchmarks repos
+        run: |
+          ROOT_DIR="${{ env.ROOT_DIR }}"
+          BRANCH_BENCHMARKS_DATA_RESULT=main
+          BRANCH_GAS_BENCHMARKS=rc-1
+          BRANCH_BURNTPIX_BENCHMARKS=burnt-rc-1
+          BRANCH_GENESIS_INIT_BENCHMARKS=main
+
+          mkdir -p "${ROOT_DIR}"
+          cd "${ROOT_DIR}"
+          git clone -b $BRANCH_BENCHMARKS_DATA_RESULT https://${{ secrets.GIT_TOEKN_PREFIX }}github.com/lyfsn/benchmarks-data-demo.git benchmarks-data-result
+          git clone -b $BRANCH_GAS_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git gas-benchmarks
+          git clone -b $BRANCH_BURNTPIX_BENCHMARKS https://github.com/lyfsn/gas-benchmarks.git burntpix-benchmarks
+          git clone -b $BRANCH_GENESIS_INIT_BENCHMARKS https://github.com/lyfsn/genesis-init-benchmarks.git genesis-init-benchmarks
+
+          cd "${ROOT_DIR}/benchmarks-data-result"
+          git switch $BRANCH_BENCHMARKS_DATA_RESULT
+          cd "${ROOT_DIR}/gas-benchmarks"
+          git switch $BRANCH_GAS_BENCHMARKS
+          cd "${ROOT_DIR}/burntpix-benchmarks"
+          git switch $BRANCH_BURNTPIX_BENCHMARKS
+          cd "${ROOT_DIR}/genesis-init-benchmarks"
+          git switch $BRANCH_GENESIS_INIT_BENCHMARKS
+
+      - name: Stop existing benchmarks and prepare environment
+        run: |
+          ROOT_DIR="${{ env.ROOT_DIR }}"
+          DATE="${{ steps.set-date.outputs.date }}"
+
+          cd "${ROOT_DIR}/benchmarks-data-result"
+          git pull
+          ./stop.sh
+          python3 ./update_time.py "${DATE}"
+          cat ./date.json
+
+  generate-matrix:
+    runs-on: ubuntu-latest
+    needs: setup-environment
+    outputs:
+      matrix: ${{ steps.generate-matrix.outputs.matrix }}
+      date: ${{ needs.setup-environment.outputs.date }}
+      root_dir: ${{ needs.setup-environment.outputs.root_dir }}
+      clients: ${{ needs.setup-environment.outputs.clients }}
+      sizes: ${{ needs.setup-environment.outputs.sizes }}
+      repetitions: ${{ needs.setup-environment.outputs.repetitions }}
+    steps:
+      - name: Check Date
+        id: check-date
+        run: |
+          if [ -z "${{ needs.setup-environment.outputs.date }}" ]; then
+            echo "Date is empty, exiting the job."
+            exit 1
+          fi
+
+      - name: Generate Matrix
+        id: generate-matrix
+        run: |
+          CLIENTS='${{ needs.setup-environment.outputs.clients }}'
+          SIZES='${{ needs.setup-environment.outputs.sizes }}'
+          echo "CLIENTS=${CLIENTS}"
+          echo "SIZES=${SIZES}"
+
+          CLIENTS_JSON=$(echo "$CLIENTS" | sed 's/[][]//g' | jq -R 'split(",")')
+          SIZES_JSON=$(echo "$SIZES" | sed 's/[][]//g' | jq -R 'split(",") | map(tonumber)')
+
+          MATRIX_CLIENTS=$(echo '{}' | jq -c --argjson clients "$CLIENTS_JSON" '.Client = $clients')
+          MATRIX=$(echo $MATRIX_CLIENTS | jq -c --argjson sizes "$SIZES_JSON" '.Size = $sizes')
+
+          echo "Updated MATRIX=${MATRIX}"
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+
+  run-benchmarks:
+    runs-on: ubuntu-latest
+    needs: generate-matrix
+    strategy:
+      max-parallel: 1
+      matrix:
+        client: ${{ fromJson(needs.generate-matrix.outputs.matrix).Client }}
+        size: ${{ fromJson(needs.generate-matrix.outputs.matrix).Size }}
+      fail-fast: false
+    steps:
+      - name: Run gas benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
+          DATE=${{ needs.generate-matrix.outputs.date }}
+
+          echo "=== Run gas benchmarks for client: $CLIENT and date: $DATE ==="
+          cd "$ROOT_DIR/gas-benchmarks"
+          git pull
+          ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+          python3 report_metadata.py "$DATE"
+          cp "results-$DATE/reports/index.html" "../benchmarks-data-result/gas/$DATE.html"
+          cp "results-$DATE/reports/result.json" "../benchmarks-data-result/gas/$DATE.json"
+          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-result/gas/$DATE.metadata.json"
+
+      - name: Run genesis init speed benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
+          DATE=${{ needs.generate-matrix.outputs.date }}
+
+          echo "=== Run genesis init speed benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+          cd "$ROOT_DIR/genesis-init-benchmarks"
+          git pull
+          ./runSpeed.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/speed" -s "$SIZE"
+          python3 report_metadata.py "$DATE" speed
+          cp "results-$DATE/speed/reports/speed.html" "../benchmarks-data-result/genesis-init-speed/$DATE.html"
+          cp "results-$DATE/speed/reports/speed.json" "../benchmarks-data-result/genesis-init-speed/$DATE.json"
+          cp "results-$DATE/speed/reports/metadata.json" "../benchmarks-data-result/genesis-init-speed/$DATE.metadata.json"
+
+      - name: Run genesis init memory benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
+          DATE=${{ needs.generate-matrix.outputs.date }}
+
+          echo "=== Run genesis init memory benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+          cd "$ROOT_DIR/genesis-init-benchmarks"
+          git pull
+          ./runMemory.sh -t "tests/" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE/memory" -s "$SIZE"
+          python3 report_metadata.py "$DATE" memory
+          cp "results-$DATE/memory/reports/memory.html" "../benchmarks-data-result/genesis-init-memory/$DATE.html"
+          cp "results-$DATE/memory/reports/memory.json" "../benchmarks-data-result/genesis-init-memory/$DATE.json"
+          cp "results-$DATE/memory/reports/metadata.json" "../benchmarks-data-result/genesis-init-memory/$DATE.metadata.json"
+
+      - name: Run burntpix benchmarks
+        run: |
+          CLIENT=${{ matrix.client }}
+          SIZE=${{ matrix.size }}
+          REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
+          DATE=${{ needs.generate-matrix.outputs.date }}
+
+          echo "=== Run burntpix benchmarks for client: $CLIENT with size: $SIZE and date: $DATE ==="
+          cd "$ROOT_DIR/burntpix-benchmarks"
+          git pull
+          ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+          python3 report_metadata.py "$DATE"
+          cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
+          cp "results-$DATE/reports/result.json" "../benchmarks-data-result/burntpix/$DATE.json"
+          cp "results-$DATE/reports/metadata.json" "../benchmarks-data-result/burntpix/$DATE.metadata.json"
+
+  push-results:
+    runs-on: ubuntu-latest
+    needs: run-benchmarks
+    steps:
+      - name: Push results
+        run: |
+          ROOT_DIR=${{ needs.run-benchmarks.outputs.root_dir }}
+
+          echo "=== Pushing results to the repository ==="
+          cd "$ROOT_DIR/benchmarks-data-result"
+          git status
+          
