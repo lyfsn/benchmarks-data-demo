@@ -1,9 +1,6 @@
 name: Test Run CLI
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       root_dir:
@@ -34,8 +31,8 @@ jobs:
       ROOT_DIR: ${{ github.event.inputs.root_dir || '/home/runner/work/' }}
       DATE: ${{ github.event.inputs.date || '' }}
       CLIENTS: ${{ github.event.inputs.clients || '["nethermind","geth","reth","erigon","besu"]' }}
-      SIZES: ${{ github.event.inputs.sizes || '[1,10,100,500,1000]' }}
-      REPETITIONS: ${{ github.event.inputs.repetitions || 8 }}
+      SIZES: ${{ github.event.inputs.sizes || '[1,2]' }}
+      REPETITIONS: ${{ github.event.inputs.repetitions || 1 }}
     outputs:
       date: ${{ steps.set-date.outputs.date }}
       root_dir: ${{ steps.set-date.outputs.root_dir }}
