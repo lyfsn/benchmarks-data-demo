@@ -1,4 +1,4 @@
-name: Test Run Benchmarks
+name: Test Run CLI
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
       root_dir:
         description: "Enter the root directory for benchmarks"
         required: true
-        default: "/root/benchmarks/"
+        default: "~/benchmarks/"
       date:
         description: "Enter a date (optional, e.g. 20240101)"
         required: false
@@ -28,7 +28,7 @@ jobs:
   setup-environment:
     runs-on: ubuntu-latest
     env:
-      ROOT_DIR: ${{ github.event.inputs.root_dir || '/root/benchmarks/' }}
+      ROOT_DIR: ${{ github.event.inputs.root_dir || '~/benchmarks/' }}
       DATE: ${{ github.event.inputs.date || '' }}
       CLIENTS: ${{ github.event.inputs.clients || '["nethermind","geth","reth","erigon","besu"]' }}
       SIZES: ${{ github.event.inputs.sizes || '[1,10,100,500,1000]' }}
@@ -76,7 +76,7 @@ jobs:
           git switch $BRANCH_GENESIS_INIT_BENCHMARKS
       - name: Stop existing benchmarks and prepare environment
         run: |
-          cd "${{ env.ROOT_DIR }}/benchmarks-data-main"
+          cd "${{ env.ROOT_DIR }}/benchmarks-data-result"
           git pull
           ./stop.sh
           python3 ./update_time.py "${{ env.DATE }}"
