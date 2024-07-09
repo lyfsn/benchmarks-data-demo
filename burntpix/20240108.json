@@ -1,590 +1,2862 @@
 {
-    "clients": {
-        "nethermind": {
-            "name": "nethermind",
-            "results": [
-                {
-                    "test_case": "Burnt",
-                    "gas": "94",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "409",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "113",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1250",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "265",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "90",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "690",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "968",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1520",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                }
-            ]
+    "nethermind": [
+        {
+            "title": "GasLimit",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
         },
-        "geth": {
-            "name": "geth",
-            "results": [
-                {
-                    "test_case": "Burnt",
-                    "gas": "94",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "409",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "113",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1250",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "265",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "90",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "690",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "968",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1520",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                }
-            ]
+        {
+            "title": "ETH transfers",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "All block gas limit consumed by simple ETH transfers"
         },
-        "reth": {
-            "name": "reth",
-            "results": [
-                {
-                    "test_case": "Burnt",
-                    "gas": "94",
-                    "method": "engine_newPayloadV3",
-                    "max": 72.943773,
-                    "min": 72.943773,
-                    "p50": 72.943773,
-                    "p95": 72.943773,
-                    "p99": 72.943773,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "409",
-                    "method": "engine_newPayloadV3",
-                    "max": 495.432996,
-                    "min": 495.432996,
-                    "p50": 495.432996,
-                    "p95": 495.432996,
-                    "p99": 495.432996,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "113",
-                    "method": "engine_newPayloadV3",
-                    "max": 122.79305699999999,
-                    "min": 122.79305699999999,
-                    "p50": 122.79305699999999,
-                    "p95": 122.79305699999999,
-                    "p99": 122.79305699999999,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1250",
-                    "method": "engine_newPayloadV3",
-                    "max": 1585.771321,
-                    "min": 1585.771321,
-                    "p50": 1585.771321,
-                    "p95": 1585.771321,
-                    "p99": 1585.771321,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "265",
-                    "method": "engine_newPayloadV3",
-                    "max": 306.07903999999996,
-                    "min": 306.07903999999996,
-                    "p50": 306.07903999999996,
-                    "p95": 306.07903999999996,
-                    "p99": 306.07903999999996,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "90",
-                    "method": "engine_newPayloadV3",
-                    "max": 1.035371,
-                    "min": 1.035371,
-                    "p50": 1.035371,
-                    "p95": 1.035371,
-                    "p99": 1.035371,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "690",
-                    "method": "engine_newPayloadV3",
-                    "max": 866.147871,
-                    "min": 866.147871,
-                    "p50": 866.147871,
-                    "p95": 866.147871,
-                    "p99": 866.147871,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "968",
-                    "method": "engine_newPayloadV3",
-                    "max": 1248.936213,
-                    "min": 1248.936213,
-                    "p50": 1248.936213,
-                    "p95": 1248.936213,
-                    "p99": 1248.936213,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1520",
-                    "method": "engine_newPayloadV3",
-                    "max": 1993.0988169999998,
-                    "min": 1993.0988169999998,
-                    "p50": 1993.0988169999998,
-                    "p95": 1993.0988169999998,
-                    "p99": 1993.0988169999998,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                }
-            ]
+        {
+            "title": "BlobHash",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
         },
-        "erigon": {
-            "name": "erigon",
-            "results": [
-                {
-                    "test_case": "Burnt",
-                    "gas": "94",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "409",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "113",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1250",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "265",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "90",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "690",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "968",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1520",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                }
-            ]
+        {
+            "title": "Number",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
         },
-        "besu": {
-            "name": "besu",
-            "results": [
-                {
-                    "test_case": "Burnt",
-                    "gas": "94",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "409",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "113",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1250",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "265",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "90",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "690",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "968",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                },
-                {
-                    "test_case": "Burnt",
-                    "gas": "1520",
-                    "method": "engine_newPayloadV3",
-                    "max": 0,
-                    "min": 0,
-                    "p50": 0,
-                    "p95": 0,
-                    "p99": 0,
-                    "n": 1,
-                    "description": "Burnt Pix By Geth Developer"
-                }
-            ]
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
         }
-    },
-    "metadata": {
-        "Burnt": {
-            "GasUsed": [
-                90000000,
-                94000000,
-                113000000,
-                265000000,
-                409000000,
-                690000000,
-                968000000,
-                1250000000,
-                1520000000
-            ],
-            "Name": "Burnt",
-            "Title": "Burnt Pix",
-            "Description": "Burnt Pix By Geth Developer"
+    ],
+    "geth": [
+        {
+            "title": "GasLimit",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
         }
-    },
-    "test_cases": [
-        "Burnt"
+    ],
+    "reth": [
+        {
+            "title": "GasLimit",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "besu": [
+        {
+            "title": "GasLimit",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "erigon": [
+        {
+            "title": "GasLimit",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "0",
+            "p50": "0",
+            "p95": "0",
+            "p99": "0",
+            "min": "0",
+            "n": "0",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
     ]
 }
