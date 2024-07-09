@@ -1,6 +1,9 @@
 name: Test Run CLI
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       root_dir:
