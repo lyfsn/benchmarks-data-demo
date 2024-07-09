@@ -6,7 +6,7 @@ on:
       root_dir:
         description: "Enter the root directory for benchmarks"
         required: true
-        default: "/root/benchmarks/"
+        default: "~/benchmarks/"
       date:
         description: "Enter a date (optional, e.g. 20240101)"
         required: false
