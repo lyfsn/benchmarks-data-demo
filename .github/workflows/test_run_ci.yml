@@ -101,10 +101,9 @@ jobs:
       sizes: ${{ needs.generate-matrix.outputs.sizes }}
       repetitions: ${{ needs.generate-matrix.outputs.repetitions }}
     strategy:
-      max-parallel: 1
+      max-parallel: 8
       matrix:
         client: ${{ fromJson(needs.generate-matrix.outputs.matrix).Client }}
-        size: ${{ fromJson(needs.generate-matrix.outputs.matrix).Size }}
       fail-fast: false
     steps:
       - name: Clone gas benchmarks repo
@@ -140,7 +139,7 @@ jobs:
       sizes: ${{ needs.run-gas-benchmarks.outputs.sizes }}
       repetitions: ${{ needs.run-gas-benchmarks.outputs.repetitions }}
     strategy:
-      max-parallel: 1
+      max-parallel: 8
       matrix:
         client: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix).Client }}
         size: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix).Size }}
@@ -180,7 +179,7 @@ jobs:
       sizes: ${{ needs.run-genesis-init-speed-benchmarks.outputs.sizes }}
       repetitions: ${{ needs.run-genesis-init-speed-benchmarks.outputs.repetitions }}
     strategy:
-      max-parallel: 1
+      max-parallel: 8
       matrix:
         client: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix).Client }}
         size: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix).Size }}
@@ -220,10 +219,9 @@ jobs:
       sizes: ${{ needs.run-genesis-init-memory-benchmarks.outputs.sizes }}
       repetitions: ${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
     strategy:
-      max-parallel: 1
+      max-parallel: 8
       matrix:
         client: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix).Client }}
-        size: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix).Size }}
       fail-fast: false
     steps:
       - name: Clone burntpix benchmarks repo
