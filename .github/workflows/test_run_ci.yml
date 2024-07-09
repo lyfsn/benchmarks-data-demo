@@ -78,9 +78,11 @@ jobs:
         run: |
           cd "${{ env.ROOT_DIR }}/benchmarks-data-result"
           git pull
+          set +e
           ./stop.sh
           python3 ./update_time.py "${{ env.DATE }}"
           cat ./date.json
+          set -e
 
   generate-matrix:
     runs-on: ubuntu-latest
