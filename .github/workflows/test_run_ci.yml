@@ -136,7 +136,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gas-benchmarks-${{ matrix.client }}-${{ needs.generate-matrix.outputs.date }}
-          path: ${{ needs.generate-matrix.outputs.root_dir }}/gas-benchmarks/results-${{ needs.generate-matrix.outputs.date }}.zip
+          path: ${{ needs.generate-matrix.outputs.root_dir }}/gas-benchmarks/reports-${{ needs.generate-matrix.outputs.date }}.zip
 
   run-genesis-init-speed-benchmarks:
     runs-on: ubuntu-latest
@@ -186,7 +186,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: genesis-init-speed-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-gas-benchmarks.outputs.date }}
-          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-${{ needs.run-gas-benchmarks.outputs.date }}-speed.zip
+          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/reports-${{ needs.run-gas-benchmarks.outputs.date }}-speed.zip
 
   run-genesis-init-memory-benchmarks:
     runs-on: ubuntu-latest
@@ -236,7 +236,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: genesis-init-memory-${{ matrix.client }}-${{ matrix.size }}-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
-          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/results-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}-memory.zip
+          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}/genesis-init-benchmarks/reports-${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}-memory.zip
 
   run-burntpix-benchmarks:
     runs-on: ubuntu-latest
@@ -284,7 +284,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: burntpix-benchmarks-${{ matrix.client }}-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
-          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}/burntpix-benchmarks/results-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.zip
+          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}/burntpix-benchmarks/reports-${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}.zip
 
   push-results:
     runs-on: ubuntu-latest
