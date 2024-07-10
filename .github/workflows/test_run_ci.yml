@@ -130,7 +130,7 @@ jobs:
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
           DATE=${{ needs.generate-matrix.outputs.date }}
           cd "$ROOT_DIR/gas-benchmarks"
-          zip -r results-$DATE.zip "results-$DATE"
+          zip -r reports-$DATE.zip "results-$DATE/reports"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -180,7 +180,7 @@ jobs:
           ROOT_DIR=${{ needs.run-gas-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-gas-benchmarks.outputs.date }}
           cd "$ROOT_DIR/genesis-init-benchmarks"
-          zip -r results-$DATE-speed.zip "results-$DATE/speed"
+          zip -r reports-$DATE-speed.zip "results-$DATE/speed/reports"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -230,7 +230,7 @@ jobs:
           ROOT_DIR=${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-genesis-init-speed-benchmarks.outputs.date }}
           cd "$ROOT_DIR/genesis-init-benchmarks"
-          zip -r results-$DATE-memory.zip "results-$DATE/memory"
+          zip -r reports-$DATE-memory.zip "results-$DATE/memory/reports"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -278,7 +278,7 @@ jobs:
           ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
           cd "$ROOT_DIR/burntpix-benchmarks"
-          zip -r results-$DATE.zip "results-$DATE"
+          zip -r reports-$DATE.zip "results-$DATE/reports"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
