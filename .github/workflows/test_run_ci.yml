@@ -124,7 +124,7 @@ jobs:
           DATE=${{ needs.generate-matrix.outputs.date }}
 
           cd "$ROOT_DIR/gas-benchmarks"
-          ./run.sh -t "tests/" -w "warmup/warmup-1000bl-16wi-24tx.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+          ./run.sh -t "tests/" -w "" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
 
       - name: Zip the results folder
