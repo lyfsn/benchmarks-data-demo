@@ -1,0 +1,2862 @@
+{
+    "nethermind": [
+        {
+            "title": "GasLimit",
+            "max": "345.60",
+            "p50": "303.04",
+            "p95": "163.15",
+            "p99": "113.55",
+            "min": "109.62",
+            "n": "120",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "952.43",
+            "p50": "743.91",
+            "p95": "581.02",
+            "p99": "559.36",
+            "min": "558.79",
+            "n": "128",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "453.14",
+            "p50": "392.04",
+            "p95": "304.83",
+            "p99": "275.90",
+            "min": "274.21",
+            "n": "128",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "259.64",
+            "p50": "236.85",
+            "p95": "195.16",
+            "p99": "186.85",
+            "min": "186.70",
+            "n": "120",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "12331.22",
+            "p50": "4342.87",
+            "p95": "1220.45",
+            "p99": "1057.64",
+            "min": "1024.07",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "944.33",
+            "p50": "730.99",
+            "p95": "474.98",
+            "p99": "321.60",
+            "min": "317.28",
+            "n": "152",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "14446.95",
+            "p50": "4449.69",
+            "p95": "1146.92",
+            "p99": "812.00",
+            "min": "523.54",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "20837.64",
+            "p50": "4481.73",
+            "p95": "1136.74",
+            "p99": "815.32",
+            "min": "509.25",
+            "n": "152",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "1044.36",
+            "p50": "781.10",
+            "p95": "518.73",
+            "p99": "498.38",
+            "min": "494.88",
+            "n": "152",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "417.54",
+            "p50": "356.49",
+            "p95": "277.97",
+            "p99": "253.13",
+            "min": "252.84",
+            "n": "144",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "239.34",
+            "p50": "223.58",
+            "p95": "195.01",
+            "p99": "175.55",
+            "min": "174.65",
+            "n": "120",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "70.66",
+            "p50": "68.97",
+            "p95": "66.10",
+            "p99": "63.73",
+            "min": "63.54",
+            "n": "136",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "80.32",
+            "p50": "76.32",
+            "p95": "71.77",
+            "p99": "69.65",
+            "min": "69.09",
+            "n": "136",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "2299.19",
+            "p50": "1750.90",
+            "p95": "992.95",
+            "p99": "958.04",
+            "min": "946.06",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "70.12",
+            "p50": "68.40",
+            "p95": "63.91",
+            "p99": "62.43",
+            "min": "62.37",
+            "n": "136",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "70.44",
+            "p50": "68.11",
+            "p95": "64.68",
+            "p99": "63.65",
+            "min": "63.54",
+            "n": "128",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "1455.21",
+            "p50": "1115.42",
+            "p95": "682.09",
+            "p99": "623.71",
+            "min": "615.80",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "3618.14",
+            "p50": "2129.75",
+            "p95": "1279.28",
+            "p99": "1076.54",
+            "min": "1056.94",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "1486.87",
+            "p50": "1134.15",
+            "p95": "685.19",
+            "p99": "626.29",
+            "min": "619.93",
+            "n": "152",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "133.97",
+            "p50": "125.96",
+            "p95": "117.63",
+            "p99": "123.25",
+            "min": "115.16",
+            "n": "56",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "137.29",
+            "p50": "129.92",
+            "p95": "114.28",
+            "p99": "122.05",
+            "min": "113.85",
+            "n": "64",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "197.17",
+            "p50": "167.52",
+            "p95": "151.39",
+            "p99": "157.86",
+            "min": "148.63",
+            "n": "80",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "193.41",
+            "p50": "150.06",
+            "p95": "138.95",
+            "p99": "162.35",
+            "min": "138.92",
+            "n": "56",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "132.72",
+            "p50": "122.76",
+            "p95": "111.96",
+            "p99": "90.18",
+            "min": "85.36",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "152.47",
+            "p50": "143.15",
+            "p95": "126.77",
+            "p99": "119.16",
+            "min": "118.13",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "131.78",
+            "p50": "123.30",
+            "p95": "113.55",
+            "p99": "107.18",
+            "min": "106.82",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "129.88",
+            "p50": "123.02",
+            "p95": "110.18",
+            "p99": "105.63",
+            "min": "105.18",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "813.76",
+            "p50": "673.45",
+            "p95": "426.56",
+            "p99": "359.74",
+            "min": "354.68",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "784.87",
+            "p50": "676.05",
+            "p95": "455.28",
+            "p99": "370.07",
+            "min": "360.24",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "835.16",
+            "p50": "717.20",
+            "p95": "488.34",
+            "p99": "396.09",
+            "min": "392.56",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "754.18",
+            "p50": "658.50",
+            "p95": "417.50",
+            "p99": "313.93",
+            "min": "267.61",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "741.61",
+            "p50": "633.71",
+            "p95": "423.85",
+            "p99": "342.99",
+            "min": "337.27",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "824.88",
+            "p50": "700.35",
+            "p95": "434.91",
+            "p99": "382.50",
+            "min": "379.35",
+            "n": "144",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "233.01",
+            "p50": "213.26",
+            "p95": "172.51",
+            "p99": "163.10",
+            "min": "162.87",
+            "n": "120",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "236.45",
+            "p50": "210.51",
+            "p95": "178.98",
+            "p99": "159.77",
+            "min": "159.47",
+            "n": "120",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "244.24",
+            "p50": "215.70",
+            "p95": "185.71",
+            "p99": "173.93",
+            "min": "173.61",
+            "n": "120",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "234.34",
+            "p50": "208.98",
+            "p95": "184.86",
+            "p99": "165.61",
+            "min": "165.26",
+            "n": "120",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "235.96",
+            "p50": "221.05",
+            "p95": "193.78",
+            "p99": "172.48",
+            "min": "172.33",
+            "n": "128",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "295.12",
+            "p50": "266.95",
+            "p95": "220.64",
+            "p99": "199.52",
+            "min": "197.69",
+            "n": "120",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "319.48",
+            "p50": "287.73",
+            "p95": "237.60",
+            "p99": "209.34",
+            "min": "206.96",
+            "n": "128",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "447.76",
+            "p50": "396.55",
+            "p95": "303.66",
+            "p99": "287.19",
+            "min": "286.78",
+            "n": "144",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "632.65",
+            "p50": "592.26",
+            "p95": "410.43",
+            "p99": "338.57",
+            "min": "335.02",
+            "n": "144",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "283.22",
+            "p50": "258.19",
+            "p95": "201.13",
+            "p99": "79.84",
+            "min": "69.74",
+            "n": "120",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "253.10",
+            "p50": "239.35",
+            "p95": "200.77",
+            "p99": "184.40",
+            "min": "184.20",
+            "n": "128",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "269.83",
+            "p50": "247.37",
+            "p95": "210.55",
+            "p99": "177.60",
+            "min": "173.47",
+            "n": "120",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "387.43",
+            "p50": "356.52",
+            "p95": "270.11",
+            "p99": "245.05",
+            "min": "244.07",
+            "n": "136",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "236.76",
+            "p50": "217.84",
+            "p95": "185.78",
+            "p99": "168.95",
+            "min": "168.83",
+            "n": "120",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "286.73",
+            "p50": "264.44",
+            "p95": "220.68",
+            "p99": "202.58",
+            "min": "201.71",
+            "n": "120",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "276.39",
+            "p50": "254.95",
+            "p95": "216.37",
+            "p99": "202.87",
+            "min": "200.02",
+            "n": "128",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "228.24",
+            "p50": "211.35",
+            "p95": "185.41",
+            "p99": "167.72",
+            "min": "166.95",
+            "n": "120",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "284.09",
+            "p50": "263.77",
+            "p95": "217.12",
+            "p99": "197.03",
+            "min": "196.39",
+            "n": "120",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "125.69",
+            "p50": "120.72",
+            "p95": "106.73",
+            "p99": "103.48",
+            "min": "103.19",
+            "n": "120",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "125.52",
+            "p50": "120.40",
+            "p95": "110.61",
+            "p99": "102.88",
+            "min": "102.24",
+            "n": "120",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "125.79",
+            "p50": "120.84",
+            "p95": "110.47",
+            "p99": "104.54",
+            "min": "104.05",
+            "n": "120",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "379.76",
+            "p50": "355.82",
+            "p95": "273.21",
+            "p99": "245.64",
+            "min": "243.01",
+            "n": "144",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "261.28",
+            "p50": "243.97",
+            "p95": "210.58",
+            "p99": "187.01",
+            "min": "186.45",
+            "n": "128",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "422.75",
+            "p50": "401.76",
+            "p95": "294.49",
+            "p99": "269.53",
+            "min": "268.23",
+            "n": "136",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "geth": [
+        {
+            "title": "GasLimit",
+            "max": "191.27",
+            "p50": "171.33",
+            "p95": "138.08",
+            "p99": "127.69",
+            "min": "126.54",
+            "n": "120",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "843.16",
+            "p50": "593.32",
+            "p95": "445.34",
+            "p99": "354.48",
+            "min": "331.83",
+            "n": "128",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "248.94",
+            "p50": "219.19",
+            "p95": "175.55",
+            "p99": "167.36",
+            "min": "166.51",
+            "n": "128",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "156.93",
+            "p50": "145.82",
+            "p95": "125.84",
+            "p99": "106.63",
+            "min": "102.55",
+            "n": "120",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "2570.15",
+            "p50": "1491.85",
+            "p95": "1109.75",
+            "p99": "1028.15",
+            "min": "1005.73",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "335.78",
+            "p50": "286.69",
+            "p95": "212.09",
+            "p99": "190.04",
+            "min": "181.23",
+            "n": "152",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "4085.17",
+            "p50": "2456.01",
+            "p95": "1179.65",
+            "p99": "1111.42",
+            "min": "1108.67",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "8710.06",
+            "p50": "4511.74",
+            "p95": "1136.47",
+            "p99": "1108.67",
+            "min": "1107.62",
+            "n": "152",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "362.39",
+            "p50": "314.23",
+            "p95": "229.48",
+            "p99": "222.46",
+            "min": "221.60",
+            "n": "152",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "165.62",
+            "p50": "149.47",
+            "p95": "130.79",
+            "p99": "114.21",
+            "min": "113.17",
+            "n": "144",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "145.82",
+            "p50": "136.46",
+            "p95": "113.59",
+            "p99": "107.39",
+            "min": "106.90",
+            "n": "120",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "238.34",
+            "p50": "214.91",
+            "p95": "174.98",
+            "p99": "163.32",
+            "min": "161.79",
+            "n": "136",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "50.87",
+            "p50": "48.54",
+            "p95": "45.74",
+            "p99": "43.45",
+            "min": "43.04",
+            "n": "136",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "207.34",
+            "p50": "189.42",
+            "p95": "157.27",
+            "p99": "130.87",
+            "min": "125.73",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "86.55",
+            "p50": "83.11",
+            "p95": "75.03",
+            "p99": "67.17",
+            "min": "66.57",
+            "n": "136",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "86.38",
+            "p50": "82.61",
+            "p95": "74.86",
+            "p99": "72.63",
+            "min": "72.30",
+            "n": "128",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "93.45",
+            "p50": "88.96",
+            "p95": "79.93",
+            "p99": "72.20",
+            "min": "70.47",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "214.08",
+            "p50": "194.96",
+            "p95": "157.88",
+            "p99": "134.84",
+            "min": "128.09",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "93.29",
+            "p50": "88.87",
+            "p95": "80.82",
+            "p99": "78.06",
+            "min": "77.28",
+            "n": "152",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "108.63",
+            "p50": "102.33",
+            "p95": "94.15",
+            "p99": "99.29",
+            "min": "92.25",
+            "n": "56",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "115.54",
+            "p50": "107.17",
+            "p95": "98.31",
+            "p99": "96.32",
+            "min": "85.97",
+            "n": "64",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "293.36",
+            "p50": "232.40",
+            "p95": "179.61",
+            "p99": "177.77",
+            "min": "150.66",
+            "n": "80",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "135.31",
+            "p50": "118.96",
+            "p95": "115.13",
+            "p99": "121.34",
+            "min": "110.80",
+            "n": "56",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "470.13",
+            "p50": "372.70",
+            "p95": "240.81",
+            "p99": "205.83",
+            "min": "203.06",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "516.08",
+            "p50": "388.23",
+            "p95": "281.08",
+            "p99": "267.19",
+            "min": "267.15",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "474.38",
+            "p50": "386.73",
+            "p95": "263.75",
+            "p99": "217.23",
+            "min": "214.42",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "494.22",
+            "p50": "373.42",
+            "p95": "272.08",
+            "p99": "262.42",
+            "min": "262.15",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "998.63",
+            "p50": "705.80",
+            "p95": "516.15",
+            "p99": "437.85",
+            "min": "421.07",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "802.77",
+            "p50": "611.57",
+            "p95": "401.59",
+            "p99": "355.29",
+            "min": "352.72",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "937.19",
+            "p50": "697.77",
+            "p95": "487.57",
+            "p99": "447.50",
+            "min": "423.47",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "825.79",
+            "p50": "620.31",
+            "p95": "409.45",
+            "p99": "369.17",
+            "min": "356.26",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "895.81",
+            "p50": "629.42",
+            "p95": "431.52",
+            "p99": "385.16",
+            "min": "352.76",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "931.38",
+            "p50": "678.37",
+            "p95": "483.63",
+            "p99": "426.81",
+            "min": "424.82",
+            "n": "144",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "402.30",
+            "p50": "340.85",
+            "p95": "239.78",
+            "p99": "201.04",
+            "min": "198.52",
+            "n": "120",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "388.36",
+            "p50": "332.49",
+            "p95": "247.36",
+            "p99": "230.67",
+            "min": "229.59",
+            "n": "120",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "394.20",
+            "p50": "330.08",
+            "p95": "245.72",
+            "p99": "211.59",
+            "min": "209.55",
+            "n": "120",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "422.30",
+            "p50": "346.40",
+            "p95": "258.86",
+            "p99": "237.98",
+            "min": "233.67",
+            "n": "120",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "68.59",
+            "p50": "65.89",
+            "p95": "60.68",
+            "p99": "57.31",
+            "min": "56.69",
+            "n": "128",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "154.91",
+            "p50": "145.57",
+            "p95": "125.36",
+            "p99": "116.28",
+            "min": "116.27",
+            "n": "120",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "150.81",
+            "p50": "142.30",
+            "p95": "122.60",
+            "p99": "115.49",
+            "min": "114.50",
+            "n": "128",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "165.31",
+            "p50": "152.57",
+            "p95": "129.69",
+            "p99": "122.69",
+            "min": "120.21",
+            "n": "144",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "227.68",
+            "p50": "207.35",
+            "p95": "166.66",
+            "p99": "153.75",
+            "min": "148.90",
+            "n": "144",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "142.28",
+            "p50": "134.95",
+            "p95": "116.58",
+            "p99": "108.88",
+            "min": "108.43",
+            "n": "120",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "198.54",
+            "p50": "180.87",
+            "p95": "152.04",
+            "p99": "127.87",
+            "min": "122.73",
+            "n": "128",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "160.33",
+            "p50": "147.79",
+            "p95": "126.21",
+            "p99": "114.41",
+            "min": "112.87",
+            "n": "120",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "224.35",
+            "p50": "204.92",
+            "p95": "164.43",
+            "p99": "159.85",
+            "min": "159.64",
+            "n": "136",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "108.54",
+            "p50": "102.20",
+            "p95": "91.97",
+            "p99": "90.16",
+            "min": "90.00",
+            "n": "120",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "188.77",
+            "p50": "175.98",
+            "p95": "144.68",
+            "p99": "133.30",
+            "min": "131.21",
+            "n": "120",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "160.10",
+            "p50": "147.46",
+            "p95": "127.76",
+            "p99": "119.51",
+            "min": "119.18",
+            "n": "128",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "145.23",
+            "p50": "136.43",
+            "p95": "117.03",
+            "p99": "106.17",
+            "min": "104.24",
+            "n": "120",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "189.08",
+            "p50": "174.74",
+            "p95": "147.05",
+            "p99": "139.70",
+            "min": "139.21",
+            "n": "120",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "70.27",
+            "p50": "67.40",
+            "p95": "62.52",
+            "p99": "58.35",
+            "min": "57.93",
+            "n": "120",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "71.74",
+            "p50": "68.93",
+            "p95": "63.45",
+            "p99": "59.73",
+            "min": "59.39",
+            "n": "120",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "76.11",
+            "p50": "72.96",
+            "p95": "67.22",
+            "p99": "64.75",
+            "min": "64.40",
+            "n": "120",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "170.00",
+            "p50": "157.34",
+            "p95": "129.90",
+            "p99": "123.93",
+            "min": "123.15",
+            "n": "144",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "191.97",
+            "p50": "174.93",
+            "p95": "150.21",
+            "p99": "129.86",
+            "min": "125.89",
+            "n": "128",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "198.10",
+            "p50": "180.82",
+            "p95": "150.00",
+            "p99": "129.83",
+            "min": "128.55",
+            "n": "136",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "reth": [
+        {
+            "title": "GasLimit",
+            "max": "717.28",
+            "p50": "569.96",
+            "p95": "374.51",
+            "p99": "360.73",
+            "min": "358.41",
+            "n": "120",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "1590.48",
+            "p50": "1023.11",
+            "p95": "934.16",
+            "p99": "886.94",
+            "min": "880.10",
+            "n": "128",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "853.85",
+            "p50": "671.85",
+            "p95": "438.97",
+            "p99": "423.68",
+            "min": "418.47",
+            "n": "128",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "712.86",
+            "p50": "582.99",
+            "p95": "369.57",
+            "p99": "347.63",
+            "min": "342.55",
+            "n": "120",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "8609.70",
+            "p50": "4890.16",
+            "p95": "1194.01",
+            "p99": "1109.59",
+            "min": "1109.12",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "804.85",
+            "p50": "649.44",
+            "p95": "431.91",
+            "p99": "393.90",
+            "min": "387.27",
+            "n": "152",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "13131.53",
+            "p50": "4885.47",
+            "p95": "1236.31",
+            "p99": "1216.41",
+            "min": "1214.15",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "22755.63",
+            "p50": "4829.96",
+            "p95": "1302.81",
+            "p99": "1177.51",
+            "min": "1127.08",
+            "n": "152",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "806.46",
+            "p50": "655.43",
+            "p95": "440.70",
+            "p99": "397.12",
+            "min": "396.13",
+            "n": "152",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "414.67",
+            "p50": "362.62",
+            "p95": "302.97",
+            "p99": "264.60",
+            "min": "260.63",
+            "n": "144",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "238.64",
+            "p50": "220.15",
+            "p95": "181.85",
+            "p99": "177.84",
+            "min": "177.73",
+            "n": "120",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "72.21",
+            "p50": "69.98",
+            "p95": "65.16",
+            "p99": "64.07",
+            "min": "64.02",
+            "n": "136",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "81.01",
+            "p50": "76.26",
+            "p95": "70.74",
+            "p99": "69.71",
+            "min": "69.61",
+            "n": "136",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "167.98",
+            "p50": "158.45",
+            "p95": "137.75",
+            "p99": "135.02",
+            "min": "134.21",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "52.57",
+            "p50": "51.08",
+            "p95": "49.07",
+            "p99": "48.21",
+            "min": "48.17",
+            "n": "136",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "52.42",
+            "p50": "51.02",
+            "p95": "48.93",
+            "p99": "48.20",
+            "min": "48.06",
+            "n": "128",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "1195.24",
+            "p50": "877.48",
+            "p95": "590.46",
+            "p99": "540.55",
+            "min": "523.39",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "5771.96",
+            "p50": "2868.12",
+            "p95": "1236.65",
+            "p99": "1201.78",
+            "min": "1201.28",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "1021.63",
+            "p50": "785.22",
+            "p95": "514.29",
+            "p99": "478.68",
+            "min": "473.75",
+            "n": "152",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "65.22",
+            "p50": "61.83",
+            "p95": "60.53",
+            "p99": "62.22",
+            "min": "59.96",
+            "n": "56",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "69.79",
+            "p50": "66.53",
+            "p95": "63.10",
+            "p99": "64.69",
+            "min": "61.95",
+            "n": "64",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "313.20",
+            "p50": "270.28",
+            "p95": "220.50",
+            "p99": "236.00",
+            "min": "217.89",
+            "n": "80",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "88.27",
+            "p50": "72.39",
+            "p95": "68.71",
+            "p99": "76.91",
+            "min": "68.34",
+            "n": "56",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "464.31",
+            "p50": "396.41",
+            "p95": "307.70",
+            "p99": "284.60",
+            "min": "284.05",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "484.33",
+            "p50": "409.82",
+            "p95": "298.18",
+            "p99": "288.42",
+            "min": "287.89",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "460.38",
+            "p50": "395.43",
+            "p95": "291.81",
+            "p99": "283.23",
+            "min": "282.10",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "459.22",
+            "p50": "393.87",
+            "p95": "290.21",
+            "p99": "277.32",
+            "min": "276.24",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "1523.25",
+            "p50": "1076.18",
+            "p95": "730.44",
+            "p99": "711.20",
+            "min": "706.84",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "1347.28",
+            "p50": "985.73",
+            "p95": "658.29",
+            "p99": "625.71",
+            "min": "620.98",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "1517.34",
+            "p50": "1063.21",
+            "p95": "738.45",
+            "p99": "653.78",
+            "min": "639.58",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "1351.27",
+            "p50": "988.86",
+            "p95": "650.72",
+            "p99": "620.39",
+            "min": "618.14",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "1318.84",
+            "p50": "960.00",
+            "p95": "645.67",
+            "p99": "613.36",
+            "min": "610.61",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "1506.69",
+            "p50": "1053.93",
+            "p95": "734.03",
+            "p99": "681.68",
+            "min": "662.46",
+            "n": "144",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "397.95",
+            "p50": "348.08",
+            "p95": "262.70",
+            "p99": "254.33",
+            "min": "253.57",
+            "n": "120",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "396.76",
+            "p50": "345.94",
+            "p95": "263.46",
+            "p99": "258.22",
+            "min": "257.91",
+            "n": "120",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "425.17",
+            "p50": "370.26",
+            "p95": "292.23",
+            "p99": "261.30",
+            "min": "258.49",
+            "n": "120",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "401.58",
+            "p50": "348.18",
+            "p95": "275.80",
+            "p99": "259.50",
+            "min": "259.04",
+            "n": "120",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "270.45",
+            "p50": "247.34",
+            "p95": "203.94",
+            "p99": "190.61",
+            "min": "189.36",
+            "n": "128",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "734.74",
+            "p50": "576.73",
+            "p95": "384.04",
+            "p99": "357.98",
+            "min": "355.88",
+            "n": "120",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "785.78",
+            "p50": "625.18",
+            "p95": "409.37",
+            "p99": "370.04",
+            "min": "359.46",
+            "n": "128",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "527.88",
+            "p50": "448.62",
+            "p95": "341.89",
+            "p99": "305.39",
+            "min": "302.74",
+            "n": "144",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "901.09",
+            "p50": "714.14",
+            "p95": "466.74",
+            "p99": "437.67",
+            "min": "432.07",
+            "n": "144",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "506.84",
+            "p50": "427.01",
+            "p95": "338.95",
+            "p99": "298.61",
+            "min": "297.84",
+            "n": "120",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "585.46",
+            "p50": "481.21",
+            "p95": "331.97",
+            "p99": "318.36",
+            "min": "316.07",
+            "n": "128",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "723.08",
+            "p50": "578.62",
+            "p95": "381.70",
+            "p99": "358.35",
+            "min": "356.66",
+            "n": "120",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "923.49",
+            "p50": "706.04",
+            "p95": "471.87",
+            "p99": "462.99",
+            "min": "462.64",
+            "n": "136",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "268.77",
+            "p50": "243.93",
+            "p95": "199.81",
+            "p99": "196.75",
+            "min": "196.10",
+            "n": "120",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "677.83",
+            "p50": "541.99",
+            "p95": "402.55",
+            "p99": "356.50",
+            "min": "355.24",
+            "n": "120",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "714.11",
+            "p50": "577.57",
+            "p95": "385.28",
+            "p99": "369.80",
+            "min": "369.34",
+            "n": "128",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "238.86",
+            "p50": "218.82",
+            "p95": "182.52",
+            "p99": "173.94",
+            "min": "173.23",
+            "n": "120",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "722.79",
+            "p50": "586.48",
+            "p95": "416.59",
+            "p99": "372.90",
+            "min": "372.74",
+            "n": "120",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "148.69",
+            "p50": "138.93",
+            "p95": "123.19",
+            "p99": "119.55",
+            "min": "119.28",
+            "n": "120",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "151.76",
+            "p50": "142.60",
+            "p95": "130.77",
+            "p99": "125.27",
+            "min": "124.91",
+            "n": "120",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "150.82",
+            "p50": "142.56",
+            "p95": "125.39",
+            "p99": "123.43",
+            "min": "123.33",
+            "n": "120",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "455.69",
+            "p50": "394.98",
+            "p95": "291.65",
+            "p99": "279.93",
+            "min": "279.04",
+            "n": "144",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "708.76",
+            "p50": "584.87",
+            "p95": "405.65",
+            "p99": "361.62",
+            "min": "361.07",
+            "n": "128",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "705.71",
+            "p50": "571.64",
+            "p95": "378.94",
+            "p99": "353.97",
+            "min": "352.70",
+            "n": "136",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "erigon": [
+        {
+            "title": "GasLimit",
+            "max": "157.71",
+            "p50": "152.67",
+            "p95": "142.94",
+            "p99": "135.69",
+            "min": "135.09",
+            "n": "112",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "201.94",
+            "p50": "179.10",
+            "p95": "149.02",
+            "p99": "161.20",
+            "min": "144.57",
+            "n": "70",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "201.28",
+            "p50": "192.60",
+            "p95": "167.96",
+            "p99": "149.05",
+            "min": "148.68",
+            "n": "104",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "158.12",
+            "p50": "152.42",
+            "p95": "139.91",
+            "p99": "132.38",
+            "min": "132.17",
+            "n": "120",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "2160.71",
+            "p50": "1450.03",
+            "p95": "730.69",
+            "p99": "609.85",
+            "min": "591.84",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "339.62",
+            "p50": "316.53",
+            "p95": "267.63",
+            "p99": "228.20",
+            "min": "228.12",
+            "n": "152",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "3871.36",
+            "p50": "2079.27",
+            "p95": "819.23",
+            "p99": "549.53",
+            "min": "514.63",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "11498.41",
+            "p50": "4025.18",
+            "p95": "1148.00",
+            "p99": "1034.14",
+            "min": "1007.04",
+            "n": "152",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "334.62",
+            "p50": "309.12",
+            "p95": "253.65",
+            "p99": "210.32",
+            "min": "202.78",
+            "n": "152",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "163.98",
+            "p50": "155.04",
+            "p95": "142.94",
+            "p99": "128.13",
+            "min": "126.54",
+            "n": "144",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "118.27",
+            "p50": "115.21",
+            "p95": "109.15",
+            "p99": "100.41",
+            "min": "98.69",
+            "n": "120",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "237.42",
+            "p50": "225.84",
+            "p95": "198.41",
+            "p99": "173.28",
+            "min": "162.95",
+            "n": "136",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "51.63",
+            "p50": "49.52",
+            "p95": "47.88",
+            "p99": "47.08",
+            "min": "47.02",
+            "n": "136",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "204.67",
+            "p50": "194.81",
+            "p95": "175.13",
+            "p99": "165.85",
+            "min": "160.54",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "86.03",
+            "p50": "84.21",
+            "p95": "80.42",
+            "p99": "77.13",
+            "min": "76.32",
+            "n": "136",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "86.15",
+            "p50": "84.06",
+            "p95": "79.70",
+            "p99": "75.75",
+            "min": "75.17",
+            "n": "128",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "92.98",
+            "p50": "90.10",
+            "p95": "84.63",
+            "p99": "79.21",
+            "min": "78.35",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "209.91",
+            "p50": "200.43",
+            "p95": "179.32",
+            "p99": "160.13",
+            "min": "154.32",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "92.48",
+            "p50": "90.32",
+            "p95": "85.13",
+            "p99": "79.37",
+            "min": "76.68",
+            "n": "152",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "108.26",
+            "p50": "105.05",
+            "p95": "100.28",
+            "p99": "101.88",
+            "min": "97.07",
+            "n": "56",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "111.66",
+            "p50": "108.11",
+            "p95": "98.00",
+            "p99": "101.15",
+            "min": "95.49",
+            "n": "64",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "157.17",
+            "p50": "150.85",
+            "p95": "140.65",
+            "p99": "142.16",
+            "min": "138.63",
+            "n": "80",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "144.43",
+            "p50": "125.10",
+            "p95": "117.91",
+            "p99": "129.00",
+            "min": "117.37",
+            "n": "56",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "239.41",
+            "p50": "219.47",
+            "p95": "187.44",
+            "p99": "174.51",
+            "min": "173.40",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "269.89",
+            "p50": "245.25",
+            "p95": "211.75",
+            "p99": "170.74",
+            "min": "167.06",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "244.05",
+            "p50": "219.79",
+            "p95": "189.04",
+            "p99": "157.87",
+            "min": "156.49",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "247.98",
+            "p50": "222.60",
+            "p95": "192.14",
+            "p99": "170.98",
+            "min": "169.76",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "857.31",
+            "p50": "725.48",
+            "p95": "526.98",
+            "p99": "447.97",
+            "min": "433.87",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "812.97",
+            "p50": "694.10",
+            "p95": "538.50",
+            "p99": "498.87",
+            "min": "486.85",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "821.57",
+            "p50": "697.74",
+            "p95": "530.51",
+            "p99": "353.90",
+            "min": "319.37",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "801.49",
+            "p50": "691.11",
+            "p95": "532.03",
+            "p99": "494.76",
+            "min": "472.18",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "774.74",
+            "p50": "662.47",
+            "p95": "492.50",
+            "p99": "441.65",
+            "min": "435.67",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "799.49",
+            "p50": "692.60",
+            "p95": "491.86",
+            "p99": "437.25",
+            "min": "434.16",
+            "n": "144",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "219.62",
+            "p50": "200.58",
+            "p95": "178.40",
+            "p99": "161.70",
+            "min": "160.82",
+            "n": "120",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "211.45",
+            "p50": "198.74",
+            "p95": "173.41",
+            "p99": "159.40",
+            "min": "159.16",
+            "n": "120",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "218.80",
+            "p50": "204.59",
+            "p95": "174.82",
+            "p99": "169.93",
+            "min": "169.81",
+            "n": "120",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "220.21",
+            "p50": "204.20",
+            "p95": "180.16",
+            "p99": "141.55",
+            "min": "138.96",
+            "n": "120",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "90.46",
+            "p50": "86.88",
+            "p95": "82.59",
+            "p99": "77.31",
+            "min": "76.12",
+            "n": "128",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "82.67",
+            "p50": "80.77",
+            "p95": "76.30",
+            "p99": "71.77",
+            "min": "70.86",
+            "n": "120",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "76.75",
+            "p50": "74.73",
+            "p95": "71.10",
+            "p99": "66.87",
+            "min": "66.19",
+            "n": "128",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "120.46",
+            "p50": "115.85",
+            "p95": "108.85",
+            "p99": "89.87",
+            "min": "79.05",
+            "n": "144",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "178.14",
+            "p50": "171.01",
+            "p95": "151.51",
+            "p99": "136.40",
+            "min": "134.96",
+            "n": "144",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "120.59",
+            "p50": "117.20",
+            "p95": "108.29",
+            "p99": "105.61",
+            "min": "105.61",
+            "n": "120",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "176.57",
+            "p50": "167.31",
+            "p95": "148.27",
+            "p99": "136.01",
+            "min": "135.66",
+            "n": "128",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "159.22",
+            "p50": "153.02",
+            "p95": "138.72",
+            "p99": "122.59",
+            "min": "121.09",
+            "n": "120",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "177.60",
+            "p50": "169.81",
+            "p95": "152.98",
+            "p99": "136.89",
+            "min": "136.61",
+            "n": "136",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "88.86",
+            "p50": "86.60",
+            "p95": "81.80",
+            "p99": "77.42",
+            "min": "77.37",
+            "n": "120",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "156.78",
+            "p50": "151.44",
+            "p95": "137.58",
+            "p99": "125.00",
+            "min": "124.02",
+            "n": "120",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "133.30",
+            "p50": "129.37",
+            "p95": "119.48",
+            "p99": "103.57",
+            "min": "102.29",
+            "n": "128",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "118.61",
+            "p50": "114.85",
+            "p95": "103.79",
+            "p99": "100.91",
+            "min": "100.74",
+            "n": "120",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "156.63",
+            "p50": "150.84",
+            "p95": "137.74",
+            "p99": "128.36",
+            "min": "127.97",
+            "n": "120",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "64.11",
+            "p50": "62.69",
+            "p95": "59.52",
+            "p99": "57.03",
+            "min": "56.57",
+            "n": "120",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "65.45",
+            "p50": "63.75",
+            "p95": "61.01",
+            "p99": "59.71",
+            "min": "59.62",
+            "n": "120",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "68.74",
+            "p50": "66.75",
+            "p95": "63.07",
+            "p99": "61.76",
+            "min": "61.69",
+            "n": "120",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "145.36",
+            "p50": "139.52",
+            "p95": "125.78",
+            "p99": "119.44",
+            "min": "119.31",
+            "n": "144",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "158.26",
+            "p50": "152.35",
+            "p95": "137.84",
+            "p99": "128.36",
+            "min": "126.67",
+            "n": "128",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "160.92",
+            "p50": "154.92",
+            "p95": "139.47",
+            "p99": "137.25",
+            "min": "136.46",
+            "n": "136",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ],
+    "besu": [
+        {
+            "title": "GasLimit",
+            "max": "83.67",
+            "p50": "79.64",
+            "p95": "62.34",
+            "p99": "59.59",
+            "min": "59.11",
+            "n": "120",
+            "description": "Endlessly pushing current block's gas limit to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ETH transfers",
+            "max": "600.95",
+            "p50": "414.46",
+            "p95": "206.86",
+            "p99": "161.04",
+            "min": "151.39",
+            "n": "128",
+            "description": "All block gas limit consumed by simple ETH transfers"
+        },
+        {
+            "title": "BlobHash",
+            "max": "138.12",
+            "p50": "129.17",
+            "p95": "118.76",
+            "p99": "104.34",
+            "min": "99.46",
+            "n": "128",
+            "description": "Endlessly pushing zero as index and BlobHash opcode to stack when there were no blobs (1000 per 1 contract)"
+        },
+        {
+            "title": "Number",
+            "max": "88.03",
+            "p50": "82.27",
+            "p95": "67.26",
+            "p99": "64.25",
+            "min": "64.06",
+            "n": "120",
+            "description": "Endlessly pushing current block's number to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "SStore - many accounts, random storage keys, random values",
+            "max": "3235.00",
+            "p50": "2005.12",
+            "p95": "1069.70",
+            "p99": "913.07",
+            "min": "820.67",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in random storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating constant value",
+            "max": "304.38",
+            "p50": "249.93",
+            "p95": "178.60",
+            "p99": "147.77",
+            "min": "135.73",
+            "n": "152",
+            "description": "SStore - repeating storing the same 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - many accounts, consecutive storage keys, random values",
+            "max": "4665.02",
+            "p50": "1380.81",
+            "p95": "694.00",
+            "p99": "657.16",
+            "min": "648.91",
+            "n": "152",
+            "description": "SStore - storing random 32-byte values in consecutive storage keys of many accounts"
+        },
+        {
+            "title": "SStore - one storage key, repeating two values, zero and non-zero",
+            "max": "17487.42",
+            "p50": "4520.25",
+            "p95": "1264.22",
+            "p99": "1097.63",
+            "min": "1090.49",
+            "n": "152",
+            "description": "SStore - repeating storing zero and then storing 32-byte word in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating zero value",
+            "max": "306.53",
+            "p50": "242.72",
+            "p95": "203.37",
+            "p99": "192.52",
+            "min": "191.78",
+            "n": "152",
+            "description": "SStore - repeating storing zero in single storage key of single account"
+        },
+        {
+            "title": "SStore - one storage key, repeating random values",
+            "max": "234.33",
+            "p50": "202.01",
+            "p95": "149.23",
+            "p99": "135.99",
+            "min": "133.26",
+            "n": "144",
+            "description": "SStore - repeating storing random 32-byte values in single storage key of single account"
+        },
+        {
+            "title": "Origin",
+            "max": "98.94",
+            "p50": "91.79",
+            "p95": "69.46",
+            "p99": "61.39",
+            "min": "60.58",
+            "n": "120",
+            "description": "Endlessly pushing execution origination address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Point evaluation - one data",
+            "max": "70.90",
+            "p50": "68.94",
+            "p95": "65.32",
+            "p99": "64.66",
+            "min": "64.54",
+            "n": "136",
+            "description": "Point evaluation precompile repeating computations on the same data"
+        },
+        {
+            "title": "EcRecover precompile",
+            "max": "54.52",
+            "p50": "52.17",
+            "p95": "48.88",
+            "p99": "47.33",
+            "min": "46.96",
+            "n": "136",
+            "description": "EcRecover precompile calculations"
+        },
+        {
+            "title": "EcMul with (0, 0) and 32-byte scalar",
+            "max": "1152.47",
+            "p50": "821.27",
+            "p95": "571.30",
+            "p99": "477.25",
+            "min": "472.42",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and 32-byte scalar",
+            "max": "67.14",
+            "p50": "64.51",
+            "p95": "60.31",
+            "p99": "57.46",
+            "min": "56.94",
+            "n": "136",
+            "description": "EcMul precompile with initial point with x, y and scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with (1, 2) and 32-byte scalar",
+            "max": "66.86",
+            "p50": "64.30",
+            "p95": "60.16",
+            "p99": "59.51",
+            "min": "59.49",
+            "n": "128",
+            "description": "EcMul precompile with initial point x = 1, y = 2 scalar as 32-byte values"
+        },
+        {
+            "title": "EcMul with 32-byte coordinates and scalar 2",
+            "max": "857.01",
+            "p50": "643.07",
+            "p95": "412.87",
+            "p99": "256.49",
+            "min": "231.05",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x and y as 32-byte values and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (0, 0) and scalar 2",
+            "max": "1399.96",
+            "p50": "943.89",
+            "p95": "645.96",
+            "p99": "499.66",
+            "min": "494.47",
+            "n": "152",
+            "description": "EcMul precompile with initial point with x = 0 and y = 0 and scalar equal 2"
+        },
+        {
+            "title": "EcMul with (1, 2) and scalar 2",
+            "max": "889.38",
+            "p50": "663.87",
+            "p95": "451.45",
+            "p99": "366.36",
+            "min": "324.80",
+            "n": "152",
+            "description": "EcMul precompile with initial point x = 1, y = 2 and scalar equal 2"
+        },
+        {
+            "title": "Blake2f 1M rounds",
+            "max": "77.03",
+            "p50": "73.57",
+            "p95": "70.67",
+            "p99": "70.99",
+            "min": "66.44",
+            "n": "56",
+            "description": "Blake2f precompile with 1_000_000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1k rounds",
+            "max": "69.02",
+            "p50": "66.18",
+            "p95": "63.26",
+            "p99": "64.98",
+            "min": "62.80",
+            "n": "64",
+            "description": "Blake2f precompile with 1000 rounds of computations"
+        },
+        {
+            "title": "Blake2f 1 round",
+            "max": "40.22",
+            "p50": "38.41",
+            "p95": "37.02",
+            "p99": "37.35",
+            "min": "36.68",
+            "n": "80",
+            "description": "Blake2f precompile with 1 round of computations"
+        },
+        {
+            "title": "Blake2f 10M rounds",
+            "max": "105.00",
+            "p50": "86.15",
+            "p95": "81.72",
+            "p99": "91.34",
+            "min": "81.04",
+            "n": "56",
+            "description": "Blake2f precompile with 10_000_000 rounds of computations"
+        },
+        {
+            "title": "SHA-2 precompile from 1 byte",
+            "max": "66.69",
+            "p50": "64.32",
+            "p95": "59.99",
+            "p99": "57.28",
+            "min": "56.98",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 128 bytes",
+            "max": "64.47",
+            "p50": "61.71",
+            "p95": "58.30",
+            "p99": "55.97",
+            "min": "55.65",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 32 bytes",
+            "max": "66.85",
+            "p50": "63.98",
+            "p95": "59.19",
+            "p99": "56.73",
+            "min": "56.40",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "SHA-2 precompile from 8 bytes",
+            "max": "67.28",
+            "p50": "64.52",
+            "p95": "59.48",
+            "p99": "57.25",
+            "min": "57.06",
+            "n": "120",
+            "description": "SHA-2 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 32 bytes",
+            "max": "248.98",
+            "p50": "224.84",
+            "p95": "194.09",
+            "p99": "186.24",
+            "min": "185.32",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 32-byte source data"
+        },
+        {
+            "title": "RipemdFrom16KBytes",
+            "max": "303.29",
+            "p50": "270.92",
+            "p95": "212.92",
+            "p99": "190.92",
+            "min": "177.57",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 8 bytes",
+            "max": "250.29",
+            "p50": "226.96",
+            "p95": "190.71",
+            "p99": "180.27",
+            "min": "177.28",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 8-byte source data"
+        },
+        {
+            "title": "RipemdFrom1024Bytes",
+            "max": "280.32",
+            "p50": "254.52",
+            "p95": "206.55",
+            "p99": "182.66",
+            "min": "175.29",
+            "n": "152",
+            "description": "Description not found on metadata file"
+        },
+        {
+            "title": "Ripemd-160 precompile from 128 bytes",
+            "max": "241.72",
+            "p50": "217.61",
+            "p95": "182.97",
+            "p99": "175.72",
+            "min": "173.35",
+            "n": "152",
+            "description": "Ripemd-160 precompile calculations based on 128-byte source data"
+        },
+        {
+            "title": "Ripemd-160 precompile from 1 byte",
+            "max": "248.81",
+            "p50": "226.26",
+            "p95": "189.67",
+            "p99": "183.00",
+            "min": "181.35",
+            "n": "144",
+            "description": "Ripemd-160 precompile calculations based on 1-byte source data"
+        },
+        {
+            "title": "Identity precompile from 8 bytes",
+            "max": "56.98",
+            "p50": "54.84",
+            "p95": "50.39",
+            "p99": "48.80",
+            "min": "48.69",
+            "n": "120",
+            "description": "Identity precompile call based on 8-byte source data"
+        },
+        {
+            "title": "Identity precompile from 32 bytes",
+            "max": "56.98",
+            "p50": "54.70",
+            "p95": "50.66",
+            "p99": "49.37",
+            "min": "49.32",
+            "n": "120",
+            "description": "Identity precompile call based on 32-byte source data"
+        },
+        {
+            "title": "Identity precompile from 128 bytes",
+            "max": "60.10",
+            "p50": "57.16",
+            "p95": "53.51",
+            "p99": "51.08",
+            "min": "50.62",
+            "n": "120",
+            "description": "Identity precompile call based on 128-byte source data"
+        },
+        {
+            "title": "Identity precompile from 1 byte",
+            "max": "56.86",
+            "p50": "54.69",
+            "p95": "51.10",
+            "p99": "48.73",
+            "min": "48.34",
+            "n": "120",
+            "description": "Identity precompile call based on 1-byte source data"
+        },
+        {
+            "title": "Address",
+            "max": "100.72",
+            "p50": "96.43",
+            "p95": "89.81",
+            "p99": "87.35",
+            "min": "86.97",
+            "n": "128",
+            "description": "Endlessly pushing account address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MStore - zero",
+            "max": "80.95",
+            "p50": "69.38",
+            "p95": "65.71",
+            "p99": "62.69",
+            "min": "62.38",
+            "n": "120",
+            "description": "Endlessly pushing zero value to memory with offset zero"
+        },
+        {
+            "title": "MStore - random",
+            "max": "85.17",
+            "p50": "74.43",
+            "p95": "67.79",
+            "p99": "64.99",
+            "min": "64.93",
+            "n": "128",
+            "description": "Endlessly pushing random value to memory with offset zero"
+        },
+        {
+            "title": "JumpDest",
+            "max": "176.89",
+            "p50": "165.06",
+            "p95": "144.64",
+            "p99": "133.27",
+            "min": "129.33",
+            "n": "144",
+            "description": "Block full of JumpDest opcode only"
+        },
+        {
+            "title": "Push0-Pop",
+            "max": "167.67",
+            "p50": "157.75",
+            "p95": "140.84",
+            "p99": "136.15",
+            "min": "135.59",
+            "n": "144",
+            "description": "Endlessly pushing zeros to stack, then popping it"
+        },
+        {
+            "title": "PrevRandao",
+            "max": "97.26",
+            "p50": "94.36",
+            "p95": "88.85",
+            "p99": "86.06",
+            "min": "86.06",
+            "n": "120",
+            "description": "Endlessly pushing previous block's randao mix to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CodeCopy",
+            "max": "88.90",
+            "p50": "77.10",
+            "p95": "62.07",
+            "p99": "59.12",
+            "min": "58.77",
+            "n": "128",
+            "description": "Endlessly loading 32-bytes of code to the memory"
+        },
+        {
+            "title": "BaseFee",
+            "max": "89.64",
+            "p50": "85.71",
+            "p95": "79.92",
+            "p99": "76.56",
+            "min": "76.35",
+            "n": "120",
+            "description": "Endlessly pushing current base fee to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Gas-Pop",
+            "max": "128.73",
+            "p50": "122.82",
+            "p95": "114.50",
+            "p99": "110.55",
+            "min": "110.42",
+            "n": "136",
+            "description": "Endlessly pushing amount of remaining gas to stack, then popping it"
+        },
+        {
+            "title": "Caller",
+            "max": "99.95",
+            "p50": "95.24",
+            "p95": "88.35",
+            "p99": "87.29",
+            "min": "87.29",
+            "n": "120",
+            "description": "Endlessly pushing caller address to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "MSize",
+            "max": "75.08",
+            "p50": "72.43",
+            "p95": "68.10",
+            "p99": "64.84",
+            "min": "64.84",
+            "n": "120",
+            "description": "Endlessly pushing memory size to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "ChainId",
+            "max": "99.30",
+            "p50": "93.97",
+            "p95": "84.99",
+            "p99": "82.53",
+            "min": "82.10",
+            "n": "128",
+            "description": "Endlessly pushing chain ID to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "CoinBase",
+            "max": "99.90",
+            "p50": "95.13",
+            "p95": "88.38",
+            "p99": "86.96",
+            "min": "86.84",
+            "n": "120",
+            "description": "Endlessly pushing current block's coinbase to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Timestamp",
+            "max": "81.32",
+            "p50": "78.26",
+            "p95": "74.33",
+            "p99": "72.19",
+            "min": "71.86",
+            "n": "120",
+            "description": "Endlessly pushing current block's timestamp to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Keccak256 from 1 byte",
+            "max": "62.19",
+            "p50": "59.29",
+            "p95": "56.15",
+            "p99": "54.44",
+            "min": "54.05",
+            "n": "120",
+            "description": "Keccak calculations based on 1-byte source data"
+        },
+        {
+            "title": "Keccak256 from 8 bytes",
+            "max": "61.72",
+            "p50": "59.00",
+            "p95": "55.92",
+            "p99": "53.93",
+            "min": "53.71",
+            "n": "120",
+            "description": "Keccak calculations based on 8-byte source data"
+        },
+        {
+            "title": "Keccak256 from 32 bytes",
+            "max": "60.67",
+            "p50": "58.51",
+            "p95": "55.46",
+            "p99": "53.59",
+            "min": "53.36",
+            "n": "120",
+            "description": "Keccak calculations based on 32-byte source data"
+        },
+        {
+            "title": "Caller-Pop",
+            "max": "169.37",
+            "p50": "159.42",
+            "p95": "143.77",
+            "p99": "137.85",
+            "min": "137.84",
+            "n": "144",
+            "description": "Endlessly pushing caller address to stack, then popping it"
+        },
+        {
+            "title": "Gas",
+            "max": "75.31",
+            "p50": "72.49",
+            "p95": "68.44",
+            "p99": "67.05",
+            "min": "66.83",
+            "n": "128",
+            "description": "Endlessly pushing amount of remaining gas to stack (1000 per 1 contract)"
+        },
+        {
+            "title": "Push0",
+            "max": "104.00",
+            "p50": "99.41",
+            "p95": "94.05",
+            "p99": "89.71",
+            "min": "89.31",
+            "n": "136",
+            "description": "Endlessly pushing zeros to stack (1000 per 1 contract)"
+        }
+    ]
+}
