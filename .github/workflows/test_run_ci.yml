@@ -14,7 +14,7 @@ on:
       clients:
         description: 'Enter clients to use (e.g., [nethermind,geth,reth,erigon,besu])'
         required: true
-        default: '[nethermind,reth,besu]'
+        default: '[nethermind,reth]'
       sizes:
         description: "Enter sizes (e.g., [1,10,100,500,1000])"
         required: false
