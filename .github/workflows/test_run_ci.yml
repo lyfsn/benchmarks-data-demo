@@ -14,7 +14,7 @@ on:
       clients:
         description: 'Enter clients to use (e.g., [nethermind,geth,reth,erigon,besu])'
         required: true
-        default: '[nethermind,reth]'
+        default: '[nethermind,geth,reth,erigon,besu]'
       sizes:
         description: "Enter sizes (e.g., [1,10,100,500,1000])"
         required: false
@@ -23,7 +23,9 @@ on:
         description: "Enter the number of repetitions"
         required: true
         default: 1
-
+  pull_request:
+    types: [opened, synchronize]
+    
 jobs:
   setup-environment:
     runs-on: ubuntu-latest
