@@ -2,12 +2,12 @@
     "nethermind": {
         "Burnt": {
             "title": "Burnt Pix",
-            "max": "0",
-            "p50": "0",
-            "p95": "0",
-            "p99": "0",
-            "min": "0",
-            "n": "0",
+            "max": "453.89",
+            "p50": "389.50",
+            "p95": "359.54",
+            "p99": "435.02",
+            "min": "184.33",
+            "n": "6",
             "description": "Burnt Pix By Geth Developer"
         }
     },
