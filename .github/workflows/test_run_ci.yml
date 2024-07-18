@@ -120,7 +120,6 @@ jobs:
           
       - name: Run gas benchmarks
         run: |
-          set -x
           CLIENT=${{ matrix.client }}
           REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
