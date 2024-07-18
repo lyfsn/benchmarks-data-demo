@@ -152,15 +152,6 @@ jobs:
         client: ${{ fromJson(needs.generate-matrix.outputs.matrix).client }}
       fail-fast: false
     steps:
-      - name: Check only
-        run: |
-          if [ "${{ github.event.inputs.only }}" != "" ]; then
-            if [ "${{ github.event.inputs.only }}" != "gas" ]; then
-              echo "::set-output name=skip::true"
-              exit 0
-            fi
-          fi
-
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -201,15 +192,6 @@ jobs:
       matrix: ${{ fromJson(needs.run-gas-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
-      - name: Check only
-        run: |
-          if [ "${{ github.event.inputs.only }}" != "" ]; then
-            if [ "${{ github.event.inputs.only }}" != "speed" ]; then
-              echo "::set-output name=skip::true"
-              exit 0
-            fi
-          fi
-
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -251,15 +233,6 @@ jobs:
       matrix: ${{ fromJson(needs.run-genesis-init-speed-benchmarks.outputs.matrix) }}
       fail-fast: false
     steps:
-      - name: Check only
-        run: |
-          if [ "${{ github.event.inputs.only }}" != "" ]; then
-            if [ "${{ github.event.inputs.only }}" != "memory" ]; then
-              echo "::set-output name=skip::true"
-              exit 0
-            fi
-          fi
-
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -302,15 +275,6 @@ jobs:
         client: ${{ fromJson(needs.run-genesis-init-memory-benchmarks.outputs.matrix).client }}
       fail-fast: false
     steps:
-      - name: Check only
-        run: |
-          if [ "${{ github.event.inputs.only }}" != "" ]; then
-            if [ "${{ github.event.inputs.only }}" != "burnt" ]; then
-              echo "::set-output name=skip::true"
-              exit 0
-            fi
-          fi
-
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
