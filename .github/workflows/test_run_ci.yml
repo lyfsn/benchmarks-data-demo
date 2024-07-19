@@ -33,7 +33,7 @@ jobs:
       ROOT_DIR: ${{ github.event.inputs.root_dir || '/home/runner/work/' }}
       DATE: ${{ github.event.inputs.date || '' }}
       CLIENTS: ${{ github.event.inputs.clients || '["nethermind","geth","reth","erigon","besu"]' }}
-      SIZES: ${{ github.event.inputs.sizes || '[1,2]' }}
+      SIZES: ${{ github.event.inputs.sizes || '[5,10]' }}
       REPETITIONS: ${{ github.event.inputs.repetitions || 1 }}
     outputs:
       date: ${{ steps.set-date.outputs.date }}
