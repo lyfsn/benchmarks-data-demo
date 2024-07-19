@@ -16,7 +16,7 @@ on:
         required: true
         default: '[nethermind,geth,reth,erigon,besu]'
       sizes:
-        description: "Enter sizes (e.g., [1,10,100,500,1000])"
+        description: "Enter sizes (e.g., [500,1000])"
         required: false
         default: "[1,10]"
       repetitions:
