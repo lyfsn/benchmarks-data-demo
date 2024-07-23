@@ -275,7 +275,8 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run burntpix benchmarks
         run: |
-          CLIENT=${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
+          # Use const due to can't handle ${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
+          CLIENT="nethermind,geth,reth,erigon,besu"
           REPETITIONS=${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
           ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}
@@ -286,11 +287,6 @@ jobs:
             cd "$ROOT_DIR/burntpix-benchmarks"
             git pull
             cp ../benchmarks-data-result/images.yaml .
-
-            echo "The CLIENT value: $CLIENT"
-            CLIENT_STR=$(./changeParam.sh "$CLIENT")
-            echo "The CLIENT_STR value: $CLIENT_STR"
-
             echo "Running benchmarks with the following parameters:"
             echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT_STR' -r '$REPETITIONS' -o 'results-$DATE'"
             ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT_STR" -r "$REPETITIONS" -o "results-$DATE"
