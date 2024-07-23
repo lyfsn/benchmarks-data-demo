@@ -288,25 +288,12 @@ jobs:
             cp ../benchmarks-data-result/images.yaml .
 
             echo "The CLIENT value: $CLIENT" 
-            CLIENT=$(echo $CLIENT | tr -d '[]\r\n')
-            echo "Updated CLIENT value: $CLIENT" 
-
-            echo "The CLIENT value: $CLIENT"
-            CLIENT="${CLIENT#[}"
-            CLIENT="${CLIENT%]}"
-            echo "Updated CLIENT value: $CLIENT"
-
-            echo "The CLIENT value: $CLIENT"
-            CLIENT=$(echo "$CLIENT" | tr -d '[]')
-            echo "Updated CLIENT value: $CLIENT"
-
-            echo "The CLIENT value: $CLIENT"
-            CLIENT=$(echo "$CLIENT" | awk '{gsub(/[\[\]]/, ""); print}')
-            echo "Updated CLIENT value: $CLIENT"
+            CLIENT_STR=$(echo $CLIENT | tr -d '[]\r\n')
+            echo "Updated CLIENT_STR value: $CLIENT_STR" 
 
             echo "Running benchmarks with the following parameters:"
-            echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT' -r '$REPETITIONS' -o 'results-$DATE'"
-            ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
+            echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT_STR' -r '$REPETITIONS' -o 'results-$DATE'"
+            ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT_STR" -r "$REPETITIONS" -o "results-$DATE"
             python3 report_metadata.py "$DATE"
             cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
             cp "results-$DATE/reports/result.json" "../benchmarks-data-result/burntpix/$DATE.json"
