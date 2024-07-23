@@ -269,7 +269,8 @@ jobs:
 
       - name: Run burntpix benchmarks
         run: |
-          CLIENT=${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
+          # Use const due to can't handle ${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
+          CLIENT="nethermind,geth,reth,erigon,besu"
           REPETITIONS=${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
           ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           DATE=${{ needs.run-genesis-init-memory-benchmarks.outputs.date }}

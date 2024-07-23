@@ -287,8 +287,7 @@ jobs:
             cd "$ROOT_DIR/burntpix-benchmarks"
             git pull
             cp ../benchmarks-data-result/images.yaml .
-            echo "Running benchmarks with the following parameters:"
-            echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT_STR' -r '$REPETITIONS' -o 'results-$DATE'"
+            echo "CLIENT_STR=$CLIENT"
             ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT_STR" -r "$REPETITIONS" -o "results-$DATE"
             python3 report_metadata.py "$DATE"
             cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
