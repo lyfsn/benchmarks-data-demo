@@ -154,6 +154,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
@@ -194,6 +195,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init speed benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ needs.run-gas-benchmarks.outputs.repetitions }}
@@ -235,6 +237,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init memory benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ needs.run-genesis-init-speed-benchmarks.outputs.repetitions }}
