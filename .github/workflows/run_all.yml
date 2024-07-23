@@ -288,9 +288,7 @@ jobs:
             git pull
             cp ../benchmarks-data-result/images.yaml .
             echo "CLIENT=$CLIENT"
-            echo 1
             ./run.sh -t "testburnt/" -w "./testburntwarm/warm.txt" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
-            echo 2
             python3 report_metadata.py "$DATE"
             cp "results-$DATE/reports/index.html" "../benchmarks-data-result/burntpix/$DATE.html"
             cp "results-$DATE/reports/result.json" "../benchmarks-data-result/burntpix/$DATE.json"
