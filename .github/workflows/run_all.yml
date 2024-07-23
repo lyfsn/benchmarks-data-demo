@@ -287,9 +287,19 @@ jobs:
             git pull
             cp ../benchmarks-data-result/images.yaml .
 
-            echo "The CLIENT value: $CLIENT" 
-            CLIENT_STR=$(echo $CLIENT | tr -d '[]\r\n')
-            echo "Updated CLIENT_STR value: $CLIENT_STR" 
+            echo "The CLIENT value: $CLIENT"
+            for (( i=0; i<${#CLIENT}; i++ )); do
+              printf "%d " "'${CLIENT:$i:1}"
+            done
+            echo
+
+            CLIENT_STR=$(echo "$CLIENT" | tr -d '[]\r\n')
+            echo "Updated CLIENT_STR value: $CLIENT_STR"
+
+            for (( i=0; i<${#CLIENT_STR}; i++ )); do
+              printf "%d " "'${CLIENT_STR:$i:1}"
+            done
+            echo
 
             echo "Running benchmarks with the following parameters:"
             echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT_STR' -r '$REPETITIONS' -o 'results-$DATE'"
