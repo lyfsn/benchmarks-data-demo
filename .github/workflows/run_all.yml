@@ -288,9 +288,7 @@ jobs:
             cp ../benchmarks-data-result/images.yaml .
 
             echo "The CLIENT value: $CLIENT"
-            CLIENT_STR=$(echo $CLIENT)
-            echo "The CLIENT_STR value: $CLIENT_STR"
-            CLIENT_STR=$(echo $CLIENT_STR | cut -c 2- | rev | cut -c 2- | rev)
+            CLIENT_STR=./changeParam.sh $CLIENT
             echo "The CLIENT_STR value: $CLIENT_STR"
 
             echo "Running benchmarks with the following parameters:"
