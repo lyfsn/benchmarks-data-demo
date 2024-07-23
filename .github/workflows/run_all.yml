@@ -287,7 +287,7 @@ jobs:
             git pull
             cp ../benchmarks-data-result/images.yaml .
             echo "The CLIENT value: $CLIENT" 
-            CLIENT=$(echo $CLIENT | sed 's/[][]//g')
+            CLIENT=$(echo $CLIENT | tr -d '[]\r\n')
             echo "Updated CLIENT value: $CLIENT" 
             echo "Running benchmarks with the following parameters:"
             echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT' -r '$REPETITIONS' -o 'results-$DATE'"
