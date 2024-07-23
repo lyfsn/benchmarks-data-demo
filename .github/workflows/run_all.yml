@@ -288,11 +288,10 @@ jobs:
             cp ../benchmarks-data-result/images.yaml .
 
             echo "The CLIENT value: $CLIENT"
-            CLIENTS=$(echo "$CLIENT" | jq -r '.[]')
-          
-            for client in $CLIENTS; do
-              echo "Client: $client"
-            done
+            CLIENT_STR=$(echo $CLIENT)
+            echo "The CLIENT_STR value: $CLIENT_STR"
+            CLIENT_STR=$(echo $CLIENT_STR | cut -c 2- | rev | cut -c 2- | rev)
+            echo "The CLIENT_STR value: $CLIENT_STR"
 
             echo "Running benchmarks with the following parameters:"
             echo "./run.sh -t 'testburnt/' -w './testburntwarm/warm.txt' -c '$CLIENT_STR' -r '$REPETITIONS' -o 'results-$DATE'"
