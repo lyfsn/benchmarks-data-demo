@@ -154,7 +154,6 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run benchmarks
         run: |
-          exit 0
           CLIENT=${{ matrix.client }}
           REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
