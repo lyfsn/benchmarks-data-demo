@@ -93,7 +93,7 @@ jobs:
           echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
 
   run-gas-benchmarks:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: generate-matrix
     outputs:
       matrix: ${{ needs.generate-matrix.outputs.matrix }}
@@ -108,6 +108,15 @@ jobs:
         client: ${{ fromJson(needs.generate-matrix.outputs.matrix).Client }}
       fail-fast: false
     steps:
+      - name: Increase swapfile
+        run: |
+          sudo swapoff -a
+          sudo fallocate -l 15G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          sudo swapon --show
+          
       - name: Clone gas benchmarks repo
         run: |
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
