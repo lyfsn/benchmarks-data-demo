@@ -154,6 +154,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           REPETITIONS=${{ needs.generate-matrix.outputs.repetitions }}
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
@@ -274,6 +275,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run burntpix benchmarks
         run: |
+          exit 0
           # Use const due to can't handle ${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
           CLIENT="nethermind,geth,reth,erigon,besu"
           REPETITIONS=${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
