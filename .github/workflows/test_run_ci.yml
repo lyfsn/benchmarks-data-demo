@@ -94,7 +94,6 @@ jobs:
 
   run-gas-benchmarks:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
     needs: generate-matrix
     outputs:
       matrix: ${{ needs.generate-matrix.outputs.matrix }}
@@ -104,7 +103,7 @@ jobs:
       sizes: ${{ needs.generate-matrix.outputs.sizes }}
       repetitions: ${{ needs.generate-matrix.outputs.repetitions }}
     strategy:
-      max-parallel: 8
+      max-parallel: 5
       matrix:
         client: ${{ fromJson(needs.generate-matrix.outputs.matrix).Client }}
       fail-fast: false
@@ -126,15 +125,9 @@ jobs:
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
           DATE=${{ needs.generate-matrix.outputs.date }}
 
-          while true; do echo "Debug log: $(date)"; sleep 60; done &
-          DEBUG_PID=$!
-          trap 'kill $DEBUG_PID' EXIT
-
           cd "$ROOT_DIR/gas-benchmarks"
           ./run.sh -t "tests/" -w "" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
-
-          kill $DEBUG_PID
           
       - name: Zip the results folder
         run: |
