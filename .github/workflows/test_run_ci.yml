@@ -126,10 +126,16 @@ jobs:
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
           DATE=${{ needs.generate-matrix.outputs.date }}
 
+          while true; do echo "Debug log: $(date)"; sleep 60; done &
+          DEBUG_PID=$!
+          trap 'kill $DEBUG_PID' EXIT
+
           cd "$ROOT_DIR/gas-benchmarks"
           ./run.sh -t "tests/" -w "" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
 
+          kill $DEBUG_PID
+          
       - name: Zip the results folder
         run: |
           ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
