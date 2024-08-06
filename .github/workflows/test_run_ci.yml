@@ -147,6 +147,15 @@ jobs:
           cd "$ROOT_DIR/gas-benchmarks"
           ./run.sh -t "tests/" -w "" -c "$CLIENT" -r "$REPETITIONS" -o "results-$DATE"
           python3 report_metadata.py "$DATE"
+
+          sudo apt-get install -y jq
+          max_value=$(jq -r '.["'"${{ matrix.client }}"'"].GasLimit.max' "results-$DATE/reports/result.json")
+          if [ "$max_value" = "0" ] || [ -z "$max_value" ]; then
+            echo "Client '${{ matrix.client }}' has no valid data (max=0 or missing)."
+            exit 1
+          else
+            echo "Client '${{ matrix.client }}' has valid data (max=$max_value)."
+          fi
           
       - name: Zip the results folder
         run: |
