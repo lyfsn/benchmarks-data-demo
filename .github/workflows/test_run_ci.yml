@@ -129,13 +129,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: lyfsn/benchmarks-data-demo
-          path: ${{ needs.generate-matrix.outputs.root_dir }}/benchmarks-data-result 
+          path: benchmarks-data-result
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Copy images.yaml
         run: |
-          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
-          cp "${ROOT_DIR}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/gas-benchmarks/"
+          cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/gas-benchmarks/"
 
       - name: Run gas benchmarks
         run: |
@@ -190,13 +189,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: lyfsn/benchmarks-data-demo
-          path: ${{ needs.run-gas-benchmarks.outputs.root_dir }}/benchmarks-data-result 
+          path: benchmarks-data-result
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Copy images.yaml
         run: |
-          ROOT_DIR=${{ needs.run-gas-benchmarks.outputs.root_dir }}
-          cp "${ROOT_DIR}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
+          cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
 
       - name: Run genesis init speed benchmarks
         run: |
@@ -252,13 +250,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: lyfsn/benchmarks-data-demo
-          path: ${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}/benchmarks-data-result 
+          path: benchmarks-data-result
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Copy images.yaml
         run: |
-          ROOT_DIR=${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
-          cp "${ROOT_DIR}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
+          cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
 
       - name: Run genesis init memory benchmarks
         run: |
@@ -314,13 +311,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: lyfsn/benchmarks-data-demo
-          path: ${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}/benchmarks-data-result 
+          path: benchmarks-data-result
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Copy images.yaml
         run: |
-          ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
-          cp "${ROOT_DIR}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/burntpix-benchmarks/"
+          cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/burntpix-benchmarks/"
 
       - name: Run burntpix benchmarks
         run: |
