@@ -195,6 +195,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init speed benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ needs.run-gas-benchmarks.outputs.repetitions }}
@@ -236,6 +237,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run genesis init memory benchmarks
         run: |
+          exit 0
           CLIENT=${{ matrix.client }}
           SIZE=${{ matrix.size }}
           REPETITIONS=${{ needs.run-genesis-init-speed-benchmarks.outputs.repetitions }}
@@ -275,7 +277,6 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVKEY }}
       - name: Run burntpix benchmarks
         run: |
-          exit 0
           # Use const due to can't handle ${{ needs.run-genesis-init-memory-benchmarks.outputs.clients }}
           CLIENT="nethermind,geth,reth,erigon,besu"
           REPETITIONS=${{ needs.run-genesis-init-memory-benchmarks.outputs.repetitions }}
