@@ -134,6 +134,7 @@ jobs:
 
       - name: Copy images.yaml
         run: |
+          ROOT_DIR=${{ needs.generate-matrix.outputs.root_dir }}
           cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/gas-benchmarks/"
 
       - name: Run gas benchmarks
@@ -194,6 +195,7 @@ jobs:
 
       - name: Copy images.yaml
         run: |
+          ROOT_DIR=${{ needs.run-gas-benchmarks.outputs.root_dir }}
           cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
 
       - name: Run genesis init speed benchmarks
@@ -255,6 +257,7 @@ jobs:
 
       - name: Copy images.yaml
         run: |
+          ROOT_DIR=${{ needs.run-genesis-init-speed-benchmarks.outputs.root_dir }}
           cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/genesis-init-benchmarks/"
 
       - name: Run genesis init memory benchmarks
@@ -316,6 +319,7 @@ jobs:
 
       - name: Copy images.yaml
         run: |
+          ROOT_DIR=${{ needs.run-genesis-init-memory-benchmarks.outputs.root_dir }}
           cp "${GITHUB_WORKSPACE}/benchmarks-data-result/images.yaml" "${ROOT_DIR}/burntpix-benchmarks/"
 
       - name: Run burntpix benchmarks
