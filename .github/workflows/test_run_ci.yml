@@ -362,13 +362,16 @@ jobs:
           python3 report_metadata.py "$DATE"
 
           sudo apt-get install -y jq
-          max_value=$(jq -r '.["'"${{ matrix.client }}"'"].GasLimit.max' "results-$DATE/reports/result.json")
-          if [ "$max_value" = "0" ] || [ -z "$max_value" ]; then
-            echo "Client '${{ matrix.client }}' has no valid data (max=0 or missing)."
-            exit 1
-          else
-            echo "Client '${{ matrix.client }}' has valid data (max=$max_value)."
-          fi
+          clients=("nethermind" "geth" "reth" "erigon" "besu")
+          for client in "${clients[@]}"; do
+            max_value=$(jq -r ".$client.Burnt.max" "results-$DATE/reports/result.json")
+            if [ "$max_value" = "0" ] || [ -z "$max_value" ]; then
+              echo "Client '$client' has no valid data (max=0 or missing)."
+              exit 1
+            else
+              echo "Client '$client' has valid data (max=$max_value)."
+            fi
+          done
           
       - name: Zip the results folder
         run: |
