@@ -23,8 +23,8 @@ on:
         description: "Enter the number of repetitions"
         required: true
         default: 8
-  schedule:
-    - cron: '0 0 * * 1,3,5'
+  # schedule:
+  #   - cron: '0 0 * * 1,3,5'
 
 jobs:
   setup-environment:
