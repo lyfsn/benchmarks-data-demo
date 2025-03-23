@@ -4,3 +4,4 @@ images:
   reth: "ghcr.io/paradigmxyz/reth:v1.0.3"
   erigon: "thorax/erigon:2.60.5-amd64"
   besu: "hyperledger/besu:24.7.1"
+  
